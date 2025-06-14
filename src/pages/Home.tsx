@@ -44,52 +44,52 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-cream to-light-purple">
       {/* Hero Section */}
-      <div className="relative py-20 px-4 overflow-hidden">
+      <div className="relative py-16 px-4 overflow-hidden">
         {/* Background with Italian flag gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-green-600 via-cream to-red-600 opacity-90"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-dark-purple/20 to-dark-purple/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-green-600 via-cream to-red-600 opacity-95"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-dark-purple/30 to-dark-purple/50"></div>
         
         {/* Decorative elements */}
-        <div className="absolute top-10 left-10 w-20 h-20 bg-medium-purple rounded-full opacity-20 animate-bounce"></div>
-        <div className="absolute bottom-10 right-10 w-32 h-32 bg-light-purple rounded-full opacity-30 animate-pulse"></div>
+        <div className="absolute top-8 left-8 w-16 h-16 bg-medium-purple rounded-full opacity-20 animate-bounce"></div>
+        <div className="absolute bottom-8 right-8 w-24 h-24 bg-light-purple rounded-full opacity-30 animate-pulse"></div>
         
-        <div className="relative max-w-4xl mx-auto text-center">
+        <div className="relative max-w-6xl mx-auto text-center">
           <div className="animate-fade-in">
-            <div className="text-8xl mb-6 animate-bounce">🇮🇹</div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white drop-shadow-2xl">
+            <div className="text-6xl md:text-8xl mb-6 animate-bounce">🇮🇹</div>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white drop-shadow-2xl leading-tight">
               Benvenuto in Italia! 
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-white drop-shadow-lg max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl lg:text-2xl mb-8 text-white drop-shadow-lg max-w-4xl mx-auto leading-relaxed">
               Aprenda italiano de forma divertida e interativa do básico à fluência com nosso curso completo
             </p>
             
             {user ? (
-              <div className="flex flex-col items-center space-y-8">
-                <div className="flex flex-wrap items-center justify-center gap-4 text-lg">
-                  <div className="flex items-center space-x-2 bg-white/90 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg">
-                    <TrendingUp className="w-6 h-6 text-medium-purple" />
+              <div className="flex flex-col items-center space-y-6">
+                <div className="flex flex-wrap items-center justify-center gap-3 text-base md:text-lg">
+                  <div className="flex items-center space-x-2 bg-white/95 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
+                    <TrendingUp className="w-5 h-5 text-medium-purple" />
                     <span className="font-semibold text-dark-purple">Nível {userProgress.level}</span>
                   </div>
-                  <div className="flex items-center space-x-2 bg-white/90 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg">
-                    <Award className="w-6 h-6 text-medium-purple" />
+                  <div className="flex items-center space-x-2 bg-white/95 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
+                    <Award className="w-5 h-5 text-medium-purple" />
                     <span className="font-semibold text-dark-purple">{userProgress.lessonsCompleted} lições</span>
                   </div>
-                  <div className="flex items-center space-x-2 bg-white/90 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg">
-                    <BookOpen className="w-6 h-6 text-medium-purple" />
+                  <div className="flex items-center space-x-2 bg-white/95 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
+                    <BookOpen className="w-5 h-5 text-medium-purple" />
                     <span className="font-semibold text-dark-purple">{userProgress.currentStreak} dias</span>
                   </div>
                 </div>
                 
-                <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 w-full max-w-3xl border-2 border-white/50 shadow-2xl">
-                  <h3 className="text-2xl font-bold mb-6 text-dark-purple">Seu Progresso por Nível</h3>
-                  <div className="grid grid-cols-2 md:grid-cols-6 gap-6">
+                <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 w-full max-w-4xl border-2 border-white/50 shadow-2xl">
+                  <h3 className="text-xl md:text-2xl font-bold mb-6 text-dark-purple">Seu Progresso por Nível</h3>
+                  <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
                     {Object.entries(levelStats).map(([level, completed]) => {
                       const total = lessons.filter(l => l.level === level).length;
                       const percentage = total > 0 ? (completed / total) * 100 : 0;
                       
                       return (
                         <div key={level} className="text-center">
-                          <div className="text-3xl font-bold text-medium-purple">{completed}</div>
+                          <div className="text-2xl md:text-3xl font-bold text-medium-purple">{completed}</div>
                           <div className="text-sm text-dark-purple font-medium">{level}</div>
                           <div className="w-full bg-light-purple bg-opacity-30 rounded-full h-2 mt-2">
                             <div 
@@ -107,9 +107,9 @@ const Home = () => {
             ) : (
               <button
                 onClick={() => setShowLogin(true)}
-                className="bg-white text-dark-purple px-10 py-4 rounded-full font-bold text-xl hover:bg-light-purple hover:text-white transition-all duration-300 transform hover:scale-110 shadow-2xl"
+                className="bg-white text-dark-purple px-8 py-3 rounded-full font-bold text-lg md:text-xl hover:bg-light-purple hover:text-white transition-all duration-300 transform hover:scale-105 shadow-2xl"
               >
-                <Play className="w-8 h-8 inline mr-3" />
+                <Play className="w-6 h-6 inline mr-2" />
                 Iniziamo! (Vamos começar!)
               </button>
             )}
@@ -118,11 +118,11 @@ const Home = () => {
       </div>
 
       {/* Lessons Section */}
-      <div className="max-w-7xl mx-auto px-4 py-12">
+      <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Filter Section */}
         <div className="mb-8">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-4xl font-bold text-dark-purple">Le Tue Lezioni</h2>
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-6 gap-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-dark-purple">Le Tue Lezioni</h2>
             <div className="flex items-center space-x-2">
               <Filter className="w-5 h-5 text-medium-purple" />
               <select
@@ -139,7 +139,7 @@ const Home = () => {
           </div>
 
           {/* Level Progress Indicators */}
-          <div className="grid grid-cols-2 md:grid-cols-6 gap-4 mb-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
             {Object.entries(levelStats).map(([level, completed]) => {
               const total = lessons.filter(l => l.level === level).length;
               const percentage = total > 0 ? (completed / total) * 100 : 0;
@@ -147,12 +147,12 @@ const Home = () => {
               return (
                 <div key={level} className="bg-white rounded-xl p-4 shadow-md border-2 border-light-purple hover:shadow-lg transition-all duration-300 hover:scale-105">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="font-bold text-dark-purple">{level}</span>
-                    <span className="text-sm text-medium-purple font-semibold">{completed}/{total}</span>
+                    <span className="font-bold text-dark-purple text-sm md:text-base">{level}</span>
+                    <span className="text-xs md:text-sm text-medium-purple font-semibold">{completed}/{total}</span>
                   </div>
-                  <div className="w-full bg-light-purple bg-opacity-30 rounded-full h-3">
+                  <div className="w-full bg-light-purple bg-opacity-30 rounded-full h-2.5">
                     <div 
-                      className="bg-gradient-to-r from-medium-purple to-dark-purple h-3 rounded-full transition-all duration-500"
+                      className="bg-gradient-to-r from-medium-purple to-dark-purple h-2.5 rounded-full transition-all duration-500"
                       style={{ width: `${percentage}%` }}
                     />
                   </div>
@@ -164,7 +164,7 @@ const Home = () => {
         </div>
 
         {/* Lesson Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {filteredLessons.map((lesson, index) => (
             <LessonCard
               key={lesson.id}
@@ -176,7 +176,7 @@ const Home = () => {
         </div>
 
         {filteredLessons.length === 0 && (
-          <div className="text-center py-12">
+          <div className="text-center py-16">
             <div className="text-6xl mb-4 animate-pulse">📚</div>
             <h3 className="text-xl font-semibold text-medium-purple mb-2">
               Nessuna lezione trovata
