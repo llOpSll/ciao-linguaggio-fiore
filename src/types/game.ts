@@ -3,7 +3,7 @@ export interface Lesson {
   id: number;
   title: string;
   description: string;
-  level: 'A1' | 'A2' | 'B1' | 'B2' | 'C1';
+  level: 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2';
   category: string;
   exercises: Exercise[];
   isCompleted: boolean;
