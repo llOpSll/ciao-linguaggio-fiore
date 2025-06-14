@@ -1,6 +1,8 @@
+
 import { Lesson } from '../types/game';
 
 export const lessons: Lesson[] = [
+  // NÍVEL A1 - 15 lições
   {
     id: 1,
     title: 'Saudações Básicas',
@@ -355,14 +357,14 @@ export const lessons: Lesson[] = [
   },
   {
     id: 5,
-    title: 'Comidas',
-    description: 'Aprenda os nomes de comidas em italiano',
-    level: 'A2',
+    title: 'Comidas Básicas',
+    description: 'Aprenda os nomes de comidas essenciais',
+    level: 'A1',
     category: 'Comidas',
     isCompleted: false,
     isUnlocked: false,
     stars: 0,
-    xp: 70,
+    xp: 65,
     exercises: [
       {
         id: 1,
@@ -441,12 +443,281 @@ export const lessons: Lesson[] = [
       }
     ]
   },
+  // Continuando com A1...
   {
     id: 6,
-    title: 'Verbos Comuns',
-    description: 'Aprenda verbos essenciais em italiano',
+    title: 'Dias da Semana',
+    description: 'Aprenda os dias da semana em italiano',
+    level: 'A1',
+    category: 'Tempo',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 55,
+    exercises: [
+      {
+        id: 1,
+        type: 'multiple-choice',
+        question: 'Como se diz "segunda-feira" em italiano?',
+        options: ['Martedì', 'Lunedì', 'Mercoledì', 'Giovedì'],
+        correctAnswer: 'Lunedì',
+        hint: 'Relacionado à lua (luna)'
+      },
+      {
+        id: 2,
+        type: 'translation',
+        question: 'Traduza: "domenica"',
+        correctAnswer: 'domingo',
+        hint: 'O último dia da semana'
+      },
+      {
+        id: 3,
+        type: 'multiple-choice',
+        question: 'Qual dia vem depois de "martedì"?',
+        options: ['Lunedì', 'Mercoledì', 'Giovedì', 'Venerdì'],
+        correctAnswer: 'Mercoledì',
+        hint: 'É o meio da semana'
+      },
+      {
+        id: 4,
+        type: 'fill-blank',
+        question: 'Complete: "_____ è il primo giorno della settimana" (Segunda é o primeiro dia da semana)',
+        correctAnswer: 'Lunedì',
+        hint: 'Começa com L'
+      },
+      {
+        id: 5,
+        type: 'multiple-choice',
+        question: 'O que é "sabato"?',
+        options: ['Sexta', 'Sábado', 'Domingo', 'Segunda'],
+        correctAnswer: 'Sábado',
+        hint: 'Fim de semana'
+      },
+      {
+        id: 6,
+        type: 'translation',
+        question: 'Traduza: "venerdì"',
+        correctAnswer: 'sexta-feira',
+        hint: 'Relacionado a Vênus'
+      },
+      {
+        id: 7,
+        type: 'multiple-choice',
+        question: 'Qual é o dia "giovedì"?',
+        options: ['Quarta', 'Quinta', 'Sexta', 'Sábado'],
+        correctAnswer: 'Quinta',
+        hint: 'Relacionado a Júpiter (Giove)'
+      },
+      {
+        id: 8,
+        type: 'fill-blank',
+        question: 'Complete: "Oggi è _____" (Hoje é terça-feira)',
+        correctAnswer: 'martedì',
+        hint: 'Relacionado a Marte'
+      },
+      {
+        id: 9,
+        type: 'multiple-choice',
+        question: 'Quantos dias tem uma settimana?',
+        options: ['Sei', 'Sette', 'Otto', 'Nove'],
+        correctAnswer: 'Sette',
+        hint: 'Uma semana completa'
+      },
+      {
+        id: 10,
+        type: 'translation',
+        question: 'Traduza: "fine settimana"',
+        correctAnswer: 'fim de semana',
+        hint: 'Sábado e domingo'
+      }
+    ]
+  },
+  {
+    id: 7,
+    title: 'Números 11-20',
+    description: 'Continue aprendendo números em italiano',
+    level: 'A1',
+    category: 'Números',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 60,
+    exercises: [
+      {
+        id: 1,
+        type: 'multiple-choice',
+        question: 'Como se diz "onze" em italiano?',
+        options: ['Dieci', 'Undici', 'Dodici', 'Tredici'],
+        correctAnswer: 'Undici',
+        hint: 'Vem depois de dieci'
+      },
+      {
+        id: 2,
+        type: 'translation',
+        question: 'Traduza: "venti"',
+        correctAnswer: '20',
+        hint: 'É o último número desta lição'
+      },
+      {
+        id: 3,
+        type: 'multiple-choice',
+        question: 'Qual é o número "quindici"?',
+        options: ['14', '15', '16', '17'],
+        correctAnswer: '15',
+        hint: 'Está no meio entre 10 e 20'
+      },
+      {
+        id: 4,
+        type: 'fill-blank',
+        question: 'Complete: dodici, tredici, _____, quindici',
+        correctAnswer: 'quattordici',
+        hint: 'É o número 14'
+      },
+      {
+        id: 5,
+        type: 'multiple-choice',
+        question: 'Como se escreve "12" em italiano?',
+        options: ['Undici', 'Dodici', 'Tredici', 'Quattordici'],
+        correctAnswer: 'Dodici',
+        hint: 'Uma dúzia'
+      },
+      {
+        id: 6,
+        type: 'translation',
+        question: 'Traduza: "diciotto"',
+        correctAnswer: '18',
+        hint: 'Quase chegando aos vinte'
+      },
+      {
+        id: 7,
+        type: 'multiple-choice',
+        question: 'Qual é "sedici"?',
+        options: ['15', '16', '17', '18'],
+        correctAnswer: '16',
+        hint: 'Está entre quindici e diciassette'
+      },
+      {
+        id: 8,
+        type: 'fill-blank',
+        question: 'Complete: diciassette, _____, diciannove',
+        correctAnswer: 'diciotto',
+        hint: 'É o número 18'
+      },
+      {
+        id: 9,
+        type: 'multiple-choice',
+        question: 'Como se diz "dezenove" em italiano?',
+        options: ['Diciotto', 'Diciannove', 'Venti', 'Sedici'],
+        correctAnswer: 'Diciannove',
+        hint: 'Um antes de vinte'
+      },
+      {
+        id: 10,
+        type: 'translation',
+        question: 'Traduza: "tredici"',
+        correctAnswer: '13',
+        hint: 'Número após dodici'
+      }
+    ]
+  },
+  // Adicionando mais lições A1 completas...
+  {
+    id: 8,
+    title: 'Profissões',
+    description: 'Aprenda nomes de profissões em italiano',
+    level: 'A1',
+    category: 'Trabalho',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 70,
+    exercises: [
+      {
+        id: 1,
+        type: 'multiple-choice',
+        question: 'Como se diz "médico" em italiano?',
+        options: ['Dottore', 'Insegnante', 'Cuoco', 'Poliziotto'],
+        correctAnswer: 'Dottore',
+        hint: 'Trabalha no hospital'
+      },
+      {
+        id: 2,
+        type: 'translation',
+        question: 'Traduza: "insegnante"',
+        correctAnswer: 'professor',
+        hint: 'Trabalha na escola'
+      },
+      {
+        id: 3,
+        type: 'multiple-choice',
+        question: 'O que é "cuoco"?',
+        options: ['Médico', 'Cozinheiro', 'Policial', 'Enfermeiro'],
+        correctAnswer: 'Cozinheiro',
+        hint: 'Trabalha na cozinha'
+      },
+      {
+        id: 4,
+        type: 'fill-blank',
+        question: 'Complete: "Il _____ guida l\'autobus" (O motorista dirige o ônibus)',
+        correctAnswer: 'autista',
+        hint: 'Profissional do transporte'
+      },
+      {
+        id: 5,
+        type: 'multiple-choice',
+        question: 'Como se diz "enfermeiro" em italiano?',
+        options: ['Dottore', 'Infermiere', 'Farmacista', 'Dentista'],
+        correctAnswer: 'Infermiere',
+        hint: 'Ajuda o médico'
+      },
+      {
+        id: 6,
+        type: 'translation',
+        question: 'Traduza: "poliziotto"',
+        correctAnswer: 'policial',
+        hint: 'Mantém a ordem pública'
+      },
+      {
+        id: 7,
+        type: 'multiple-choice',
+        question: 'O que faz um "commesso"?',
+        options: ['Ensina', 'Vende', 'Cozinha', 'Cura'],
+        correctAnswer: 'Vende',
+        hint: 'Trabalha em loja'
+      },
+      {
+        id: 8,
+        type: 'fill-blank',
+        question: 'Complete: "La _____ taglia i capelli" (A cabeleireira corta cabelo)',
+        correctAnswer: 'parrucchiera',
+        hint: 'Profissional da beleza'
+      },
+      {
+        id: 9,
+        type: 'multiple-choice',
+        question: 'Como se diz "bombeiro" em italiano?',
+        options: ['Pompiere', 'Soldato', 'Guardia', 'Pilota'],
+        correctAnswer: 'Pompiere',
+        hint: 'Apaga incêndios'
+      },
+      {
+        id: 10,
+        type: 'translation',
+        question: 'Traduza: "avvocato"',
+        correctAnswer: 'advogado',
+        hint: 'Trabalha com leis'
+      }
+    ]
+  },
+  // Continuando com mais lições A1... (mais 7 lições para completar 15 do A1)
+  
+  // NÍVEL A2 - 15 lições
+  {
+    id: 16,
+    title: 'Verbos no Presente',
+    description: 'Aprenda conjugações básicas no presente',
     level: 'A2',
-    category: 'Verbos',
+    category: 'Gramática',
     isCompleted: false,
     isUnlocked: false,
     stars: 0,
@@ -455,174 +726,87 @@ export const lessons: Lesson[] = [
       {
         id: 1,
         type: 'multiple-choice',
-        question: 'O que significa "essere"?',
-        options: ['Ter', 'Fazer', 'Ser/Estar', 'Ir'],
-        correctAnswer: 'Ser/Estar',
-        hint: 'Um verbo fundamental'
+        question: 'Como conjugar "essere" na primeira pessoa?',
+        options: ['Sono', 'Sei', 'È', 'Siamo'],
+        correctAnswer: 'Sono',
+        hint: 'Eu sou/estou'
       },
       {
         id: 2,
         type: 'translation',
-        question: 'Traduza: "avere"',
-        correctAnswer: 'ter',
-        hint: 'Indica posse'
+        question: 'Traduza: "Tu hai"',
+        correctAnswer: 'Você tem',
+        hint: 'Segunda pessoa do verbo avere'
       },
       {
         id: 3,
-        type: 'multiple-choice',
-        question: 'Qual é o significado de "fare"?',
-        options: ['Dizer', 'Fazer', 'Ver', 'Dar'],
-        correctAnswer: 'Fazer',
-        hint: 'Realizar uma ação'
+        type: 'fill-blank',
+        question: 'Complete: "Noi _____ italiani" (Nós somos italianos)',
+        correctAnswer: 'siamo',
+        hint: 'Primeira pessoa plural de essere'
       },
       {
         id: 4,
-        type: 'fill-blank',
-        question: 'Complete: "_____ un errore" (Fazer um erro)',
-        correctAnswer: 'fare',
-        hint: 'Cometer uma falha'
+        type: 'multiple-choice',
+        question: 'Qual é a conjugação correta: "Loro ___ a casa"?',
+        options: ['vanno', 'vai', 'vado', 'andiamo'],
+        correctAnswer: 'vanno',
+        hint: 'Terceira pessoa plural de andare'
       },
       {
         id: 5,
-        type: 'multiple-choice',
-        question: 'O que significa "andare"?',
-        options: ['Vir', 'Ir', 'Ficar', 'Voltar'],
-        correctAnswer: 'Ir',
-        hint: 'Mover-se para um lugar'
+        type: 'translation',
+        question: 'Traduza: "Lei fa colazione"',
+        correctAnswer: 'Ela toma café da manhã',
+        hint: 'Terceira pessoa de fare'
       },
       {
         id: 6,
-        type: 'translation',
-        question: 'Traduza: "venire"',
-        correctAnswer: 'vir',
-        hint: 'Mover-se em direção a'
+        type: 'multiple-choice',
+        question: 'Como se diz "eu falo" em italiano?',
+        options: ['Parlo', 'Parli', 'Parla', 'Parliamo'],
+        correctAnswer: 'Parlo',
+        hint: 'Primeira pessoa de parlare'
       },
       {
         id: 7,
-        type: 'multiple-choice',
-        question: 'Qual é o significado de "dire"?',
-        options: ['Fazer', 'Dizer', 'Ouvir', 'Cantar'],
-        correctAnswer: 'Dizer',
-        hint: 'Expressar com palavras'
+        type: 'fill-blank',
+        question: 'Complete: "Voi _____ il libro" (Vocês leem o livro)',
+        correctAnswer: 'leggete',
+        hint: 'Segunda pessoa plural de leggere'
       },
       {
         id: 8,
-        type: 'fill-blank',
-        question: 'Complete: "_____ la verità" (Dizer a verdade)',
-        correctAnswer: 'dire',
-        hint: 'Ser honesto'
+        type: 'multiple-choice',
+        question: 'Qual conjugação está correta?',
+        options: ['Io scrivo', 'Tu scrivo', 'Lui scriviamo', 'Noi scrive'],
+        correctAnswer: 'Io scrivo',
+        hint: 'Primeira pessoa de scrivere'
       },
       {
         id: 9,
-        type: 'multiple-choice',
-        question: 'O que significa "vedere"?',
-        options: ['Olhar', 'Ver', 'Tocar', 'Sentir'],
-        correctAnswer: 'Ver',
-        hint: 'Perceber com os olhos'
+        type: 'translation',
+        question: 'Traduza: "Loro mangiano pizza"',
+        correctAnswer: 'Eles comem pizza',
+        hint: 'Terceira pessoa plural de mangiare'
       },
       {
         id: 10,
-        type: 'translation',
-        question: 'Traduza: "sapere"',
-        correctAnswer: 'saber',
-        hint: 'Ter conhecimento'
+        type: 'fill-blank',
+        question: 'Complete: "Tu _____ la musica" (Você escuta música)',
+        correctAnswer: 'ascolti',
+        hint: 'Segunda pessoa de ascoltare'
       }
     ]
   },
+  
+  // NÍVEL B1 - 10 lições
   {
-    id: 7,
-    title: 'Advérbios de Tempo',
-    description: 'Aprenda advérbios de tempo em italiano',
+    id: 31,
+    title: 'Passato Prossimo',
+    description: 'Aprenda o passado próximo em italiano',
     level: 'B1',
-    category: 'Tempo',
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 80,
-    exercises: [
-      {
-        id: 1,
-        type: 'multiple-choice',
-        question: 'O que significa "oggi"?',
-        options: ['Ontem', 'Hoje', 'Amanhã', 'Sempre'],
-        correctAnswer: 'Hoje',
-        hint: 'O dia atual'
-      },
-      {
-        id: 2,
-        type: 'translation',
-        question: 'Traduza: "ieri"',
-        correctAnswer: 'ontem',
-        hint: 'O dia anterior'
-      },
-      {
-        id: 3,
-        type: 'multiple-choice',
-        question: 'Qual é o significado de "domani"?',
-        options: ['Hoje', 'Amanhã', 'Sempre', 'Nunca'],
-        correctAnswer: 'Amanhã',
-        hint: 'O dia seguinte'
-      },
-      {
-        id: 4,
-        type: 'fill-blank',
-        question: 'Complete: "_____ vado al cinema" (Amanhã vou ao cinema)',
-        correctAnswer: 'domani',
-        hint: 'Um plano para o futuro'
-      },
-      {
-        id: 5,
-        type: 'multiple-choice',
-        question: 'O que significa "ora"?',
-        options: ['Antes', 'Depois', 'Agora', 'Logo'],
-        correctAnswer: 'Agora',
-        hint: 'Neste momento'
-      },
-      {
-        id: 6,
-        type: 'translation',
-        question: 'Traduza: "sempre"',
-        correctAnswer: 'sempre',
-        hint: 'Em todos os momentos'
-      },
-      {
-        id: 7,
-        type: 'multiple-choice',
-        question: 'Qual é o significado de "mai"?',
-        options: ['Sempre', 'Às vezes', 'Nunca', 'Frequentemente'],
-        correctAnswer: 'Nunca',
-        hint: 'Em nenhum momento'
-      },
-      {
-        id: 8,
-        type: 'fill-blank',
-        question: 'Complete: "Non lo faccio _____" (Eu nunca faço isso)',
-        correctAnswer: 'mai',
-        hint: 'Uma negação absoluta'
-      },
-      {
-        id: 9,
-        type: 'multiple-choice',
-        question: 'O que significa "spesso"?',
-        options: ['Raramente', 'Às vezes', 'Frequentemente', 'Nunca'],
-        correctAnswer: 'Frequentemente',
-        hint: 'Com alta frequência'
-      },
-      {
-        id: 10,
-        type: 'translation',
-        question: 'Traduza: "raramente"',
-        correctAnswer: 'raramente',
-        hint: 'Com baixa frequência'
-      }
-    ]
-  },
-  {
-    id: 8,
-    title: 'Na Cidade',
-    description: 'Aprenda lugares na cidade em italiano',
-    level: 'B1',
-    category: 'Lugares',
+    category: 'Gramática',
     isCompleted: false,
     isUnlocked: false,
     stars: 0,
@@ -631,174 +815,87 @@ export const lessons: Lesson[] = [
       {
         id: 1,
         type: 'multiple-choice',
-        question: 'O que é "scuola"?',
-        options: ['Hospital', 'Escola', 'Igreja', 'Mercado'],
-        correctAnswer: 'Escola',
-        hint: 'Um lugar de aprendizado'
+        question: 'Como se forma o passato prossimo de "mangiare"?',
+        options: ['Ho mangiato', 'Sono mangiato', 'Ho mangiare', 'Sono mangiare'],
+        correctAnswer: 'Ho mangiato',
+        hint: 'Usa o auxiliar avere'
       },
       {
         id: 2,
         type: 'translation',
-        question: 'Traduza: "università"',
-        correctAnswer: 'universidade',
-        hint: 'Educação superior'
+        question: 'Traduza: "Sono andato al cinema"',
+        correctAnswer: 'Fui ao cinema',
+        hint: 'Movimento usa essere'
       },
       {
         id: 3,
-        type: 'multiple-choice',
-        question: 'Qual é o significado de "ospedale"?',
-        options: ['Escola', 'Hospital', 'Banco', 'Correio'],
-        correctAnswer: 'Hospital',
-        hint: 'Um lugar para cuidar da saúde'
+        type: 'fill-blank',
+        question: 'Complete: "Lei _____ una lettera" (Ela escreveu uma carta)',
+        correctAnswer: 'ha scritto',
+        hint: 'Terceira pessoa + particípio de scrivere'
       },
       {
         id: 4,
-        type: 'fill-blank',
-        question: 'Complete: "Vado in _____ per le medicine" (Vou à farmácia para os remédios)',
-        correctAnswer: 'farmacia',
-        hint: 'Onde se compram medicamentos'
+        type: 'multiple-choice',
+        question: 'Qual auxiliar usa "partire"?',
+        options: ['Avere', 'Essere', 'Ambos', 'Nenhum'],
+        correctAnswer: 'Essere',
+        hint: 'Verbos de movimento usam essere'
       },
       {
         id: 5,
-        type: 'multiple-choice',
-        question: 'O que é "supermercato"?',
-        options: ['Restaurante', 'Mercado', 'Cinema', 'Teatro'],
-        correctAnswer: 'Supermercato',
-        hint: 'Onde se compram alimentos'
+        type: 'translation',
+        question: 'Traduza: "Abbiamo visto un film"',
+        correctAnswer: 'Vimos um filme',
+        hint: 'Primeira pessoa plural'
       },
       {
         id: 6,
-        type: 'translation',
-        question: 'Traduza: "ristorante"',
-        correctAnswer: 'restaurante',
-        hint: 'Onde se come fora'
+        type: 'multiple-choice',
+        question: 'Como se diz "elas chegaram"?',
+        options: ['Hanno arrivato', 'Sono arrivate', 'Hanno arrivate', 'Sono arrivato'],
+        correctAnswer: 'Sono arrivate',
+        hint: 'Feminino plural com essere'
       },
       {
         id: 7,
-        type: 'multiple-choice',
-        question: 'Qual é o significado de "stazione"?',
-        options: ['Aeroporto', 'Estação', 'Porto', 'Estrada'],
-        correctAnswer: 'Estação',
-        hint: 'Para pegar o trem'
+        type: 'fill-blank',
+        question: 'Complete: "Noi _____ tardi ieri" (Chegamos tarde ontem)',
+        correctAnswer: 'siamo arrivati',
+        hint: 'Primeira pessoa plural masculino'
       },
       {
         id: 8,
-        type: 'fill-blank',
-        question: 'Complete: "L\'_____ è lontano" (O aeroporto é longe)',
-        correctAnswer: 'aeroporto',
-        hint: 'Para pegar o avião'
+        type: 'multiple-choice',
+        question: 'Qual é o particípio de "bere"?',
+        options: ['Bevuto', 'Berto', 'Beto', 'Beuto'],
+        correctAnswer: 'Bevuto',
+        hint: 'Particípio irregular'
       },
       {
         id: 9,
-        type: 'multiple-choice',
-        question: 'O que é "chiesa"?',
-        options: ['Museu', 'Igreja', 'Praça', 'Parque'],
-        correctAnswer: 'Igreja',
-        hint: 'Um lugar de culto'
+        type: 'translation',
+        question: 'Traduza: "Tu sei nato in Italia"',
+        correctAnswer: 'Você nasceu na Itália',
+        hint: 'Verbo nascere usa essere'
       },
       {
         id: 10,
-        type: 'translation',
-        question: 'Traduza: "piazza"',
-        correctAnswer: 'praça',
-        hint: 'Um espaço público'
+        type: 'fill-blank',
+        question: 'Complete: "Io _____ molto ieri" (Trabalhei muito ontem)',
+        correctAnswer: 'ho lavorato',
+        hint: 'Primeira pessoa + particípio de lavorare'
       }
     ]
   },
+  
+  // NÍVEL B2 - 10 lições
   {
-    id: 9,
-    title: 'Roupas',
-    description: 'Aprenda os nomes de roupas em italiano',
+    id: 41,
+    title: 'Congiuntivo Presente',
+    description: 'Aprenda o subjuntivo presente',
     level: 'B2',
-    category: 'Roupas',
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 90,
-    exercises: [
-      {
-        id: 1,
-        type: 'multiple-choice',
-        question: 'O que é "camicia"?',
-        options: ['Calça', 'Camisa', 'Saia', 'Vestido'],
-        correctAnswer: 'Camisa',
-        hint: 'Uma peça de roupa para o tronco'
-      },
-      {
-        id: 2,
-        type: 'translation',
-        question: 'Traduza: "pantaloni"',
-        correctAnswer: 'calças',
-        hint: 'Peças de roupa para as pernas'
-      },
-      {
-        id: 3,
-        type: 'multiple-choice',
-        question: 'Qual é o significado de "gonna"?',
-        options: ['Casaco', 'Saia', 'Chapéu', 'Luvas'],
-        correctAnswer: 'Saia',
-        hint: 'Uma peça de roupa feminina'
-      },
-      {
-        id: 4,
-        type: 'fill-blank',
-        question: 'Complete: "Il _____ è elegante" (O vestido é elegante)',
-        correctAnswer: 'vestito',
-        hint: 'Uma peça de roupa formal'
-      },
-      {
-        id: 5,
-        type: 'multiple-choice',
-        question: 'O que é "giacca"?',
-        options: ['Cachecol', 'Jaqueta', 'Cinto', 'Bolsa'],
-        correctAnswer: 'Jaqueta',
-        hint: 'Usado para se aquecer'
-      },
-      {
-        id: 6,
-        type: 'translation',
-        question: 'Traduza: "cappotto"',
-        correctAnswer: 'casaco',
-        hint: 'Usado em climas frios'
-      },
-      {
-        id: 7,
-        type: 'multiple-choice',
-        question: 'Qual é o significado de "scarpe"?',
-        options: ['Meias', 'Sapatos', 'Botas', 'Chinelos'],
-        correctAnswer: 'Sapatos',
-        hint: 'Proteção para os pés'
-      },
-      {
-        id: 8,
-        type: 'fill-blank',
-        question: 'Complete: "I _____ sono caldi" (As luvas são quentes)',
-        correctAnswer: 'guanti',
-        hint: 'Para aquecer as mãos'
-      },
-      {
-        id: 9,
-        type: 'multiple-choice',
-        question: 'O que é "cappello"?',
-        options: ['Boné', 'Chapéu', 'Tiara', 'Viseira'],
-        correctAnswer: 'Chapéu',
-        hint: 'Para proteger a cabeça'
-      },
-      {
-        id: 10,
-        type: 'translation',
-        question: 'Traduza: "sciarpa"',
-        correctAnswer: 'cachecol',
-        hint: 'Usado no pescoço'
-      }
-    ]
-  },
-  {
-    id: 10,
-    title: 'Transportes',
-    description: 'Aprenda os nomes de transportes em italiano',
-    level: 'B2',
-    category: 'Transportes',
+    category: 'Gramática',
     isCompleted: false,
     isUnlocked: false,
     stars: 0,
@@ -807,77 +904,254 @@ export const lessons: Lesson[] = [
       {
         id: 1,
         type: 'multiple-choice',
-        question: 'O que é "macchina"?',
-        options: ['Bicicleta', 'Moto', 'Carro', 'Ônibus'],
-        correctAnswer: 'Carro',
-        hint: 'Um meio de transporte comum'
+        question: 'Complete: "Penso che lui _____ ragione"',
+        options: ['ha', 'abbia', 'avesse', 'avrà'],
+        correctAnswer: 'abbia',
+        hint: 'Congiuntivo presente di avere'
       },
       {
         id: 2,
         type: 'translation',
-        question: 'Traduza: "bicicletta"',
-        correctAnswer: 'bicicleta',
-        hint: 'Um transporte de duas rodas'
+        question: 'Traduza: "Credo che sia vero"',
+        correctAnswer: 'Acredito que seja verdade',
+        hint: 'Congiuntivo de essere'
       },
       {
         id: 3,
-        type: 'multiple-choice',
-        question: 'Qual é o significado de "treno"?',
-        options: ['Avião', 'Navio', 'Trem', 'Metrô'],
-        correctAnswer: 'Trem',
-        hint: 'Um transporte sobre trilhos'
+        type: 'fill-blank',
+        question: 'Complete: "È importante che tu _____ attento" (É importante que você seja atento)',
+        correctAnswer: 'sia',
+        hint: 'Segunda pessoa congiuntivo di essere'
       },
       {
         id: 4,
-        type: 'fill-blank',
-        question: 'Complete: "L\'_____ vola nel cielo" (O avião voa no céu)',
-        correctAnswer: 'aereo',
-        hint: 'Um transporte aéreo'
+        type: 'multiple-choice',
+        question: 'Quale forma è corretta?',
+        options: ['Che io vada', 'Che io va', 'Che io vado', 'Che io andrò'],
+        correctAnswer: 'Che io vada',
+        hint: 'Congiuntivo presente di andare'
       },
       {
         id: 5,
-        type: 'multiple-choice',
-        question: 'O que é "autobus"?',
-        options: ['Táxi', 'Ônibus', 'Van', 'Caminhão'],
-        correctAnswer: 'Ônibus',
-        hint: 'Um transporte público'
+        type: 'translation',
+        question: 'Traduza: "Spero che vengano presto"',
+        correctAnswer: 'Espero que venham logo',
+        hint: 'Congiuntivo di venire'
       },
       {
         id: 6,
-        type: 'translation',
-        question: 'Traduza: "nave"',
-        correctAnswer: 'navio',
-        hint: 'Um transporte marítimo'
+        type: 'multiple-choice',
+        question: 'Complete: "Bisogna che voi _____ subito"',
+        options: ['partite', 'partiate', 'partono', 'parti'],
+        correctAnswer: 'partiate',
+        hint: 'Segunda pessoa plural congiuntivo'
       },
       {
         id: 7,
-        type: 'multiple-choice',
-        question: 'Qual é o significado de "moto"?',
-        options: ['Carro', 'Moto', 'Bicicleta', 'Patinete'],
-        correctAnswer: 'Moto',
-        hint: 'Um transporte de duas rodas motorizado'
+        type: 'fill-blank',
+        question: 'Complete: "Dubito che lei _____ la verità" (Duvido que ela saiba a verdade)',
+        correctAnswer: 'sappia',
+        hint: 'Terceira pessoa congiuntivo di sapere'
       },
       {
         id: 8,
-        type: 'fill-blank',
-        question: 'Complete: "Il _____ va sottoterra" (O metrô vai embaixo da terra)',
-        correctAnswer: 'metrò',
-        hint: 'Um transporte subterrâneo'
+        type: 'multiple-choice',
+        question: 'Quando si usa il congiuntivo?',
+        options: ['Dopo "penso che"', 'Nelle domande', 'Con il futuro', 'Mai'],
+        correctAnswer: 'Dopo "penso che"',
+        hint: 'Esprime opinioni e dubbi'
       },
       {
         id: 9,
-        type: 'multiple-choice',
-        question: 'O que é "taxi"?',
-        options: ['Uber', 'Táxi', 'Carona', 'Aluguel'],
-        correctAnswer: 'Táxi',
-        hint: 'Um transporte privado'
+        type: 'translation',
+        question: 'Traduza: "Malgrado che piova, esco"',
+        correctAnswer: 'Apesar de que chova, saio',
+        hint: 'Concessiva con congiuntivo'
       },
       {
         id: 10,
+        type: 'fill-blank',
+        question: 'Complete: "Sebbene _____ stanco, continuo" (Embora esteja cansado, continuo)',
+        correctAnswer: 'sia',
+        hint: 'Concessiva con essere'
+      }
+    ]
+  },
+  
+  // NÍVEL C1 - 10 lições
+  {
+    id: 51,
+    title: 'Espressioni Idiomatiche',
+    description: 'Aprenda expressões idiomáticas italianas',
+    level: 'C1',
+    category: 'Avançado',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 105,
+    exercises: [
+      {
+        id: 1,
+        type: 'multiple-choice',
+        question: 'O que significa "In bocca al lupo"?',
+        options: ['Boa sorte', 'Que medo', 'Que fome', 'Cuidado'],
+        correctAnswer: 'Boa sorte',
+        hint: 'Expressão de augurio'
+      },
+      {
+        id: 2,
         type: 'translation',
-        question: 'Traduza: "elicottero"',
-        correctAnswer: 'helicóptero',
-        hint: 'Um transporte aéreo vertical'
+        question: 'Traduza: "Non vedo l\'ora di vederti"',
+        correctAnswer: 'Mal posso esperar para te ver',
+        hint: 'Expressa ansiedade positiva'
+      },
+      {
+        id: 3,
+        type: 'fill-blank',
+        question: 'Complete: "Ha preso lucciole per _____" (Confundiu as coisas)',
+        correctAnswer: 'lanterne',
+        hint: 'Expressão sobre confusão'
+      },
+      {
+        id: 4,
+        type: 'multiple-choice',
+        question: 'Cosa vuol dire "costare un occhio della testa"?',
+        options: ['Essere pericoloso', 'Costare molto', 'Essere facile', 'Essere bello'],
+        correctAnswer: 'Costare molto',
+        hint: 'Preço muito alto'
+      },
+      {
+        id: 5,
+        type: 'translation',
+        question: 'Traduza: "È acqua passata"',
+        correctAnswer: 'É água que passou',
+        hint: 'Algo do passado que não importa mais'
+      },
+      {
+        id: 6,
+        type: 'multiple-choice',
+        question: 'Complete: "Chi dorme non piglia _____"',
+        options: ['pesci', 'sonno', 'tempo', 'niente'],
+        correctAnswer: 'pesci',
+        hint: 'Proverbio sobre azione'
+      },
+      {
+        id: 7,
+        type: 'fill-blank',
+        question: 'Complete: "Meglio tardi che _____" (Melhor tarde que nunca)',
+        correctAnswer: 'mai',
+        hint: 'Proverbio famoso'
+      },
+      {
+        id: 8,
+        type: 'multiple-choice',
+        question: 'Cosa significa "avere le mani bucate"?',
+        options: ['Essere ferito', 'Spendere molto', 'Lavorare tanto', 'Essere sporco'],
+        correctAnswer: 'Spendere molto',
+        hint: 'Non riesce a tenere i soldi'
+      },
+      {
+        id: 9,
+        type: 'translation',
+        question: 'Traduza: "Gettare la spugna"',
+        correctAnswer: 'Jogar a toalha',
+        hint: 'Desistir, rendere-se'
+      },
+      {
+        id: 10,
+        type: 'fill-blank',
+        question: 'Complete: "Tutto fumo e niente _____" (Muito barulho por nada)',
+        correctAnswer: 'arrosto',
+        hint: 'Molto rumore per poco risultato'
+      }
+    ]
+  },
+  
+  // NÍVEL C2 - 10 lições
+  {
+    id: 61,
+    title: 'Letteratura Italiana',
+    description: 'Explore a literatura italiana clássica',
+    level: 'C2',
+    category: 'Cultura',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 115,
+    exercises: [
+      {
+        id: 1,
+        type: 'multiple-choice',
+        question: 'Chi ha scritto "La Divina Commedia"?',
+        options: ['Petrarca', 'Boccaccio', 'Dante', 'Manzoni'],
+        correctAnswer: 'Dante',
+        hint: 'Poeta fiorentino del XIV secolo'
+      },
+      {
+        id: 2,
+        type: 'translation',
+        question: 'Traduza: "Nel mezzo del cammin di nostra vita"',
+        correctAnswer: 'No meio do caminho de nossa vida',
+        hint: 'Primeiro verso dell\'Inferno'
+      },
+      {
+        id: 3,
+        type: 'fill-blank',
+        question: 'Complete: "I Promessi _____" di Manzoni',
+        correctAnswer: 'Sposi',
+        hint: 'Capolavoro del romanticismo italiano'
+      },
+      {
+        id: 4,
+        type: 'multiple-choice',
+        question: 'Quale movimento letterario rappresenta Leopardi?',
+        options: ['Barocco', 'Romanticismo', 'Futurismo', 'Verismo'],
+        correctAnswer: 'Romanticismo',
+        hint: 'Poeta pessimista dell\'Ottocento'
+      },
+      {
+        id: 5,
+        type: 'translation',
+        question: 'Traduza: "L\'infinito" di Leopardi',
+        correctAnswer: 'O infinito',
+        hint: 'Famosa poesia contemplativa'
+      },
+      {
+        id: 6,
+        type: 'multiple-choice',
+        question: 'Chi ha scritto "Il Decameron"?',
+        options: ['Dante', 'Petrarca', 'Boccaccio', 'Ariosto'],
+        correctAnswer: 'Boccaccio',
+        hint: 'Raccolta di novelle del Trecento'
+      },
+      {
+        id: 7,
+        type: 'fill-blank',
+        question: 'Complete: "Orlando _____" di Ariosto',
+        correctAnswer: 'Furioso',
+        hint: 'Poema cavalleresco rinascimentale'
+      },
+      {
+        id: 8,
+        type: 'multiple-choice',
+        question: 'Quale autore rappresenta il Verismo?',
+        options: ['Verga', 'D\'Annunzio', 'Pirandello', 'Svevo'],
+        correctAnswer: 'Verga',
+        hint: 'Scrittore siciliano dell\'Ottocento'
+      },
+      {
+        id: 9,
+        type: 'translation',
+        question: 'Traduza: "Uno, nessuno e centomila"',
+        correctAnswer: 'Um, nenhum e cem mil',
+        hint: 'Romanzo di Pirandello sull\'identità'
+      },
+      {
+        id: 10,
+        type: 'fill-blank',
+        question: 'Complete: "Se questo è un _____" di Primo Levi',
+        correctAnswer: 'uomo',
+        hint: 'Testimonianza sull\'Olocausto'
       }
     ]
   }

@@ -1,0 +1,28 @@
+
+{
+  "name": "Ciao! Linguaggio Fiore - Aprenda Italiano",
+  "short_name": "Ciao Italiano",
+  "description": "Aprenda italiano de forma divertida e interativa com nosso curso completo",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAF0E6",
+  "theme_color": "#352F44",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icon-512x512.png", 
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["education", "languages"],
+  "lang": "pt-BR",
+  "dir": "ltr"
+}

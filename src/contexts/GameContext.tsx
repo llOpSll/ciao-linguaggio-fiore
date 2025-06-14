@@ -40,14 +40,50 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const userLessonsKey = `italianAppLessons_${user.id}`;
       const userAchievementsKey = `italianAppAchievements_${user.id}`;
 
-      const savedProgress = localStorage.getItem(userProgressKey);
-      const savedLessons = localStorage.getItem(userLessonsKey);
-      const savedAchievements = localStorage.getItem(userAchievementsKey);
+      try {
+        const savedProgress = localStorage.getItem(userProgressKey);
+        const savedLessons = localStorage.getItem(userLessonsKey);
+        const savedAchievements = localStorage.getItem(userAchievementsKey);
 
-      if (savedProgress) {
-        setUserProgress(JSON.parse(savedProgress));
-      } else {
-        // Reset to default for new user
+        if (savedProgress) {
+          const parsedProgress = JSON.parse(savedProgress);
+          setUserProgress(parsedProgress);
+        } else {
+          // Reset to default for new user
+          setUserProgress({
+            totalXP: 0,
+            currentStreak: 1,
+            longestStreak: 1,
+            lessonsCompleted: 0,
+            level: 1,
+            hearts: 5,
+            gems: 0
+          });
+        }
+
+        if (savedLessons) {
+          const parsedLessons = JSON.parse(savedLessons);
+          // Merge with new lessons to ensure all lessons exist
+          const updatedLessons = initialLessons.map(initialLesson => {
+            const savedLesson = parsedLessons.find((l: Lesson) => l.id === initialLesson.id);
+            return savedLesson ? { ...initialLesson, ...savedLesson } : initialLesson;
+          });
+          setLessons(updatedLessons);
+        } else {
+          // Reset to initial lessons for new user
+          setLessons(initialLessons);
+        }
+
+        if (savedAchievements) {
+          const parsedAchievements = JSON.parse(savedAchievements);
+          setAchievements(parsedAchievements);
+        } else {
+          // Reset to initial achievements for new user
+          setAchievements(initialAchievements);
+        }
+      } catch (error) {
+        console.error('Error loading user data:', error);
+        // Reset to defaults if there's an error
         setUserProgress({
           totalXP: 0,
           currentStreak: 1,
@@ -57,59 +93,66 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
           hearts: 5,
           gems: 0
         });
-      }
-
-      if (savedLessons) {
-        setLessons(JSON.parse(savedLessons));
-      } else {
-        // Reset to initial lessons for new user
         setLessons(initialLessons);
-      }
-
-      if (savedAchievements) {
-        setAchievements(JSON.parse(savedAchievements));
-      } else {
-        // Reset to initial achievements for new user
         setAchievements(initialAchievements);
       }
     }
   }, [user]);
 
-  // Save user-specific data
+  // Save user-specific data with error handling
   useEffect(() => {
     if (user) {
-      const userProgressKey = `italianAppProgress_${user.id}`;
-      localStorage.setItem(userProgressKey, JSON.stringify(userProgress));
+      try {
+        const userProgressKey = `italianAppProgress_${user.id}`;
+        localStorage.setItem(userProgressKey, JSON.stringify(userProgress));
+      } catch (error) {
+        console.error('Error saving user progress:', error);
+      }
     }
   }, [userProgress, user]);
 
   useEffect(() => {
     if (user) {
-      const userLessonsKey = `italianAppLessons_${user.id}`;
-      localStorage.setItem(userLessonsKey, JSON.stringify(lessons));
+      try {
+        const userLessonsKey = `italianAppLessons_${user.id}`;
+        localStorage.setItem(userLessonsKey, JSON.stringify(lessons));
+      } catch (error) {
+        console.error('Error saving user lessons:', error);
+      }
     }
   }, [lessons, user]);
 
   useEffect(() => {
     if (user) {
-      const userAchievementsKey = `italianAppAchievements_${user.id}`;
-      localStorage.setItem(userAchievementsKey, JSON.stringify(achievements));
+      try {
+        const userAchievementsKey = `italianAppAchievements_${user.id}`;
+        localStorage.setItem(userAchievementsKey, JSON.stringify(achievements));
+      } catch (error) {
+        console.error('Error saving user achievements:', error);
+      }
     }
   }, [achievements, user]);
 
   const updateProgress = (xp: number, stars: number) => {
-    setUserProgress(prev => ({
-      ...prev,
-      totalXP: prev.totalXP + xp,
-      level: Math.floor((prev.totalXP + xp) / 100) + 1,
-      gems: prev.gems + (stars * 5)
-    }));
+    setUserProgress(prev => {
+      const newTotalXP = prev.totalXP + xp;
+      const newLevel = Math.floor(newTotalXP / 100) + 1;
+      const newGems = prev.gems + (stars * 5);
+      
+      return {
+        ...prev,
+        totalXP: newTotalXP,
+        level: newLevel,
+        gems: newGems
+      };
+    });
   };
 
   const completeLesson = (lessonId: number, stars: number) => {
     setLessons(prev => prev.map(lesson => {
       if (lesson.id === lessonId) {
-        // Sempre atualiza as estrelas com o valor recebido, não o máximo
+        const wasCompleted = lesson.isCompleted;
+        // Update stars with the new value received
         return { 
           ...lesson, 
           isCompleted: true, 
@@ -132,8 +175,12 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
       }));
     }
 
-    updateProgress(lessons.find(l => l.id === lessonId)?.xp || 0, stars);
-    setTimeout(() => checkAchievements(), 100);
+    // Update progress with lesson XP
+    const lessonXP = lessons.find(l => l.id === lessonId)?.xp || 0;
+    updateProgress(lessonXP, stars);
+    
+    // Check achievements after state updates
+    setTimeout(() => checkAchievements(), 200);
   };
 
   const useHeart = (): boolean => {
@@ -164,6 +211,8 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
         case 5: // Perfect lesson
           progress = lessons.some(l => l.stars === 3) ? 1 : 0;
           break;
+        default:
+          progress = achievement.currentProgress;
       }
 
       return {
