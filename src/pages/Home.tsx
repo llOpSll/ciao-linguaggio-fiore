@@ -1,108 +1,172 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 import { useGame } from '../contexts/GameContext';
 import LessonCard from '../components/LessonCard';
-import { BookOpen, Trophy, Target, Zap } from 'lucide-react';
+import LoginForm from '../components/LoginForm';
+import { Play, TrendingUp, Award, BookOpen, Filter } from 'lucide-react';
 
 const Home = () => {
   const navigate = useNavigate();
-  const { userProgress, lessons } = useGame();
+  const { user } = useAuth();
+  const { lessons, userProgress } = useGame();
+  const [showLogin, setShowLogin] = useState(false);
+  const [selectedLevel, setSelectedLevel] = useState<string>('all');
 
   const handleLessonClick = (lessonId: number) => {
+    if (!user) {
+      setShowLogin(true);
+      return;
+    }
     navigate(`/lesson/${lessonId}`);
   };
 
-  const completedLessons = lessons.filter(l => l.isCompleted).length;
-  const progressPercentage = (userProgress.totalXP % 100) / 100 * 100;
+  const levels = ['all', 'A1', 'A2', 'B1', 'B2', 'C1'];
+  const filteredLessons = selectedLevel === 'all' 
+    ? lessons 
+    : lessons.filter(lesson => lesson.level === selectedLevel);
+
+  const getLevelStats = () => {
+    const stats = {
+      A1: lessons.filter(l => l.level === 'A1' && l.isCompleted).length,
+      A2: lessons.filter(l => l.level === 'A2' && l.isCompleted).length,
+      B1: lessons.filter(l => l.level === 'B1' && l.isCompleted).length,
+      B2: lessons.filter(l => l.level === 'B2' && l.isCompleted).length,
+      C1: lessons.filter(l => l.level === 'C1' && l.isCompleted).length,
+    };
+    return stats;
+  };
+
+  const levelStats = getLevelStats();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
-      <div className="max-w-6xl mx-auto px-4 py-8">
-        {/* Progress Overview */}
-        <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-3">
-                <Trophy className="w-8 h-8 text-white" />
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <div className="bg-gradient-to-r from-green-500 via-blue-500 to-purple-600 text-white py-16 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="animate-fade-in">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
+              Benvenuto! 🇮🇹
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 text-blue-100">
+              Aprenda italiano de forma divertida e interativa
+            </p>
+            
+            {user ? (
+              <div className="flex flex-col items-center space-y-4">
+                <div className="flex items-center space-x-6 text-lg">
+                  <div className="flex items-center space-x-2">
+                    <TrendingUp className="w-6 h-6" />
+                    <span>Nível {userProgress.level}</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Award className="w-6 h-6" />
+                    <span>{userProgress.lessonsCompleted} lições</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <BookOpen className="w-6 h-6" />
+                    <span>{userProgress.currentStreak} dias</span>
+                  </div>
+                </div>
+                
+                <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 w-full max-w-2xl">
+                  <h3 className="text-lg font-semibold mb-4">Seu Progresso por Nível</h3>
+                  <div className="grid grid-cols-5 gap-4">
+                    {Object.entries(levelStats).map(([level, completed]) => (
+                      <div key={level} className="text-center">
+                        <div className="text-2xl font-bold">{completed}</div>
+                        <div className="text-sm text-blue-100">{level}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
-              <h3 className="text-2xl font-bold text-gray-800">{userProgress.totalXP}</h3>
-              <p className="text-gray-600">Total XP</p>
-            </div>
+            ) : (
+              <button
+                onClick={() => setShowLogin(true)}
+                className="bg-white text-blue-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-50 transition-all duration-200 transform hover:scale-105 shadow-lg"
+              >
+                <Play className="w-6 h-6 inline mr-2" />
+                Começar Agora
+              </button>
+            )}
+          </div>
+        </div>
+      </div>
 
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3">
-                <BookOpen className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-800">{completedLessons}</h3>
-              <p className="text-gray-600">Lições Concluídas</p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-3">
-                <Zap className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-800">{userProgress.currentStreak}</h3>
-              <p className="text-gray-600">Dias Seguidos</p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-3">
-                <Target className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-800">Nível {userProgress.level}</h3>
-              <p className="text-gray-600">Nível Atual</p>
+      {/* Lessons Section */}
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        {/* Filter Section */}
+        <div className="mb-8">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-3xl font-bold text-gray-800">Suas Lições</h2>
+            <div className="flex items-center space-x-2">
+              <Filter className="w-5 h-5 text-gray-600" />
+              <select
+                value={selectedLevel}
+                onChange={(e) => setSelectedLevel(e.target.value)}
+                className="bg-white border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              >
+                <option value="all">Todos os níveis</option>
+                {levels.slice(1).map(level => (
+                  <option key={level} value={level}>{level}</option>
+                ))}
+              </select>
             </div>
           </div>
 
-          {/* Level Progress Bar */}
-          <div className="mt-6">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-semibold text-gray-600">
-                Progresso para o próximo nível
-              </span>
-              <span className="text-sm text-gray-500">
-                {userProgress.totalXP % 100}/100 XP
-              </span>
-            </div>
-            <div className="w-full bg-gray-200 rounded-full h-3">
-              <div 
-                className="bg-gradient-to-r from-green-400 to-blue-500 h-3 rounded-full transition-all duration-500"
-                style={{ width: `${progressPercentage}%` }}
-              ></div>
-            </div>
+          {/* Level Progress Indicators */}
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+            {Object.entries(levelStats).map(([level, completed]) => {
+              const total = lessons.filter(l => l.level === level).length;
+              const percentage = total > 0 ? (completed / total) * 100 : 0;
+              
+              return (
+                <div key={level} className="bg-white rounded-lg p-4 shadow-sm border border-gray-200">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="font-semibold text-gray-800">{level}</span>
+                    <span className="text-sm text-gray-600">{completed}/{total}</span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-2">
+                    <div 
+                      className="bg-gradient-to-r from-green-400 to-blue-500 h-2 rounded-full transition-all duration-500"
+                      style={{ width: `${percentage}%` }}
+                    />
+                  </div>
+                  <div className="text-xs text-gray-500 mt-1">{Math.round(percentage)}%</div>
+                </div>
+              );
+            })}
           </div>
         </div>
 
-        {/* Welcome Message */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-2">
-            Benvenuto! 🇮🇹
-          </h1>
-          <p className="text-xl text-gray-600">
-            Continue sua jornada para dominar o italiano
-          </p>
-        </div>
-
-        {/* Lessons Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {lessons.map(lesson => (
+        {/* Lesson Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {filteredLessons.map((lesson, index) => (
             <LessonCard
               key={lesson.id}
               lesson={lesson}
+              index={index}
               onClick={() => handleLessonClick(lesson.id)}
             />
           ))}
         </div>
 
-        {/* Motivational Footer */}
-        <div className="text-center mt-12 p-8 bg-gradient-to-r from-green-500 to-blue-600 rounded-2xl text-white">
-          <h2 className="text-2xl font-bold mb-2">Continue Estudando!</h2>
-          <p className="text-lg opacity-90">
-            Cada lição te aproxima mais da fluência em italiano 🚀
-          </p>
-        </div>
+        {filteredLessons.length === 0 && (
+          <div className="text-center py-12">
+            <div className="text-gray-400 text-6xl mb-4">📚</div>
+            <h3 className="text-xl font-semibold text-gray-600 mb-2">
+              Nenhuma lição encontrada
+            </h3>
+            <p className="text-gray-500">
+              Tente selecionar um nível diferente
+            </p>
+          </div>
+        )}
       </div>
+
+      {showLogin && <LoginForm onClose={() => setShowLogin(false)} />}
     </div>
   );
 };

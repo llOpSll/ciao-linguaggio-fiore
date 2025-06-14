@@ -1,6 +1,7 @@
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { UserProgress, Lesson, Achievement } from '../types/game';
+import { useAuth } from './AuthContext';
 import { lessons as initialLessons } from '../data/lessons';
 import { achievements as initialAchievements } from '../data/achievements';
 
@@ -17,6 +18,8 @@ interface GameContextType {
 const GameContext = createContext<GameContextType | undefined>(undefined);
 
 export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const { user } = useAuth();
+  
   const [userProgress, setUserProgress] = useState<UserProgress>({
     totalXP: 0,
     currentStreak: 1,
@@ -30,35 +33,69 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [lessons, setLessons] = useState<Lesson[]>(initialLessons);
   const [achievements, setAchievements] = useState<Achievement[]>(initialAchievements);
 
-  // Load from localStorage
+  // Load user-specific data when user changes
   useEffect(() => {
-    const savedProgress = localStorage.getItem('italianAppProgress');
-    const savedLessons = localStorage.getItem('italianAppLessons');
-    const savedAchievements = localStorage.getItem('italianAppAchievements');
+    if (user) {
+      const userProgressKey = `italianAppProgress_${user.id}`;
+      const userLessonsKey = `italianAppLessons_${user.id}`;
+      const userAchievementsKey = `italianAppAchievements_${user.id}`;
 
-    if (savedProgress) {
-      setUserProgress(JSON.parse(savedProgress));
+      const savedProgress = localStorage.getItem(userProgressKey);
+      const savedLessons = localStorage.getItem(userLessonsKey);
+      const savedAchievements = localStorage.getItem(userAchievementsKey);
+
+      if (savedProgress) {
+        setUserProgress(JSON.parse(savedProgress));
+      } else {
+        // Reset to default for new user
+        setUserProgress({
+          totalXP: 0,
+          currentStreak: 1,
+          longestStreak: 1,
+          lessonsCompleted: 0,
+          level: 1,
+          hearts: 5,
+          gems: 0
+        });
+      }
+
+      if (savedLessons) {
+        setLessons(JSON.parse(savedLessons));
+      } else {
+        // Reset to initial lessons for new user
+        setLessons(initialLessons);
+      }
+
+      if (savedAchievements) {
+        setAchievements(JSON.parse(savedAchievements));
+      } else {
+        // Reset to initial achievements for new user
+        setAchievements(initialAchievements);
+      }
     }
-    if (savedLessons) {
-      setLessons(JSON.parse(savedLessons));
+  }, [user]);
+
+  // Save user-specific data
+  useEffect(() => {
+    if (user) {
+      const userProgressKey = `italianAppProgress_${user.id}`;
+      localStorage.setItem(userProgressKey, JSON.stringify(userProgress));
     }
-    if (savedAchievements) {
-      setAchievements(JSON.parse(savedAchievements));
+  }, [userProgress, user]);
+
+  useEffect(() => {
+    if (user) {
+      const userLessonsKey = `italianAppLessons_${user.id}`;
+      localStorage.setItem(userLessonsKey, JSON.stringify(lessons));
     }
-  }, []);
-
-  // Save to localStorage
-  useEffect(() => {
-    localStorage.setItem('italianAppProgress', JSON.stringify(userProgress));
-  }, [userProgress]);
+  }, [lessons, user]);
 
   useEffect(() => {
-    localStorage.setItem('italianAppLessons', JSON.stringify(lessons));
-  }, [lessons]);
-
-  useEffect(() => {
-    localStorage.setItem('italianAppAchievements', JSON.stringify(achievements));
-  }, [achievements]);
+    if (user) {
+      const userAchievementsKey = `italianAppAchievements_${user.id}`;
+      localStorage.setItem(userAchievementsKey, JSON.stringify(achievements));
+    }
+  }, [achievements, user]);
 
   const updateProgress = (xp: number, stars: number) => {
     setUserProgress(prev => ({
@@ -72,7 +109,12 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const completeLesson = (lessonId: number, stars: number) => {
     setLessons(prev => prev.map(lesson => {
       if (lesson.id === lessonId) {
-        return { ...lesson, isCompleted: true, stars: Math.max(lesson.stars, stars) };
+        const wasCompleted = lesson.isCompleted;
+        return { 
+          ...lesson, 
+          isCompleted: true, 
+          stars: Math.max(lesson.stars, stars) 
+        };
       }
       // Unlock next lesson
       if (lesson.id === lessonId + 1) {
@@ -81,13 +123,17 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
       return lesson;
     }));
 
-    setUserProgress(prev => ({
-      ...prev,
-      lessonsCompleted: prev.lessonsCompleted + 1
-    }));
+    // Only increment if lesson wasn't completed before
+    const lesson = lessons.find(l => l.id === lessonId);
+    if (lesson && !lesson.isCompleted) {
+      setUserProgress(prev => ({
+        ...prev,
+        lessonsCompleted: prev.lessonsCompleted + 1
+      }));
+    }
 
     updateProgress(lessons.find(l => l.id === lessonId)?.xp || 0, stars);
-    checkAchievements();
+    setTimeout(() => checkAchievements(), 100);
   };
 
   const useHeart = (): boolean => {
