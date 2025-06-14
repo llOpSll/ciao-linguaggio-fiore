@@ -65,6 +65,16 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Cores da bandeira italiana
+				italian: {
+					green: '#009246',
+					white: '#F1F2F6',
+					red: '#CE2B37',
+					'green-light': '#00A651',
+					'green-dark': '#007A3D',
+					'red-light': '#E85D75',
+					'red-dark': '#B12129'
 				}
 			},
 			borderRadius: {
@@ -108,13 +118,22 @@ export default {
 						transform: 'scale(1)',
 						opacity: '1'
 					}
+				},
+				'flag-wave': {
+					'0%, 100%': {
+						transform: 'rotate(-3deg)'
+					},
+					'50%': {
+						transform: 'rotate(3deg)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.3s ease-out',
-				'scale-in': 'scale-in 0.2s ease-out'
+				'scale-in': 'scale-in 0.2s ease-out',
+				'flag-wave': 'flag-wave 2s ease-in-out infinite'
 			}
 		}
 	},

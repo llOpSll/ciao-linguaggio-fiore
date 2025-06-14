@@ -12,11 +12,12 @@ interface LessonCardProps {
 const LessonCard: React.FC<LessonCardProps> = ({ lesson, onClick, index }) => {
   const getLevelColor = (level: string) => {
     switch (level) {
-      case 'A1': return 'bg-green-100 text-green-800 border-green-200';
+      case 'A1': return 'bg-italian-green bg-opacity-10 text-italian-green border-italian-green';
       case 'A2': return 'bg-blue-100 text-blue-800 border-blue-200';
       case 'B1': return 'bg-purple-100 text-purple-800 border-purple-200';
       case 'B2': return 'bg-orange-100 text-orange-800 border-orange-200';
-      case 'C1': return 'bg-red-100 text-red-800 border-red-200';
+      case 'C1': return 'bg-italian-red bg-opacity-10 text-italian-red border-italian-red';
+      case 'C2': return 'bg-gradient-to-r from-italian-green to-italian-red text-white border-transparent';
       default: return 'bg-gray-100 text-gray-800 border-gray-200';
     }
   };
@@ -37,12 +38,12 @@ const LessonCard: React.FC<LessonCardProps> = ({ lesson, onClick, index }) => {
   return (
     <div
       className={`
-        relative p-6 rounded-2xl border-2 transition-all duration-300 cursor-pointer transform hover:-translate-y-2
+        relative p-6 rounded-2xl border-2 transition-all duration-300 cursor-pointer transform hover:-translate-y-2 hover-lift
         ${lesson.isUnlocked 
-          ? 'bg-white border-green-200 hover:border-green-300 hover:shadow-2xl' 
+          ? 'bg-white border-italian-green hover:border-italian-green-dark hover:shadow-2xl shadow-lg' 
           : 'bg-gray-50 border-gray-200 cursor-not-allowed opacity-60'
         }
-        ${lesson.isCompleted ? 'ring-2 ring-green-400 ring-opacity-50 shadow-lg' : 'hover:shadow-lg'}
+        ${lesson.isCompleted ? 'ring-2 ring-italian-green ring-opacity-50 bg-gradient-to-br from-white to-italian-green to-opacity-5' : ''}
         animate-fade-in
       `}
       style={{ animationDelay: `${index * 0.1}s` }}
@@ -57,8 +58,8 @@ const LessonCard: React.FC<LessonCardProps> = ({ lesson, onClick, index }) => {
         )}
 
         {lesson.isCompleted && (
-          <div className="p-2 bg-green-100 rounded-full animate-bounce">
-            <Trophy className="w-4 h-4 text-green-500" />
+          <div className="p-2 bg-italian-green bg-opacity-20 rounded-full animate-bounce">
+            <Trophy className="w-4 h-4 text-italian-green" />
           </div>
         )}
       </div>
@@ -73,7 +74,7 @@ const LessonCard: React.FC<LessonCardProps> = ({ lesson, onClick, index }) => {
 
       {/* Content */}
       <div className="space-y-3">
-        <h3 className="text-lg font-bold text-gray-800 hover:text-green-600 transition-colors duration-200">
+        <h3 className="text-lg font-bold text-gray-800 hover:text-italian-green transition-colors duration-200">
           {lesson.title}
         </h3>
         
@@ -93,7 +94,7 @@ const LessonCard: React.FC<LessonCardProps> = ({ lesson, onClick, index }) => {
               <span>{lesson.exercises.length} ex.</span>
             </div>
             
-            <div className="bg-gradient-to-r from-green-400 to-blue-500 text-white px-2 py-1 rounded-full text-xs font-semibold">
+            <div className="bg-gradient-to-r from-italian-green to-italian-red text-white px-2 py-1 rounded-full text-xs font-semibold">
               +{lesson.xp} XP
             </div>
           </div>
@@ -109,7 +110,7 @@ const LessonCard: React.FC<LessonCardProps> = ({ lesson, onClick, index }) => {
 
       {/* Hover Effects */}
       {lesson.isUnlocked && (
-        <div className="absolute inset-0 bg-gradient-to-r from-green-400/0 to-blue-500/0 hover:from-green-400/5 hover:to-blue-500/5 rounded-2xl transition-all duration-300 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-italian-green/0 to-italian-red/0 hover:from-italian-green/5 hover:to-italian-red/5 rounded-2xl transition-all duration-300 pointer-events-none" />
       )}
     </div>
   );

@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -13,6 +12,7 @@ import Lesson from "./pages/Lesson";
 import Achievements from "./pages/Achievements";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
+import Dictionary from "./pages/Dictionary";
 
 const queryClient = new QueryClient();
 
@@ -24,7 +24,7 @@ const App = () => (
       <AuthProvider>
         <GameProvider>
           <BrowserRouter>
-            <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
+            <div className="min-h-screen bg-gradient-to-br from-italian-white via-white to-italian-green-light bg-opacity-20">
               <Header />
               <div className="pb-20 md:pb-0">
                 <Routes>
@@ -32,6 +32,7 @@ const App = () => (
                   <Route path="/lesson/:lessonId" element={<Lesson />} />
                   <Route path="/achievements" element={<Achievements />} />
                   <Route path="/profile" element={<Profile />} />
+                  <Route path="/dictionary" element={<Dictionary />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </div>

@@ -4,9 +4,20 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --italian-green: #009246;
+    --italian-white: #F1F2F6;
+    --italian-red: #CE2B37;
+    --italian-green-light: #00A651;
+    --italian-green-dark: #007A3D;
+    --italian-red-light: #E85D75;
+    --italian-red-dark: #B12129;
+  }
+
   * {
     @apply border-border;
   }
+  
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
@@ -14,7 +25,7 @@
 }
 
 @layer utilities {
-  /* Animações personalizadas */
+  /* Animações personalizadas com tema italiano */
   @keyframes fade-in {
     from {
       opacity: 0;
@@ -65,12 +76,24 @@
     }
   }
 
-  @keyframes glow {
+  @keyframes flag-wave {
     0%, 100% {
-      box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+      transform: rotate(-3deg) scale(1);
     }
     50% {
-      box-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 30px rgba(59, 130, 246, 0.6);
+      transform: rotate(3deg) scale(1.1);
+    }
+  }
+
+  @keyframes italian-glow {
+    0%, 100% {
+      box-shadow: 0 0 5px var(--italian-green), 0 0 10px var(--italian-green);
+    }
+    33% {
+      box-shadow: 0 0 5px var(--italian-white), 0 0 15px var(--italian-white);
+    }
+    66% {
+      box-shadow: 0 0 5px var(--italian-red), 0 0 10px var(--italian-red);
     }
   }
 
@@ -90,8 +113,12 @@
     animation: slide-in-right 0.4s ease-out forwards;
   }
 
-  .animate-glow {
-    animation: glow 2s ease-in-out infinite;
+  .animate-flag-wave {
+    animation: flag-wave 3s ease-in-out infinite;
+  }
+
+  .animate-italian-glow {
+    animation: italian-glow 3s ease-in-out infinite;
   }
 
   /* Efeitos de hover suaves */
@@ -101,17 +128,17 @@
 
   .hover-lift:hover {
     transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 15px 35px rgba(0, 146, 70, 0.15);
   }
 
-  /* Gradiente animado */
-  .gradient-animated {
-    background: linear-gradient(-45deg, #10b981, #3b82f6, #8b5cf6, #06b6d4);
-    background-size: 400% 400%;
-    animation: gradient-shift 8s ease infinite;
+  /* Gradiente com cores da bandeira italiana */
+  .gradient-italian {
+    background: linear-gradient(45deg, var(--italian-green), var(--italian-white), var(--italian-red));
+    background-size: 300% 300%;
+    animation: italian-gradient-shift 6s ease infinite;
   }
 
-  @keyframes gradient-shift {
+  @keyframes italian-gradient-shift {
     0% {
       background-position: 0% 50%;
     }
@@ -123,31 +150,31 @@
     }
   }
 
-  /* Texto com gradiente animado */
+  /* Texto com gradiente das cores italianas */
   .text-gradient-animated {
-    background: linear-gradient(-45deg, #10b981, #3b82f6, #8b5cf6, #06b6d4);
+    background: linear-gradient(-45deg, var(--italian-green), var(--italian-white), var(--italian-red), var(--italian-green));
     background-size: 400% 400%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: gradient-shift 8s ease infinite;
+    animation: italian-gradient-shift 4s ease infinite;
   }
 
-  /* Efeito de pulso suave */
-  .pulse-soft {
-    animation: pulse-soft 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  /* Efeito de pulso suave com cores italianas */
+  .pulse-italian {
+    animation: pulse-italian 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 
-  @keyframes pulse-soft {
+  @keyframes pulse-italian {
     0%, 100% {
-      opacity: 1;
+      box-shadow: 0 0 0 0 rgba(0, 146, 70, 0.7);
     }
     50% {
-      opacity: 0.8;
+      box-shadow: 0 0 0 10px rgba(0, 146, 70, 0);
     }
   }
 
-  /* Efeito de brilho em botões */
+  /* Efeito de brilho em botões com tema italiano */
   .shine-effect {
     position: relative;
     overflow: hidden;
@@ -160,7 +187,7 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    background: linear-gradient(90deg, transparent, rgba(241, 242, 246, 0.4), transparent);
     transition: left 0.8s;
   }
 
@@ -169,22 +196,22 @@
   }
 }
 
-/* Estilos para scroll personalizado */
+/* Scroll personalizado com cores italianas */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: var(--italian-white);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #10b981, #3b82f6);
+  background: linear-gradient(180deg, var(--italian-green), var(--italian-red));
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #059669, #2563eb);
+  background: linear-gradient(180deg, var(--italian-green-dark), var(--italian-red-dark));
 }
 
 /* Transições globais suaves */
@@ -192,7 +219,16 @@
   transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Efeitos de foco melhorados */
+/* Efeitos de foco melhorados com cores italianas */
 .focus-ring {
-  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-white;
+  @apply focus:outline-none focus:ring-2 focus:ring-italian-green focus:ring-offset-2 focus:ring-offset-white;
+}
+
+/* Efeitos especiais para elementos italianos */
+.italian-shadow {
+  box-shadow: 0 4px 14px 0 rgba(0, 146, 70, 0.2);
+}
+
+.italian-border {
+  border-image: linear-gradient(45deg, var(--italian-green), var(--italian-white), var(--italian-red)) 1;
 }
