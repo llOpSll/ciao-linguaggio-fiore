@@ -66,16 +66,20 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Cores da bandeira italiana
-				italian: {
-					green: '#009246',
-					white: '#F1F2F6',
-					red: '#CE2B37',
-					'green-light': '#00A651',
-					'green-dark': '#007A3D',
-					'red-light': '#E85D75',
-					'red-dark': '#B12129'
-				}
+				// Nova paleta de cores
+				'dark-purple': '#352F44',
+				'medium-purple': '#5C5470', 
+				'light-purple': '#B9B4C7',
+				'cream': '#FAF0E6',
+				// Variações para estados
+				'dark-purple-light': '#453E57',
+				'dark-purple-dark': '#2A2237',
+				'medium-purple-light': '#6B6183',
+				'medium-purple-dark': '#4D475D',
+				'light-purple-light': '#C7C3D4',
+				'light-purple-dark': '#ABA5BA',
+				'cream-light': '#FFFDF7',
+				'cream-dark': '#F0E6D6'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -119,12 +123,37 @@ export default {
 						opacity: '1'
 					}
 				},
-				'flag-wave': {
+				'success-bounce': {
+					'0%, 20%, 53%, 80%, 100%': {
+						transform: 'translate3d(0,0,0)'
+					},
+					'40%, 43%': {
+						transform: 'translate3d(0, -30px, 0)'
+					},
+					'70%': {
+						transform: 'translate3d(0, -15px, 0)'
+					},
+					'90%': {
+						transform: 'translate3d(0, -4px, 0)'
+					}
+				},
+				'error-shake': {
 					'0%, 100%': {
-						transform: 'rotate(-3deg)'
+						transform: 'translateX(0)'
+					},
+					'10%, 30%, 50%, 70%, 90%': {
+						transform: 'translateX(-10px)'
+					},
+					'20%, 40%, 60%, 80%': {
+						transform: 'translateX(10px)'
+					}
+				},
+				'pulse-success': {
+					'0%, 100%': {
+						boxShadow: '0 0 0 0 rgba(92, 84, 112, 0.7)'
 					},
 					'50%': {
-						transform: 'rotate(3deg)'
+						boxShadow: '0 0 0 10px rgba(92, 84, 112, 0)'
 					}
 				}
 			},
@@ -133,7 +162,9 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.3s ease-out',
 				'scale-in': 'scale-in 0.2s ease-out',
-				'flag-wave': 'flag-wave 2s ease-in-out infinite'
+				'success-bounce': 'success-bounce 1s ease',
+				'error-shake': 'error-shake 0.5s ease',
+				'pulse-success': 'pulse-success 2s infinite'
 			}
 		}
 	},

@@ -1,14 +1,12 @@
-
 import { Lesson } from '../types/game';
 
 export const lessons: Lesson[] = [
-  // A1 Level - Beginner (6 lessons)
   {
     id: 1,
-    title: "Primi Passi - Saudações",
-    description: "Aprenda as saudações básicas em italiano",
+    title: 'Saudações Básicas',
+    description: 'Aprenda as saudações essenciais em italiano',
     level: 'A1',
-    category: "Saudações",
+    category: 'Básico',
     isCompleted: false,
     isUnlocked: true,
     stars: 0,
@@ -17,101 +15,86 @@ export const lessons: Lesson[] = [
       {
         id: 1,
         type: 'multiple-choice',
-        question: "Como você diz 'Bom dia' em italiano?",
-        options: ["Buongiorno", "Buonasera", "Buonanotte", "Ciao"],
-        correctAnswer: "Buongiorno",
-        hint: "Usado pela manhã até o meio-dia"
+        question: 'Como se diz "olá" em italiano?',
+        options: ['Ciao', 'Buonasera', 'Arrivederci', 'Grazie'],
+        correctAnswer: 'Ciao',
+        hint: 'É uma saudação informal muito comum'
       },
       {
         id: 2,
         type: 'translation',
-        question: "Traduza: 'Oi' ou 'Tchau'",
-        correctAnswer: "Ciao",
-        italian: "Ciao",
-        portuguese: "Oi / Tchau"
+        question: 'Traduza: "Bom dia"',
+        correctAnswer: 'Buongiorno',
+        hint: 'Usado da manhã até o início da tarde'
       },
       {
         id: 3,
+        type: 'multiple-choice',
+        question: 'Qual é a tradução de "Boa noite"?',
+        options: ['Buongiorno', 'Buonasera', 'Buonanotte', 'Ciao'],
+        correctAnswer: 'Buonanotte',
+        hint: 'Usado ao se despedir antes de dormir'
+      },
+      {
+        id: 4,
         type: 'fill-blank',
-        question: "Complete: '_____, come stai?' (Oi, como você está?)",
-        correctAnswer: "Ciao",
-        hint: "Saudação informal"
+        question: 'Complete: "_____, come stai?" (Oi, como você está?)',
+        correctAnswer: 'Ciao',
+        hint: 'Saudação informal'
+      },
+      {
+        id: 5,
+        type: 'multiple-choice',
+        question: 'Como se diz "até logo" em italiano?',
+        options: ['Ciao', 'Arrivederci', 'Buongiorno', 'Grazie'],
+        correctAnswer: 'Arrivederci',
+        hint: 'Despedida formal'
+      },
+      {
+        id: 6,
+        type: 'translation',
+        question: 'Traduza: "Boa tarde"',
+        correctAnswer: 'Buonasera',
+        hint: 'Usado a partir do final da tarde'
+      },
+      {
+        id: 7,
+        type: 'multiple-choice',
+        question: 'Qual saudação você usaria de manhã?',
+        options: ['Buonasera', 'Buonanotte', 'Buongiorno', 'Arrivederci'],
+        correctAnswer: 'Buongiorno',
+        hint: 'É o equivalente a "bom dia"'
+      },
+      {
+        id: 8,
+        type: 'fill-blank',
+        question: 'Complete: "_____! Come va?" (Olá! Como vai?)',
+        correctAnswer: 'Salve',
+        hint: 'Outra forma informal de cumprimentar'
+      },
+      {
+        id: 9,
+        type: 'multiple-choice',
+        question: 'Em que situação você usaria "Buonanotte"?',
+        options: ['De manhã', 'À tarde', 'Ao se despedir à noite', 'No almoço'],
+        correctAnswer: 'Ao se despedir à noite',
+        hint: 'Usado antes de ir dormir'
+      },
+      {
+        id: 10,
+        type: 'translation',
+        question: 'Como você responderia a "Buongiorno"?',
+        correctAnswer: 'Buongiorno',
+        hint: 'Você pode repetir a mesma saudação'
       }
     ]
   },
   {
     id: 2,
-    title: "Famiglia - A Família",
-    description: "Vocabulário sobre membros da família",
+    title: 'Números 1-10',
+    description: 'Conte de 1 a 10 em italiano',
     level: 'A1',
-    category: "Família",
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 60,
-    exercises: [
-      {
-        id: 1,
-        type: 'multiple-choice',
-        question: "Como você diz 'mãe' em italiano?",
-        options: ["Padre", "Madre", "Sorella", "Nonna"],
-        correctAnswer: "Madre"
-      },
-      {
-        id: 2,
-        type: 'translation',
-        question: "Traduza: 'Meu pai'",
-        correctAnswer: "Mio padre",
-        italian: "Mio padre",
-        portuguese: "Meu pai"
-      },
-      {
-        id: 3,
-        type: 'multiple-choice',
-        question: "O que significa 'fratello'?",
-        options: ["Irmã", "Irmão", "Primo", "Tio"],
-        correctAnswer: "Irmão"
-      }
-    ]
-  },
-  {
-    id: 3,
-    title: "Numeri - Os Números",
-    description: "Aprenda os números de 1 a 100",
-    level: 'A1',
-    category: "Números",
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 55,
-    exercises: [
-      {
-        id: 1,
-        type: 'multiple-choice',
-        question: "Como você diz '5' em italiano?",
-        options: ["Quattro", "Cinque", "Sei", "Sette"],
-        correctAnswer: "Cinque"
-      },
-      {
-        id: 2,
-        type: 'translation',
-        question: "Traduza: 'Dez'",
-        correctAnswer: "Dieci"
-      },
-      {
-        id: 3,
-        type: 'fill-blank',
-        question: "Complete: 'Uno, due, tre, _____' (1, 2, 3, ___)",
-        correctAnswer: "quattro"
-      }
-    ]
-  },
-  {
-    id: 4,
-    title: "Colori - As Cores",
-    description: "Vocabulário das cores em italiano",
-    level: 'A1',
-    category: "Cores",
+    category: 'Números',
     isCompleted: false,
     isUnlocked: false,
     stars: 0,
@@ -120,63 +103,86 @@ export const lessons: Lesson[] = [
       {
         id: 1,
         type: 'multiple-choice',
-        question: "Como você diz 'vermelho' em italiano?",
-        options: ["Blu", "Verde", "Rosso", "Giallo"],
-        correctAnswer: "Rosso"
+        question: 'Como se diz "três" em italiano?',
+        options: ['Due', 'Tre', 'Quattro', 'Cinque'],
+        correctAnswer: 'Tre',
+        hint: 'É pronunciado como "tré"'
       },
       {
         id: 2,
         type: 'translation',
-        question: "Traduza: 'Azul'",
-        correctAnswer: "Blu"
+        question: 'Traduza o número: 5',
+        correctAnswer: 'Cinque',
+        hint: 'Pronuncia-se "tshín-kue"'
       },
       {
         id: 3,
         type: 'multiple-choice',
-        question: "Qual é a cor da bandeira italiana? (Verde, branco e...)",
-        options: ["Giallo", "Rosso", "Nero", "Arancione"],
-        correctAnswer: "Rosso"
-      }
-    ]
-  },
-  {
-    id: 5,
-    title: "Cibo - Comida",
-    description: "Vocabulário básico sobre alimentos",
-    level: 'A1',
-    category: "Comida",
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 65,
-    exercises: [
-      {
-        id: 1,
-        type: 'multiple-choice',
-        question: "Como você diz 'pizza' em italiano?",
-        options: ["Pizza", "Pasta", "Pane", "Gelato"],
-        correctAnswer: "Pizza"
+        question: 'Qual é o número "otto" em português?',
+        options: ['6', '7', '8', '9'],
+        correctAnswer: '8',
+        hint: 'É um número par'
       },
       {
-        id: 2,
-        type: 'translation',
-        question: "Traduza: 'Eu gosto de comer'",
-        correctAnswer: "Mi piace mangiare"
-      },
-      {
-        id: 3,
+        id: 4,
         type: 'fill-blank',
-        question: "Complete: 'Vorrei una _____ margherita' (Eu gostaria de uma pizza margherita)",
-        correctAnswer: "pizza"
+        question: 'Complete a sequência: uno, due, _____, quattro',
+        correctAnswer: 'tre',
+        hint: 'É o terceiro número'
+      },
+      {
+        id: 5,
+        type: 'multiple-choice',
+        question: 'Como se escreve "1" em italiano?',
+        options: ['Uno', 'Due', 'Tre', 'Zero'],
+        correctAnswer: 'Uno',
+        hint: 'É o primeiro número'
+      },
+      {
+        id: 6,
+        type: 'translation',
+        question: 'Traduza: "sette"',
+        correctAnswer: '7',
+        hint: 'Vem depois do sei'
+      },
+      {
+        id: 7,
+        type: 'multiple-choice',
+        question: 'Quantos são "dieci"?',
+        options: ['8', '9', '10', '11'],
+        correctAnswer: '10',
+        hint: 'É o último número desta lição'
+      },
+      {
+        id: 8,
+        type: 'fill-blank',
+        question: 'Complete: sei, sette, otto, _____',
+        correctAnswer: 'nove',
+        hint: 'Vem antes de dieci'
+      },
+      {
+        id: 9,
+        type: 'multiple-choice',
+        question: 'Como se diz "dois" em italiano?',
+        options: ['Uno', 'Due', 'Tre', 'Quattro'],
+        correctAnswer: 'Due',
+        hint: 'É o segundo número'
+      },
+      {
+        id: 10,
+        type: 'translation',
+        question: 'Traduza: "quattro"',
+        correctAnswer: '4',
+        hint: 'É o dobro de due'
       }
     ]
   },
   {
-    id: 6,
-    title: "Casa - A Casa",
-    description: "Vocabulário sobre a casa e móveis",
+    id: 3,
+    title: 'A Família',
+    description: 'Aprenda os membros da família em italiano',
     level: 'A1',
-    category: "Casa",
+    category: 'Família',
     isCompleted: false,
     isUnlocked: false,
     stars: 0,
@@ -185,33 +191,174 @@ export const lessons: Lesson[] = [
       {
         id: 1,
         type: 'multiple-choice',
-        question: "Como você diz 'quarto' em italiano?",
-        options: ["Cucina", "Bagno", "Camera", "Salotto"],
-        correctAnswer: "Camera"
+        question: 'Como se diz "mãe" em italiano?',
+        options: ['Padre', 'Madre', 'Figlio', 'Sorella'],
+        correctAnswer: 'Madre',
+        hint: 'A mulher que te criou'
       },
       {
         id: 2,
         type: 'translation',
-        question: "Traduza: 'A cozinha é grande'",
-        correctAnswer: "La cucina è grande"
+        question: 'Traduza: "pai"',
+        correctAnswer: 'Padre',
+        hint: 'O homem que te criou'
       },
       {
         id: 3,
         type: 'multiple-choice',
-        question: "O que significa 'tavolo'?",
-        options: ["Cadeira", "Mesa", "Cama", "Sofá"],
-        correctAnswer: "Mesa"
+        question: 'Quem é o "fratello"?',
+        options: ['Irmão', 'Irmã', 'Tio', 'Primo'],
+        correctAnswer: 'Irmão',
+        hint: 'Um membro masculino da família'
+      },
+      {
+        id: 4,
+        type: 'fill-blank',
+        question: 'Complete: "La mia _____ è simpatica" (Minha irmã é legal)',
+        correctAnswer: 'sorella',
+        hint: 'Uma membro feminina da família'
+      },
+      {
+        id: 5,
+        type: 'multiple-choice',
+        question: 'O que é "nonno"?',
+        options: ['Tio', 'Avô', 'Primo', 'Pai'],
+        correctAnswer: 'Avô',
+        hint: 'O pai do seu pai ou mãe'
+      },
+      {
+        id: 6,
+        type: 'translation',
+        question: 'Traduza: "nonna"',
+        correctAnswer: 'avó',
+        hint: 'A mãe do seu pai ou mãe'
+      },
+      {
+        id: 7,
+        type: 'multiple-choice',
+        question: 'Quem são os "figli"?',
+        options: ['Pais', 'Filhos', 'Tios', 'Avós'],
+        correctAnswer: 'Filhos',
+        hint: 'As crianças que você cria'
+      },
+      {
+        id: 8,
+        type: 'fill-blank',
+        question: 'Complete: "Mio _____ è divertente" (Meu tio é divertido)',
+        correctAnswer: 'zio',
+        hint: 'O irmão do seu pai ou mãe'
+      },
+      {
+        id: 9,
+        type: 'multiple-choice',
+        question: 'O que é "zia"?',
+        options: ['Tio', 'Avó', 'Tia', 'Primo'],
+        correctAnswer: 'Tia',
+        hint: 'A irmã do seu pai ou mãe'
+      },
+      {
+        id: 10,
+        type: 'translation',
+        question: 'Traduza: "cugino"',
+        correctAnswer: 'primo',
+        hint: 'O filho do seu tio ou tia'
       }
     ]
   },
-
-  // A2 Level - Elementary (6 lessons)
   {
-    id: 7,
-    title: "Tempo - O Tempo",
-    description: "Aprenda sobre clima e estações",
+    id: 4,
+    title: 'Cores',
+    description: 'Aprenda as cores em italiano',
+    level: 'A1',
+    category: 'Cores',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 55,
+    exercises: [
+      {
+        id: 1,
+        type: 'multiple-choice',
+        question: 'Como se diz "vermelho" em italiano?',
+        options: ['Verde', 'Rosso', 'Blu', 'Giallo'],
+        correctAnswer: 'Rosso',
+        hint: 'A cor do sangue'
+      },
+      {
+        id: 2,
+        type: 'translation',
+        question: 'Traduza: "azul"',
+        correctAnswer: 'Blu',
+        hint: 'A cor do céu em um dia claro'
+      },
+      {
+        id: 3,
+        type: 'multiple-choice',
+        question: 'Qual é a cor "verde"?',
+        options: ['Amarelo', 'Verde', 'Vermelho', 'Azul'],
+        correctAnswer: 'Verde',
+        hint: 'A cor da grama'
+      },
+      {
+        id: 4,
+        type: 'fill-blank',
+        question: 'Complete: "Il sole è _____" (O sol é amarelo)',
+        correctAnswer: 'giallo',
+        hint: 'A cor do sol'
+      },
+      {
+        id: 5,
+        type: 'multiple-choice',
+        question: 'Como se diz "preto" em italiano?',
+        options: ['Bianco', 'Nero', 'Grigio', 'Marrone'],
+        correctAnswer: 'Nero',
+        hint: 'A ausência de cor'
+      },
+      {
+        id: 6,
+        type: 'translation',
+        question: 'Traduza: "branco"',
+        correctAnswer: 'Bianco',
+        hint: 'A cor da neve'
+      },
+      {
+        id: 7,
+        type: 'multiple-choice',
+        question: 'Qual é a cor "rosa"?',
+        options: ['Viola', 'Rosa', 'Arancione', 'Grigio'],
+        correctAnswer: 'Rosa',
+        hint: 'Uma cor delicada'
+      },
+      {
+        id: 8,
+        type: 'fill-blank',
+        question: 'Complete: "L\'uva è _____" (A uva é roxa)',
+        correctAnswer: 'viola',
+        hint: 'Uma cor real'
+      },
+      {
+        id: 9,
+        type: 'multiple-choice',
+        question: 'Como se diz "marrom" em italiano?',
+        options: ['Grigio', 'Marrone', 'Beige', 'Oro'],
+        correctAnswer: 'Marrone',
+        hint: 'A cor da terra'
+      },
+      {
+        id: 10,
+        type: 'translation',
+        question: 'Traduza: "cinza"',
+        correctAnswer: 'Grigio',
+        hint: 'Uma cor neutra'
+      }
+    ]
+  },
+  {
+    id: 5,
+    title: 'Comidas',
+    description: 'Aprenda os nomes de comidas em italiano',
     level: 'A2',
-    category: "Tempo",
+    category: 'Comidas',
     isCompleted: false,
     isUnlocked: false,
     stars: 0,
@@ -220,357 +367,438 @@ export const lessons: Lesson[] = [
       {
         id: 1,
         type: 'multiple-choice',
-        question: "Como você diz 'está chovendo' em italiano?",
-        options: ["Fa caldo", "Piove", "Nevica", "C'è il sole"],
-        correctAnswer: "Piove"
+        question: 'Como se diz "pizza" em italiano?',
+        options: ['Pasta', 'Pizza', 'Pane', 'Riso'],
+        correctAnswer: 'Pizza',
+        hint: 'Um prato famoso da Itália'
       },
       {
         id: 2,
         type: 'translation',
-        question: "Traduza: 'Hoje está um belo dia'",
-        correctAnswer: "Oggi è una bella giornata"
+        question: 'Traduza: "massa"',
+        correctAnswer: 'Pasta',
+        hint: 'Um alimento básico italiano'
       },
       {
         id: 3,
+        type: 'multiple-choice',
+        question: 'O que é "pane"?',
+        options: ['Água', 'Vinho', 'Pão', 'Queijo'],
+        correctAnswer: 'Pão',
+        hint: 'Um acompanhamento comum'
+      },
+      {
+        id: 4,
         type: 'fill-blank',
-        question: "Complete: 'In estate fa _____' (No verão faz calor)",
-        correctAnswer: "caldo"
+        question: 'Complete: "Il _____ è delizioso" (O queijo é delicioso)',
+        correctAnswer: 'formaggio',
+        hint: 'Um produto lácteo'
+      },
+      {
+        id: 5,
+        type: 'multiple-choice',
+        question: 'Como se diz "vinho" em italiano?',
+        options: ['Acqua', 'Vino', 'Birra', 'Succo'],
+        correctAnswer: 'Vino',
+        hint: 'Uma bebida popular'
+      },
+      {
+        id: 6,
+        type: 'translation',
+        question: 'Traduza: "água"',
+        correctAnswer: 'Acqua',
+        hint: 'Essencial para a vida'
+      },
+      {
+        id: 7,
+        type: 'multiple-choice',
+        question: 'O que é "caffè"?',
+        options: ['Chá', 'Café', 'Leite', 'Chocolate'],
+        correctAnswer: 'Café',
+        hint: 'Uma bebida estimulante'
+      },
+      {
+        id: 8,
+        type: 'fill-blank',
+        question: 'Complete: "Il _____ è freddo" (O sorvete é frio)',
+        correctAnswer: 'gelato',
+        hint: 'Uma sobremesa gelada'
+      },
+      {
+        id: 9,
+        type: 'multiple-choice',
+        question: 'Como se diz "carne" em italiano?',
+        options: ['Pesce', 'Carne', 'Pollo', 'Uovo'],
+        correctAnswer: 'Carne',
+        hint: 'Uma fonte de proteína'
+      },
+      {
+        id: 10,
+        type: 'translation',
+        question: 'Traduza: "pesce"',
+        correctAnswer: 'peixe',
+        hint: 'Um alimento do mar'
+      }
+    ]
+  },
+  {
+    id: 6,
+    title: 'Verbos Comuns',
+    description: 'Aprenda verbos essenciais em italiano',
+    level: 'A2',
+    category: 'Verbos',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 75,
+    exercises: [
+      {
+        id: 1,
+        type: 'multiple-choice',
+        question: 'O que significa "essere"?',
+        options: ['Ter', 'Fazer', 'Ser/Estar', 'Ir'],
+        correctAnswer: 'Ser/Estar',
+        hint: 'Um verbo fundamental'
+      },
+      {
+        id: 2,
+        type: 'translation',
+        question: 'Traduza: "avere"',
+        correctAnswer: 'ter',
+        hint: 'Indica posse'
+      },
+      {
+        id: 3,
+        type: 'multiple-choice',
+        question: 'Qual é o significado de "fare"?',
+        options: ['Dizer', 'Fazer', 'Ver', 'Dar'],
+        correctAnswer: 'Fazer',
+        hint: 'Realizar uma ação'
+      },
+      {
+        id: 4,
+        type: 'fill-blank',
+        question: 'Complete: "_____ un errore" (Fazer um erro)',
+        correctAnswer: 'fare',
+        hint: 'Cometer uma falha'
+      },
+      {
+        id: 5,
+        type: 'multiple-choice',
+        question: 'O que significa "andare"?',
+        options: ['Vir', 'Ir', 'Ficar', 'Voltar'],
+        correctAnswer: 'Ir',
+        hint: 'Mover-se para um lugar'
+      },
+      {
+        id: 6,
+        type: 'translation',
+        question: 'Traduza: "venire"',
+        correctAnswer: 'vir',
+        hint: 'Mover-se em direção a'
+      },
+      {
+        id: 7,
+        type: 'multiple-choice',
+        question: 'Qual é o significado de "dire"?',
+        options: ['Fazer', 'Dizer', 'Ouvir', 'Cantar'],
+        correctAnswer: 'Dizer',
+        hint: 'Expressar com palavras'
+      },
+      {
+        id: 8,
+        type: 'fill-blank',
+        question: 'Complete: "_____ la verità" (Dizer a verdade)',
+        correctAnswer: 'dire',
+        hint: 'Ser honesto'
+      },
+      {
+        id: 9,
+        type: 'multiple-choice',
+        question: 'O que significa "vedere"?',
+        options: ['Olhar', 'Ver', 'Tocar', 'Sentir'],
+        correctAnswer: 'Ver',
+        hint: 'Perceber com os olhos'
+      },
+      {
+        id: 10,
+        type: 'translation',
+        question: 'Traduza: "sapere"',
+        correctAnswer: 'saber',
+        hint: 'Ter conhecimento'
+      }
+    ]
+  },
+  {
+    id: 7,
+    title: 'Advérbios de Tempo',
+    description: 'Aprenda advérbios de tempo em italiano',
+    level: 'B1',
+    category: 'Tempo',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 80,
+    exercises: [
+      {
+        id: 1,
+        type: 'multiple-choice',
+        question: 'O que significa "oggi"?',
+        options: ['Ontem', 'Hoje', 'Amanhã', 'Sempre'],
+        correctAnswer: 'Hoje',
+        hint: 'O dia atual'
+      },
+      {
+        id: 2,
+        type: 'translation',
+        question: 'Traduza: "ieri"',
+        correctAnswer: 'ontem',
+        hint: 'O dia anterior'
+      },
+      {
+        id: 3,
+        type: 'multiple-choice',
+        question: 'Qual é o significado de "domani"?',
+        options: ['Hoje', 'Amanhã', 'Sempre', 'Nunca'],
+        correctAnswer: 'Amanhã',
+        hint: 'O dia seguinte'
+      },
+      {
+        id: 4,
+        type: 'fill-blank',
+        question: 'Complete: "_____ vado al cinema" (Amanhã vou ao cinema)',
+        correctAnswer: 'domani',
+        hint: 'Um plano para o futuro'
+      },
+      {
+        id: 5,
+        type: 'multiple-choice',
+        question: 'O que significa "ora"?',
+        options: ['Antes', 'Depois', 'Agora', 'Logo'],
+        correctAnswer: 'Agora',
+        hint: 'Neste momento'
+      },
+      {
+        id: 6,
+        type: 'translation',
+        question: 'Traduza: "sempre"',
+        correctAnswer: 'sempre',
+        hint: 'Em todos os momentos'
+      },
+      {
+        id: 7,
+        type: 'multiple-choice',
+        question: 'Qual é o significado de "mai"?',
+        options: ['Sempre', 'Às vezes', 'Nunca', 'Frequentemente'],
+        correctAnswer: 'Nunca',
+        hint: 'Em nenhum momento'
+      },
+      {
+        id: 8,
+        type: 'fill-blank',
+        question: 'Complete: "Non lo faccio _____" (Eu nunca faço isso)',
+        correctAnswer: 'mai',
+        hint: 'Uma negação absoluta'
+      },
+      {
+        id: 9,
+        type: 'multiple-choice',
+        question: 'O que significa "spesso"?',
+        options: ['Raramente', 'Às vezes', 'Frequentemente', 'Nunca'],
+        correctAnswer: 'Frequentemente',
+        hint: 'Com alta frequência'
+      },
+      {
+        id: 10,
+        type: 'translation',
+        question: 'Traduza: "raramente"',
+        correctAnswer: 'raramente',
+        hint: 'Com baixa frequência'
       }
     ]
   },
   {
     id: 8,
-    title: "Trasporti - Transporte",
-    description: "Vocabulário sobre meios de transporte",
-    level: 'A2',
-    category: "Transporte",
+    title: 'Na Cidade',
+    description: 'Aprenda lugares na cidade em italiano',
+    level: 'B1',
+    category: 'Lugares',
     isCompleted: false,
     isUnlocked: false,
     stars: 0,
-    xp: 65,
+    xp: 85,
     exercises: [
       {
         id: 1,
         type: 'multiple-choice',
-        question: "Como você diz 'trem' em italiano?",
-        options: ["Autobus", "Treno", "Aereo", "Macchina"],
-        correctAnswer: "Treno"
+        question: 'O que é "scuola"?',
+        options: ['Hospital', 'Escola', 'Igreja', 'Mercado'],
+        correctAnswer: 'Escola',
+        hint: 'Um lugar de aprendizado'
       },
       {
         id: 2,
         type: 'translation',
-        question: "Traduza: 'Vou de carro'",
-        correctAnswer: "Vado in macchina"
+        question: 'Traduza: "università"',
+        correctAnswer: 'universidade',
+        hint: 'Educação superior'
       },
       {
         id: 3,
         type: 'multiple-choice',
-        question: "O que significa 'aeroporto'?",
-        options: ["Estação", "Aeroporto", "Porto", "Estrada"],
-        correctAnswer: "Aeroporto"
+        question: 'Qual é o significado de "ospedale"?',
+        options: ['Escola', 'Hospital', 'Banco', 'Correio'],
+        correctAnswer: 'Hospital',
+        hint: 'Um lugar para cuidar da saúde'
+      },
+      {
+        id: 4,
+        type: 'fill-blank',
+        question: 'Complete: "Vado in _____ per le medicine" (Vou à farmácia para os remédios)',
+        correctAnswer: 'farmacia',
+        hint: 'Onde se compram medicamentos'
+      },
+      {
+        id: 5,
+        type: 'multiple-choice',
+        question: 'O que é "supermercato"?',
+        options: ['Restaurante', 'Mercado', 'Cinema', 'Teatro'],
+        correctAnswer: 'Supermercato',
+        hint: 'Onde se compram alimentos'
+      },
+      {
+        id: 6,
+        type: 'translation',
+        question: 'Traduza: "ristorante"',
+        correctAnswer: 'restaurante',
+        hint: 'Onde se come fora'
+      },
+      {
+        id: 7,
+        type: 'multiple-choice',
+        question: 'Qual é o significado de "stazione"?',
+        options: ['Aeroporto', 'Estação', 'Porto', 'Estrada'],
+        correctAnswer: 'Estação',
+        hint: 'Para pegar o trem'
+      },
+      {
+        id: 8,
+        type: 'fill-blank',
+        question: 'Complete: "L\'_____ è lontano" (O aeroporto é longe)',
+        correctAnswer: 'aeroporto',
+        hint: 'Para pegar o avião'
+      },
+      {
+        id: 9,
+        type: 'multiple-choice',
+        question: 'O que é "chiesa"?',
+        options: ['Museu', 'Igreja', 'Praça', 'Parque'],
+        correctAnswer: 'Igreja',
+        hint: 'Um lugar de culto'
+      },
+      {
+        id: 10,
+        type: 'translation',
+        question: 'Traduza: "piazza"',
+        correctAnswer: 'praça',
+        hint: 'Um espaço público'
       }
     ]
   },
   {
     id: 9,
-    title: "Shopping - Compras",
-    description: "Vocabulário para fazer compras",
-    level: 'A2',
-    category: "Compras",
+    title: 'Roupas',
+    description: 'Aprenda os nomes de roupas em italiano',
+    level: 'B2',
+    category: 'Roupas',
     isCompleted: false,
     isUnlocked: false,
     stars: 0,
-    xp: 75,
+    xp: 90,
     exercises: [
       {
         id: 1,
         type: 'multiple-choice',
-        question: "Como você pergunta 'Quanto custa?' em italiano?",
-        options: ["Dove si trova?", "Quanto costa?", "Che ore sono?", "Come stai?"],
-        correctAnswer: "Quanto costa?"
+        question: 'O que é "camicia"?',
+        options: ['Calça', 'Camisa', 'Saia', 'Vestido'],
+        correctAnswer: 'Camisa',
+        hint: 'Uma peça de roupa para o tronco'
       },
       {
         id: 2,
         type: 'translation',
-        question: "Traduza: 'Posso pagar com cartão?'",
-        correctAnswer: "Posso pagare con carta?"
+        question: 'Traduza: "pantaloni"',
+        correctAnswer: 'calças',
+        hint: 'Peças de roupa para as pernas'
       },
       {
         id: 3,
+        type: 'multiple-choice',
+        question: 'Qual é o significado de "gonna"?',
+        options: ['Casaco', 'Saia', 'Chapéu', 'Luvas'],
+        correctAnswer: 'Saia',
+        hint: 'Uma peça de roupa feminina'
+      },
+      {
+        id: 4,
         type: 'fill-blank',
-        question: "Complete: 'Vorrei _____ questo' (Eu gostaria de comprar isto)",
-        correctAnswer: "comprare"
+        question: 'Complete: "Il _____ è elegante" (O vestido é elegante)',
+        correctAnswer: 'vestito',
+        hint: 'Uma peça de roupa formal'
+      },
+      {
+        id: 5,
+        type: 'multiple-choice',
+        question: 'O que é "giacca"?',
+        options: ['Cachecol', 'Jaqueta', 'Cinto', 'Bolsa'],
+        correctAnswer: 'Jaqueta',
+        hint: 'Usado para se aquecer'
+      },
+      {
+        id: 6,
+        type: 'translation',
+        question: 'Traduza: "cappotto"',
+        correctAnswer: 'casaco',
+        hint: 'Usado em climas frios'
+      },
+      {
+        id: 7,
+        type: 'multiple-choice',
+        question: 'Qual é o significado de "scarpe"?',
+        options: ['Meias', 'Sapatos', 'Botas', 'Chinelos'],
+        correctAnswer: 'Sapatos',
+        hint: 'Proteção para os pés'
+      },
+      {
+        id: 8,
+        type: 'fill-blank',
+        question: 'Complete: "I _____ sono caldi" (As luvas são quentes)',
+        correctAnswer: 'guanti',
+        hint: 'Para aquecer as mãos'
+      },
+      {
+        id: 9,
+        type: 'multiple-choice',
+        question: 'O que é "cappello"?',
+        options: ['Boné', 'Chapéu', 'Tiara', 'Viseira'],
+        correctAnswer: 'Chapéu',
+        hint: 'Para proteger a cabeça'
+      },
+      {
+        id: 10,
+        type: 'translation',
+        question: 'Traduza: "sciarpa"',
+        correctAnswer: 'cachecol',
+        hint: 'Usado no pescoço'
       }
     ]
   },
   {
     id: 10,
-    title: "Lavoro - Trabalho",
-    description: "Profissões e ambiente de trabalho",
-    level: 'A2',
-    category: "Trabalho",
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 70,
-    exercises: [
-      {
-        id: 1,
-        type: 'multiple-choice',
-        question: "Como você diz 'médico' em italiano?",
-        options: ["Avvocato", "Dottore", "Ingegnere", "Insegnante"],
-        correctAnswer: "Dottore"
-      },
-      {
-        id: 2,
-        type: 'translation',
-        question: "Traduza: 'Eu trabalho em um escritório'",
-        correctAnswer: "Lavoro in un ufficio"
-      },
-      {
-        id: 3,
-        type: 'multiple-choice',
-        question: "O que significa 'cuoco'?",
-        options: ["Professor", "Cozinheiro", "Motorista", "Vendedor"],
-        correctAnswer: "Cozinheiro"
-      }
-    ]
-  },
-  {
-    id: 11,
-    title: "Salute - Saúde",
-    description: "Vocabulário sobre saúde e corpo humano",
-    level: 'A2',
-    category: "Saúde",
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 75,
-    exercises: [
-      {
-        id: 1,
-        type: 'multiple-choice',
-        question: "Como você diz 'dor de cabeça' em italiano?",
-        options: ["Mal di pancia", "Mal di testa", "Mal di denti", "Mal di gola"],
-        correctAnswer: "Mal di testa"
-      },
-      {
-        id: 2,
-        type: 'translation',
-        question: "Traduza: 'Preciso ir ao médico'",
-        correctAnswer: "Devo andare dal dottore"
-      },
-      {
-        id: 3,
-        type: 'fill-blank',
-        question: "Complete: 'Mi fa male la _____' (Minha perna dói)",
-        correctAnswer: "gamba"
-      }
-    ]
-  },
-  {
-    id: 12,
-    title: "Vacanze - Férias",
-    description: "Vocabulário sobre viagens e férias",
-    level: 'A2',
-    category: "Viagem",
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 80,
-    exercises: [
-      {
-        id: 1,
-        type: 'multiple-choice',
-        question: "Como você diz 'hotel' em italiano?",
-        options: ["Albergo", "Ristorante", "Museo", "Teatro"],
-        correctAnswer: "Albergo"
-      },
-      {
-        id: 2,
-        type: 'translation',
-        question: "Traduza: 'Onde fica o hotel?'",
-        correctAnswer: "Dove si trova l'albergo?"
-      },
-      {
-        id: 3,
-        type: 'multiple-choice',
-        question: "O que significa 'valigia'?",
-        options: ["Passaporte", "Mala", "Bilhete", "Mapa"],
-        correctAnswer: "Mala"
-      }
-    ]
-  },
-
-  // B1 Level - Intermediate (6 lessons)
-  {
-    id: 13,
-    title: "Passato Prossimo",
-    description: "Aprenda o tempo passado em italiano",
-    level: 'B1',
-    category: "Gramática",
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 85,
-    exercises: [
-      {
-        id: 1,
-        type: 'multiple-choice',
-        question: "Complete: 'Ieri _____ al cinema' (Ontem fui ao cinema)",
-        options: ["vado", "sono andato", "andrò", "andavo"],
-        correctAnswer: "sono andato"
-      },
-      {
-        id: 2,
-        type: 'translation',
-        question: "Traduza: 'Eu comi uma pizza'",
-        correctAnswer: "Ho mangiato una pizza"
-      },
-      {
-        id: 3,
-        type: 'fill-blank',
-        question: "Complete: 'Maria _____ studiato molto' (Maria estudou muito)",
-        correctAnswer: "ha"
-      }
-    ]
-  },
-  {
-    id: 14,
-    title: "Congiuntivo",
-    description: "O modo subjuntivo em italiano",
-    level: 'B1',
-    category: "Gramática",
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 90,
-    exercises: [
-      {
-        id: 1,
-        type: 'multiple-choice',
-        question: "Complete: 'Penso che lui _____ ragione' (Acho que ele tem razão)",
-        options: ["ha", "abbia", "aveva", "avrà"],
-        correctAnswer: "abbia"
-      },
-      {
-        id: 2,
-        type: 'translation',
-        question: "Traduza: 'Espero que você venha'",
-        correctAnswer: "Spero che tu venga"
-      },
-      {
-        id: 3,
-        type: 'fill-blank',
-        question: "Complete: 'È importante che voi _____ in orario' (É importante que vocês cheguem no horário)",
-        correctAnswer: "arriviate"
-      }
-    ]
-  },
-  {
-    id: 15,
-    title: "Cultura Italiana",
-    description: "Aprenda sobre a cultura e tradições italianas",
-    level: 'B1',
-    category: "Cultura",
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 80,
-    exercises: [
-      {
-        id: 1,
-        type: 'multiple-choice',
-        question: "Qual é a capital da Itália?",
-        options: ["Milano", "Napoli", "Roma", "Firenze"],
-        correctAnswer: "Roma"
-      },
-      {
-        id: 2,
-        type: 'translation',
-        question: "Traduza: 'A Torre de Pisa é famosa'",
-        correctAnswer: "La Torre di Pisa è famosa"
-      },
-      {
-        id: 3,
-        type: 'multiple-choice',
-        question: "O que é 'La Scala'?",
-        options: ["Um restaurante", "Uma igreja", "Um teatro", "Um museu"],
-        correctAnswer: "Um teatro"
-      }
-    ]
-  },
-  {
-    id: 16,
-    title: "Cucina Italiana",
-    description: "Vocabulário avançado sobre culinária italiana",
-    level: 'B1',
-    category: "Culinária",
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 85,
-    exercises: [
-      {
-        id: 1,
-        type: 'multiple-choice',
-        question: "Qual é o ingrediente principal do risotto?",
-        options: ["Pasta", "Riso", "Carne", "Pesce"],
-        correctAnswer: "Riso"
-      },
-      {
-        id: 2,
-        type: 'translation',
-        question: "Traduza: 'Gostaria de experimentar pratos típicos'",
-        correctAnswer: "Vorrei provare piatti tipici"
-      },
-      {
-        id: 3,
-        type: 'fill-blank',
-        question: "Complete: 'Il tiramisu è un _____ molto famoso' (O tiramisu é uma sobremesa muito famosa)",
-        correctAnswer: "dolce"
-      }
-    ]
-  },
-  {
-    id: 17,
-    title: "Arte e Storia",
-    description: "Arte e história italiana",
-    level: 'B1',
-    category: "Arte",
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 90,
-    exercises: [
-      {
-        id: 1,
-        type: 'multiple-choice',
-        question: "Quem pintou a Capela Sistina?",
-        options: ["Leonardo da Vinci", "Michelangelo", "Raffaello", "Caravaggio"],
-        correctAnswer: "Michelangelo"
-      },
-      {
-        id: 2,
-        type: 'translation',
-        question: "Traduza: 'O Renascimento começou na Itália'",
-        correctAnswer: "Il Rinascimento iniziò in Italia"
-      },
-      {
-        id: 3,
-        type: 'multiple-choice',
-        question: "Em que cidade está a Gioconda original?",
-        options: ["Roma", "Firenze", "Parigi", "Milano"],
-        correctAnswer: "Parigi"
-      }
-    ]
-  },
-  {
-    id: 18,
-    title: "Espressioni Idiomatiche",
-    description: "Expressões idiomáticas italianas",
-    level: 'B1',
-    category: "Expressões",
+    title: 'Transportes',
+    description: 'Aprenda os nomes de transportes em italiano',
+    level: 'B2',
+    category: 'Transportes',
     isCompleted: false,
     isUnlocked: false,
     stars: 0,
@@ -579,741 +807,77 @@ export const lessons: Lesson[] = [
       {
         id: 1,
         type: 'multiple-choice',
-        question: "O que significa 'In bocca al lupo'?",
-        options: ["Boa sorte", "Com fome", "Com pressa", "Com raiva"],
-        correctAnswer: "Boa sorte"
+        question: 'O que é "macchina"?',
+        options: ['Bicicleta', 'Moto', 'Carro', 'Ônibus'],
+        correctAnswer: 'Carro',
+        hint: 'Um meio de transporte comum'
       },
       {
         id: 2,
         type: 'translation',
-        question: "Traduza: 'Não há duas sem três'",
-        correctAnswer: "Non c'è due senza tre"
+        question: 'Traduza: "bicicletta"',
+        correctAnswer: 'bicicleta',
+        hint: 'Um transporte de duas rodas'
       },
       {
         id: 3,
+        type: 'multiple-choice',
+        question: 'Qual é o significado de "treno"?',
+        options: ['Avião', 'Navio', 'Trem', 'Metrô'],
+        correctAnswer: 'Trem',
+        hint: 'Um transporte sobre trilhos'
+      },
+      {
+        id: 4,
         type: 'fill-blank',
-        question: "Complete: 'Chi dorme non _____ pesci' (Quem dorme não pega peixes)",
-        correctAnswer: "piglia"
-      }
-    ]
-  },
-
-  // B2 Level - Upper Intermediate (6 lessons)
-  {
-    id: 19,
-    title: "Letteratura Italiana",
-    description: "Grandes obras da literatura italiana",
-    level: 'B2',
-    category: "Literatura",
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 100,
-    exercises: [
-      {
-        id: 1,
-        type: 'multiple-choice',
-        question: "Quem escreveu 'A Divina Comédia'?",
-        options: ["Petrarca", "Boccaccio", "Dante Alighieri", "Ariosto"],
-        correctAnswer: "Dante Alighieri"
+        question: 'Complete: "L\'_____ vola nel cielo" (O avião voa no céu)',
+        correctAnswer: 'aereo',
+        hint: 'Um transporte aéreo'
       },
       {
-        id: 2,
+        id: 5,
+        type: 'multiple-choice',
+        question: 'O que é "autobus"?',
+        options: ['Táxi', 'Ônibus', 'Van', 'Caminhão'],
+        correctAnswer: 'Ônibus',
+        hint: 'Um transporte público'
+      },
+      {
+        id: 6,
         type: 'translation',
-        question: "Traduza: 'A literatura italiana é muito rica'",
-        correctAnswer: "La letteratura italiana è molto ricca"
+        question: 'Traduza: "nave"',
+        correctAnswer: 'navio',
+        hint: 'Um transporte marítimo'
       },
       {
-        id: 3,
+        id: 7,
         type: 'multiple-choice',
-        question: "Qual é o primeiro livro da Divina Comédia?",
-        options: ["Paradiso", "Purgatorio", "Inferno", "Limbo"],
-        correctAnswer: "Inferno"
-      }
-    ]
-  },
-  {
-    id: 20,
-    title: "Politica e Società",
-    description: "Vocabulário sobre política e sociedade",
-    level: 'B2',
-    category: "Sociedade",
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 105,
-    exercises: [
-      {
-        id: 1,
-        type: 'multiple-choice',
-        question: "Como você diz 'eleições' em italiano?",
-        options: ["Elezioni", "Votazioni", "Selezioni", "Decisioni"],
-        correctAnswer: "Elezioni"
+        question: 'Qual é o significado de "moto"?',
+        options: ['Carro', 'Moto', 'Bicicleta', 'Patinete'],
+        correctAnswer: 'Moto',
+        hint: 'Um transporte de duas rodas motorizado'
       },
       {
-        id: 2,
-        type: 'translation',
-        question: "Traduza: 'Os cidadãos têm direitos e deveres'",
-        correctAnswer: "I cittadini hanno diritti e doveri"
-      },
-      {
-        id: 3,
+        id: 8,
         type: 'fill-blank',
-        question: "Complete: 'Il _____ è il capo dello Stato' (O presidente é o chefe de Estado)",
-        correctAnswer: "presidente"
-      }
-    ]
-  },
-  {
-    id: 21,
-    title: "Economia e Business",
-    description: "Vocabulário de negócios e economia",
-    level: 'B2',
-    category: "Negócios",
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 110,
-    exercises: [
-      {
-        id: 1,
-        type: 'multiple-choice',
-        question: "Como você diz 'orçamento' em italiano?",
-        options: ["Bilancio", "Costo", "Prezzo", "Spesa"],
-        correctAnswer: "Bilancio"
+        question: 'Complete: "Il _____ va sottoterra" (O metrô vai embaixo da terra)',
+        correctAnswer: 'metrò',
+        hint: 'Um transporte subterrâneo'
       },
       {
-        id: 2,
+        id: 9,
+        type: 'multiple-choice',
+        question: 'O que é "taxi"?',
+        options: ['Uber', 'Táxi', 'Carona', 'Aluguel'],
+        correctAnswer: 'Táxi',
+        hint: 'Um transporte privado'
+      },
+      {
+        id: 10,
         type: 'translation',
-        question: "Traduza: 'A empresa está crescendo rapidamente'",
-        correctAnswer: "L'azienda sta crescendo rapidamente"
-      },
-      {
-        id: 3,
-        type: 'multiple-choice',
-        question: "O que significa 'investimento'?",
-        options: ["Investimento", "Pagamento", "Desconto", "Lucro"],
-        correctAnswer: "Investimento"
-      }
-    ]
-  },
-  {
-    id: 22,
-    title: "Ambiente e Natura",
-    description: "Vocabulário sobre meio ambiente",
-    level: 'B2',
-    category: "Ambiente",
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 100,
-    exercises: [
-      {
-        id: 1,
-        type: 'multiple-choice',
-        question: "Como você diz 'sustentável' em italiano?",
-        options: ["Sostenibile", "Rinnovabile", "Naturale", "Ecologico"],
-        correctAnswer: "Sostenibile"
-      },
-      {
-        id: 2,
-        type: 'translation',
-        question: "Traduza: 'Devemos proteger o meio ambiente'",
-        correctAnswer: "Dobbiamo proteggere l'ambiente"
-      },
-      {
-        id: 3,
-        type: 'fill-blank',
-        question: "Complete: 'Il riscaldamento _____ è un problema serio' (O aquecimento global é um problema sério)",
-        correctAnswer: "globale"
-      }
-    ]
-  },
-  {
-    id: 23,
-    title: "Tecnologia Moderna",
-    description: "Vocabulário sobre tecnologia e inovação",
-    level: 'B2',
-    category: "Tecnologia",
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 105,
-    exercises: [
-      {
-        id: 1,
-        type: 'multiple-choice',
-        question: "Como você diz 'inteligência artificial' em italiano?",
-        options: ["Intelligenza artificiale", "Tecnologia avanzata", "Sistema automatico", "Macchina intelligente"],
-        correctAnswer: "Intelligenza artificiale"
-      },
-      {
-        id: 2,
-        type: 'translation',
-        question: "Traduza: 'A tecnologia está mudando o mundo'",
-        correctAnswer: "La tecnologia sta cambiando il mondo"
-      },
-      {
-        id: 3,
-        type: 'multiple-choice',
-        question: "O que significa 'digitale'?",
-        options: ["Manual", "Digital", "Físico", "Analógico"],
-        correctAnswer: "Digital"
-      }
-    ]
-  },
-  {
-    id: 24,
-    title: "Relazioni Sociali",
-    description: "Relacionamentos e vida social avançada",
-    level: 'B2',
-    category: "Relacionamentos",
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 95,
-    exercises: [
-      {
-        id: 1,
-        type: 'multiple-choice',
-        question: "Como você diz 'mal-entendido' em italiano?",
-        options: ["Malinteso", "Discussione", "Problema", "Conflitto"],
-        correctAnswer: "Malinteso"
-      },
-      {
-        id: 2,
-        type: 'translation',
-        question: "Traduza: 'É importante manter as amizades'",
-        correctAnswer: "È importante mantenere le amicizie"
-      },
-      {
-        id: 3,
-        type: 'fill-blank',
-        question: "Complete: 'Dobbiamo _____ le nostre differenze' (Devemos resolver nossas diferenças)",
-        correctAnswer: "risolvere"
-      }
-    ]
-  },
-
-  // C1 Level - Advanced (8 lessons)
-  {
-    id: 25,
-    title: "Linguaggio Formale",
-    description: "Linguagem formal e protocolo italiano",
-    level: 'C1',
-    category: "Linguagem Formal",
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 120,
-    exercises: [
-      {
-        id: 1,
-        type: 'multiple-choice',
-        question: "Como você se dirigiria formalmente a um desconhecido?",
-        options: ["Tu come stai?", "Lei come sta?", "Come va?", "Tutto bene?"],
-        correctAnswer: "Lei come sta?"
-      },
-      {
-        id: 2,
-        type: 'translation',
-        question: "Traduza formalmente: 'Gostaria de fazer uma pergunta'",
-        correctAnswer: "Vorrei fare una domanda"
-      },
-      {
-        id: 3,
-        type: 'fill-blank',
-        question: "Complete formalmente: 'La ringrazio per la Sua _____' (Agradeço pela sua atenção)",
-        correctAnswer: "attenzione"
-      }
-    ]
-  },
-  {
-    id: 26,
-    title: "Analisi Testuale",
-    description: "Análise de textos complexos em italiano",
-    level: 'C1',
-    category: "Análise",
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 125,
-    exercises: [
-      {
-        id: 1,
-        type: 'multiple-choice',
-        question: "Qual é o tom principal deste trecho: 'Nonostante le difficoltà, l'autore mantiene una visione ottimistica'?",
-        options: ["Pessimista", "Neutro", "Ottimista", "Critico"],
-        correctAnswer: "Ottimista"
-      },
-      {
-        id: 2,
-        type: 'translation',
-        question: "Traduza: 'O autor expressa uma crítica sutil à sociedade'",
-        correctAnswer: "L'autore esprime una critica sottile alla società"
-      },
-      {
-        id: 3,
-        type: 'multiple-choice',
-        question: "O que significa 'allusione' em um texto?",
-        options: ["Descrição direta", "Referência indireta", "Explicação detalhada", "Conclusão"],
-        correctAnswer: "Referência indireta"
-      }
-    ]
-  },
-  {
-    id: 27,
-    title: "Filosofia e Pensiero",
-    description: "Vocabulário filosófico e pensamento crítico",
-    level: 'C1',
-    category: "Filosofia",
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 130,
-    exercises: [
-      {
-        id: 1,
-        type: 'multiple-choice',
-        question: "Como você diz 'epistemologia' em italiano?",
-        options: ["Epistemologia", "Ontologia", "Metodologia", "Fenomenologia"],
-        correctAnswer: "Epistemologia"
-      },
-      {
-        id: 2,
-        type: 'translation',
-        question: "Traduza: 'A consciência humana é complexa'",
-        correctAnswer: "La coscienza umana è complessa"
-      },
-      {
-        id: 3,
-        type: 'fill-blank',
-        question: "Complete: 'Il _____ cartesiano ha influenzato la filosofia moderna' (O pensamento cartesiano influenciou a filosofia moderna)",
-        correctAnswer: "pensiero"
-      }
-    ]
-  },
-  {
-    id: 28,
-    title: "Diritto e Legge",
-    description: "Vocabulário jurídico italiano",
-    level: 'C1',
-    category: "Direito",
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 125,
-    exercises: [
-      {
-        id: 1,
-        type: 'multiple-choice',
-        question: "Como você diz 'tribunal' em italiano?",
-        options: ["Tribunale", "Corte", "Aula", "Sede"],
-        correctAnswer: "Tribunale"
-      },
-      {
-        id: 2,
-        type: 'translation',
-        question: "Traduza: 'O advogado apresentou as evidências'",
-        correctAnswer: "L'avvocato ha presentato le prove"
-      },
-      {
-        id: 3,
-        type: 'multiple-choice',
-        question: "O que significa 'giurisprudenza'?",
-        options: ["Lei", "Jurisprudência", "Processo", "Sentença"],
-        correctAnswer: "Jurisprudência"
-      }
-    ]
-  },
-  {
-    id: 29,
-    title: "Medicina Avanzata",
-    description: "Terminologia médica avançada",
-    level: 'C1',
-    category: "Medicina",
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 130,
-    exercises: [
-      {
-        id: 1,
-        type: 'multiple-choice',
-        question: "Como você diz 'prognóstico' em italiano?",
-        options: ["Diagnosi", "Prognosi", "Sintomo", "Terapia"],
-        correctAnswer: "Prognosi"
-      },
-      {
-        id: 2,
-        type: 'translation',
-        question: "Traduza: 'O tratamento foi eficaz'",
-        correctAnswer: "Il trattamento è stato efficace"
-      },
-      {
-        id: 3,
-        type: 'fill-blank',
-        question: "Complete: 'La _____ ha rivelato una malattia rara' (O exame revelou uma doença rara)",
-        correctAnswer: "diagnosi"
-      }
-    ]
-  },
-  {
-    id: 30,
-    title: "Scienza e Ricerca",
-    description: "Vocabulário científico e de pesquisa",
-    level: 'C1',
-    category: "Ciência",
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 135,
-    exercises: [
-      {
-        id: 1,
-        type: 'multiple-choice',
-        question: "Como você diz 'hipótese' em italiano?",
-        options: ["Ipotesi", "Teoria", "Dimostrazione", "Conclusione"],
-        correctAnswer: "Ipotesi"
-      },
-      {
-        id: 2,
-        type: 'translation',
-        question: "Traduza: 'A pesquisa confirmou os resultados'",
-        correctAnswer: "La ricerca ha confermato i risultati"
-      },
-      {
-        id: 3,
-        type: 'multiple-choice',
-        question: "O que significa 'metodologia'?",
-        options: ["Resultado", "Metodologia", "Experimento", "Observação"],
-        correctAnswer: "Metodologia"
-      }
-    ]
-  },
-  {
-    id: 31,
-    title: "Dibattiti e Argomentazione",
-    description: "Habilidades de debate e argumentação",
-    level: 'C1',
-    category: "Debate",
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 140,
-    exercises: [
-      {
-        id: 1,
-        type: 'multiple-choice',
-        question: "Como você introduz um contra-argumento?",
-        options: ["Inoltre", "Tuttavia", "Infatti", "Perciò"],
-        correctAnswer: "Tuttavia"
-      },
-      {
-        id: 2,
-        type: 'translation',
-        question: "Traduza: 'Por outro lado, devemos considerar...'",
-        correctAnswer: "D'altra parte, dobbiamo considerare..."
-      },
-      {
-        id: 3,
-        type: 'fill-blank',
-        question: "Complete: 'Il suo argomento è _____, ma...' (Seu argumento é válido, mas...)",
-        correctAnswer: "valido"
-      }
-    ]
-  },
-  {
-    id: 32,
-    title: "Comunicazione Professionale",
-    description: "Comunicação profissional avançada",
-    level: 'C1',
-    category: "Profissional",
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 130,
-    exercises: [
-      {
-        id: 1,
-        type: 'multiple-choice',
-        question: "Como você agenda uma reunião formalmente?",
-        options: ["Ci vediamo", "Vorrei programmare un incontro", "Facciamo una riunione", "Incontriamoci"],
-        correctAnswer: "Vorrei programmare un incontro"
-      },
-      {
-        id: 2,
-        type: 'translation',
-        question: "Traduza: 'Gostaria de propor uma colaboração'",
-        correctAnswer: "Vorrei proporre una collaborazione"
-      },
-      {
-        id: 3,
-        type: 'fill-blank',
-        question: "Complete: 'La _____ è stata molto produttiva' (A reunião foi muito produtiva)",
-        correctAnswer: "riunione"
-      }
-    ]
-  },
-
-  // C2 Level - Mastery (8 lessons)
-  {
-    id: 33,
-    title: "Stilistica Avanzata",
-    description: "Estilo e registro linguístico avançado",
-    level: 'C2',
-    category: "Estilística",
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 150,
-    exercises: [
-      {
-        id: 1,
-        type: 'multiple-choice',
-        question: "Qual registro é mais apropriado para um ensaio acadêmico?",
-        options: ["Colloquiale", "Formale", "Informale", "Gergale"],
-        correctAnswer: "Formale"
-      },
-      {
-        id: 2,
-        type: 'translation',
-        question: "Traduza com registro elevado: 'Este fenômeno merece atenção especial'",
-        correctAnswer: "Tale fenomeno merita particolare attenzione"
-      },
-      {
-        id: 3,
-        type: 'multiple-choice',
-        question: "Qual é um sinônimo mais elegante para 'molto importante'?",
-        options: ["Fondamentale", "Grande", "Grosso", "Forte"],
-        correctAnswer: "Fondamentale"
-      }
-    ]
-  },
-  {
-    id: 34,
-    title: "Critica Letteraria",
-    description: "Análise e crítica literária profunda",
-    level: 'C2',
-    category: "Crítica",
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 155,
-    exercises: [
-      {
-        id: 1,
-        type: 'multiple-choice',
-        question: "Qual termo descreve uma obra que influencia outras?",
-        options: ["Derivativa", "Seminale", "Secondaria", "Imitativa"],
-        correctAnswer: "Seminale"
-      },
-      {
-        id: 2,
-        type: 'translation',
-        question: "Traduza: 'A obra transcende as convenções do gênero'",
-        correctAnswer: "L'opera trascende le convenzioni del genere"
-      },
-      {
-        id: 3,
-        type: 'fill-blank',
-        question: "Complete: 'L'autore impiega una _____ narrativa innovativa' (O autor emprega uma técnica narrativa inovadora)",
-        correctAnswer: "tecnica"
-      }
-    ]
-  },
-  {
-    id: 35,
-    title: "Retorica e Eloquenza",
-    description: "Retórica e eloquência italiana",
-    level: 'C2',
-    category: "Retórica",
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 160,
-    exercises: [
-      {
-        id: 1,
-        type: 'multiple-choice',
-        question: "Qual figura retórica consiste na repetição inicial?",
-        options: ["Metafora", "Anafora", "Iperbole", "Ironia"],
-        correctAnswer: "Anafora"
-      },
-      {
-        id: 2,
-        type: 'translation',
-        question: "Traduza: 'O orador cativou a audiência com sua eloquência'",
-        correctAnswer: "L'oratore ha affascinato il pubblico con la sua eloquenza"
-      },
-      {
-        id: 3,
-        type: 'multiple-choice',
-        question: "O que é uma 'perifrasi'?",
-        options: ["Frase direta", "Expressão indireta", "Palavra simples", "Termo técnico"],
-        correctAnswer: "Expressão indireta"
-      }
-    ]
-  },
-  {
-    id: 36,
-    title: "Linguaggio Specialistico",
-    description: "Linguagens especializadas e jargões",
-    level: 'C2',
-    category: "Especializado",
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 165,
-    exercises: [
-      {
-        id: 1,
-        type: 'multiple-choice',
-        question: "No contexto financeiro, o que significa 'liquidità'?",
-        options: ["Transparência", "Liquidez", "Fluidez", "Clareza"],
-        correctAnswer: "Liquidez"
-      },
-      {
-        id: 2,
-        type: 'translation',
-        question: "Traduza (contexto médico): 'O protocolo terapêutico foi alterado'",
-        correctAnswer: "Il protocollo terapeutico è stato modificato"
-      },
-      {
-        id: 3,
-        type: 'fill-blank',
-        question: "Complete (contexto jurídico): 'La _____ è stata emessa dal tribunale' (A sentença foi emitida pelo tribunal)",
-        correctAnswer: "sentenza"
-      }
-    ]
-  },
-  {
-    id: 37,
-    title: "Varianti Regionali",
-    description: "Dialetos e variações regionais do italiano",
-    level: 'C2',
-    category: "Dialetos",
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 155,
-    exercises: [
-      {
-        id: 1,
-        type: 'multiple-choice',
-        question: "Qual dialeto é típico de Nápoles?",
-        options: ["Veneziano", "Napoletano", "Piemontese", "Siciliano"],
-        correctAnswer: "Napoletano"
-      },
-      {
-        id: 2,
-        type: 'translation',
-        question: "Traduza: 'Cada região tem suas próprias tradições linguísticas'",
-        correctAnswer: "Ogni regione ha le proprie tradizioni linguistiche"
-      },
-      {
-        id: 3,
-        type: 'multiple-choice',
-        question: "Em que região se fala o 'lombardo'?",
-        options: ["Toscana", "Sicilia", "Lombardia", "Lazio"],
-        correctAnswer: "Lombardia"
-      }
-    ]
-  },
-  {
-    id: 38,
-    title: "Traduzione Avanzata",
-    description: "Técnicas avançadas de tradução",
-    level: 'C2',
-    category: "Tradução",
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 170,
-    exercises: [
-      {
-        id: 1,
-        type: 'multiple-choice',
-        question: "Qual é o maior desafio na tradução de poesia?",
-        options: ["Sintaxe", "Lessico", "Ritmo e métrica", "Pontuação"],
-        correctAnswer: "Ritmo e métrica"
-      },
-      {
-        id: 2,
-        type: 'translation',
-        question: "Traduza preservando o tom: 'A ironia sutil do autor é intraducível'",
-        correctAnswer: "L'ironia sottile dell'autore è intraducibile"
-      },
-      {
-        id: 3,
-        type: 'fill-blank',
-        question: "Complete: 'La _____ richiede sensibilità culturale' (A tradução requer sensibilidade cultural)",
-        correctAnswer: "traduzione"
-      }
-    ]
-  },
-  {
-    id: 39,
-    title: "Linguistica Storica",
-    description: "Evolução histórica da língua italiana",
-    level: 'C2',
-    category: "Linguística",
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 160,
-    exercises: [
-      {
-        id: 1,
-        type: 'multiple-choice',
-        question: "De qual língua deriva principalmente o italiano?",
-        options: ["Greco", "Germanico", "Latino", "Etrusco"],
-        correctAnswer: "Latino"
-      },
-      {
-        id: 2,
-        type: 'translation',
-        question: "Traduza: 'O italiano moderno deriva do latim vulgar'",
-        correctAnswer: "L'italiano moderno deriva dal latino volgare"
-      },
-      {
-        id: 3,
-        type: 'multiple-choice',
-        question: "Quando se considera que nasceu o italiano literário?",
-        options: ["Século X", "Século XIII", "Século XV", "Século XVI"],
-        correctAnswer: "Século XIII"
-      }
-    ]
-  },
-  {
-    id: 40,
-    title: "Maestria Completa",
-    description: "Demonstração de domínio completo do italiano",
-    level: 'C2',
-    category: "Maestria",
-    isCompleted: false,
-    isUnlocked: false,
-    stars: 0,
-    xp: 200,
-    exercises: [
-      {
-        id: 1,
-        type: 'translation',
-        question: "Traduza este texto complexo: 'A confluência de tradições linguísticas multíplices converge numa síntese cultural excepcional'",
-        correctAnswer: "La confluenza di tradizioni linguistiche molteplici converge in una sintesi culturale eccezionale"
-      },
-      {
-        id: 2,
-        type: 'multiple-choice',
-        question: "Qual alternativa expressa melhor uma condição irrealis?",
-        options: ["Se avessi tempo, verrei", "Se avrò tempo, verrò", "Se ho tempo, vengo", "Se avevo tempo, venivo"],
-        correctAnswer: "Se avessi tempo, verrei"
-      },
-      {
-        id: 3,
-        type: 'fill-blank',
-        question: "Complete com a forma mais elegante: 'La questione _____ ulteriore riflessione' (A questão merece reflexão adicional)",
-        correctAnswer: "merita"
+        question: 'Traduza: "elicottero"',
+        correctAnswer: 'helicóptero',
+        hint: 'Um transporte aéreo vertical'
       }
     ]
   }

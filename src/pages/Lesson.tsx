@@ -66,14 +66,14 @@ const Lesson = () => {
     const accuracy = Math.round((correctAnswers / lesson.exercises.length) * 100);
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 flex items-center justify-center p-4">
-        <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full text-center">
+      <div className="min-h-screen bg-gradient-to-br from-cream to-light-purple flex items-center justify-center p-4">
+        <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full text-center border border-light-purple">
           <div className="mb-6">
-            <div className="w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-20 h-20 bg-gradient-to-br from-medium-purple to-dark-purple rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-3xl">🎉</span>
             </div>
-            <h2 className="text-2xl font-bold text-gray-800 mb-2">Lição Concluída!</h2>
-            <p className="text-gray-600">Parabéns pelo seu progresso!</p>
+            <h2 className="text-2xl font-bold text-dark-purple mb-2">Lição Concluída!</h2>
+            <p className="text-medium-purple">Parabéns pelo seu progresso!</p>
           </div>
 
           <div className="space-y-4 mb-8">
@@ -88,15 +88,15 @@ const Lesson = () => {
               ))}
             </div>
 
-            <div className="bg-gray-50 rounded-lg p-4">
+            <div className="bg-cream rounded-lg p-4 border border-light-purple">
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div>
-                  <span className="text-gray-600">Precisão:</span>
-                  <p className="font-semibold text-green-600">{accuracy}%</p>
+                  <span className="text-medium-purple">Precisão:</span>
+                  <p className="font-semibold text-dark-purple">{accuracy}%</p>
                 </div>
                 <div>
-                  <span className="text-gray-600">XP Ganho:</span>
-                  <p className="font-semibold text-blue-600">+{lesson.xp}</p>
+                  <span className="text-medium-purple">XP Ganho:</span>
+                  <p className="font-semibold text-medium-purple">+{lesson.xp}</p>
                 </div>
               </div>
             </div>
@@ -104,7 +104,7 @@ const Lesson = () => {
 
           <button
             onClick={handleBackToHome}
-            className="w-full bg-gradient-to-r from-green-500 to-blue-500 text-white py-3 rounded-xl font-semibold hover:from-green-600 hover:to-blue-600 transition-all duration-200"
+            className="w-full bg-gradient-to-r from-medium-purple to-dark-purple text-white py-3 rounded-xl font-semibold hover:from-dark-purple hover:to-medium-purple transition-all duration-200 transform hover:scale-105"
           >
             Continuar Estudando
           </button>
@@ -114,13 +114,13 @@ const Lesson = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
+    <div className="min-h-screen bg-gradient-to-br from-cream to-light-purple">
       {/* Header */}
-      <div className="bg-white border-b border-gray-200 px-4 py-4">
+      <div className="bg-white border-b border-light-purple px-4 py-4">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <button
             onClick={handleBackToHome}
-            className="flex items-center space-x-2 text-gray-600 hover:text-gray-800 transition-colors"
+            className="flex items-center space-x-2 text-medium-purple hover:text-dark-purple transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
             <span>Voltar</span>
@@ -128,7 +128,7 @@ const Lesson = () => {
 
           <div className="flex-1 mx-8">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-semibold text-gray-600">
+              <span className="text-sm font-semibold text-medium-purple">
                 {currentExerciseIndex + 1} de {lesson.exercises.length}
               </span>
               <div className="flex items-center space-x-2">
@@ -138,9 +138,9 @@ const Lesson = () => {
                 </span>
               </div>
             </div>
-            <div className="w-full bg-gray-200 rounded-full h-3">
+            <div className="w-full bg-light-purple bg-opacity-30 rounded-full h-3">
               <div 
-                className="bg-gradient-to-r from-green-400 to-blue-500 h-3 rounded-full transition-all duration-300"
+                className="bg-gradient-to-r from-medium-purple to-dark-purple h-3 rounded-full transition-all duration-300"
                 style={{ width: `${progress}%` }}
               ></div>
             </div>
@@ -148,7 +148,7 @@ const Lesson = () => {
 
           <button
             onClick={handleBackToHome}
-            className="p-2 text-gray-400 hover:text-gray-600 transition-colors"
+            className="p-2 text-medium-purple hover:text-dark-purple transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -158,13 +158,15 @@ const Lesson = () => {
       {/* Exercise Content */}
       <div className="max-w-4xl mx-auto px-4 py-8">
         <div className="text-center mb-8">
-          <h1 className="text-2xl font-bold text-gray-800 mb-2">{lesson.title}</h1>
-          <p className="text-gray-600">{lesson.description}</p>
+          <h1 className="text-2xl font-bold text-dark-purple mb-2">{lesson.title}</h1>
+          <p className="text-medium-purple">{lesson.description}</p>
         </div>
 
         <ExerciseCard
           exercise={currentExercise}
           onAnswer={handleAnswer}
+          currentIndex={currentExerciseIndex}
+          totalExercises={lesson.exercises.length}
         />
       </div>
     </div>

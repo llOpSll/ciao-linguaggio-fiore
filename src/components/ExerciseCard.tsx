@@ -1,38 +1,28 @@
 
 import React, { useState } from 'react';
 import { Exercise } from '../types/game';
-import { Check, X, HelpCircle } from 'lucide-react';
+import { Check, X, HelpCircle, AlertCircle, CheckCircle2 } from 'lucide-react';
 import WordTooltip from './WordTooltip';
+import { wordTranslations } from '../data/dictionary';
 
 interface ExerciseCardProps {
   exercise: Exercise;
   onAnswer: (isCorrect: boolean) => void;
+  currentIndex: number;
+  totalExercises: number;
 }
 
-const ExerciseCard: React.FC<ExerciseCardProps> = ({ exercise, onAnswer }) => {
+const ExerciseCard: React.FC<ExerciseCardProps> = ({ 
+  exercise, 
+  onAnswer, 
+  currentIndex, 
+  totalExercises 
+}) => {
   const [selectedAnswer, setSelectedAnswer] = useState<string>('');
   const [showResult, setShowResult] = useState(false);
   const [userAnswer, setUserAnswer] = useState('');
   const [showHint, setShowHint] = useState(false);
-
-  // Dicionário simples para tooltips
-  const wordTranslations: { [key: string]: { translation: string; pronunciation?: string } } = {
-    'ciao': { translation: 'oi, tchau', pronunciation: '/ˈtʃao/' },
-    'buongiorno': { translation: 'bom dia', pronunciation: '/buonˈdʒorno/' },
-    'casa': { translation: 'casa', pronunciation: '/ˈkasa/' },
-    'mangiare': { translation: 'comer', pronunciation: '/manˈdʒare/' },
-    'bello': { translation: 'bonito', pronunciation: '/ˈbello/' },
-    'famiglia': { translation: 'família', pronunciation: '/faˈmiʎʎa/' },
-    'madre': { translation: 'mãe', pronunciation: '/ˈmadre/' },
-    'padre': { translation: 'pai', pronunciation: '/ˈpadre/' },
-    'fratello': { translation: 'irmão', pronunciation: '/fraˈtello/' },
-    'sorella': { translation: 'irmã', pronunciation: '/soˈrella/' },
-    'rosso': { translation: 'vermelho', pronunciation: '/ˈrosso/' },
-    'blu': { translation: 'azul', pronunciation: '/blu/' },
-    'verde': { translation: 'verde', pronunciation: '/ˈverde/' },
-    'pizza': { translation: 'pizza', pronunciation: '/ˈpittsa/' },
-    'pasta': { translation: 'massa', pronunciation: '/ˈpasta/' }
-  };
+  const [isCorrect, setIsCorrect] = useState(false);
 
   const addTooltipsToText = (text: string) => {
     const words = text.split(' ');
@@ -47,6 +37,7 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({ exercise, onAnswer }) => {
               word={cleanWord} 
               translation={translation.translation}
               pronunciation={translation.pronunciation}
+              type={translation.type}
             >
               {word}
             </WordTooltip>
@@ -60,35 +51,86 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({ exercise, onAnswer }) => {
 
   const handleSubmit = () => {
     const answer = exercise.type === 'multiple-choice' ? selectedAnswer : userAnswer;
-    const isCorrect = answer.toLowerCase().trim() === exercise.correctAnswer.toLowerCase().trim();
+    const correct = answer.toLowerCase().trim() === exercise.correctAnswer.toLowerCase().trim();
     
+    setIsCorrect(correct);
     setShowResult(true);
+    
     setTimeout(() => {
-      onAnswer(isCorrect);
+      onAnswer(correct);
       setShowResult(false);
       setSelectedAnswer('');
       setUserAnswer('');
       setShowHint(false);
-    }, 1500);
+    }, 2500);
   };
 
+  const renderProgressBar = () => (
+    <div className="mb-6">
+      <div className="flex justify-between items-center mb-2">
+        <span className="text-sm font-medium text-medium-purple">
+          Pergunta {currentIndex + 1} de {totalExercises}
+        </span>
+        <span className="text-xs text-medium-purple">
+          {Math.round(((currentIndex + 1) / totalExercises) * 100)}%
+        </span>
+      </div>
+      <div className="w-full bg-light-purple bg-opacity-30 rounded-full h-2">
+        <div 
+          className="bg-gradient-to-r from-medium-purple to-dark-purple h-2 rounded-full transition-all duration-500"
+          style={{ width: `${((currentIndex + 1) / totalExercises) * 100}%` }}
+        />
+      </div>
+    </div>
+  );
+
+  const renderSuccessMessage = () => (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 animate-fade-in">
+      <div className="bg-white rounded-2xl p-8 max-w-md mx-4 text-center animate-success-bounce">
+        <div className="w-16 h-16 bg-medium-purple rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse-success">
+          <CheckCircle2 className="w-8 h-8 text-white" />
+        </div>
+        <h3 className="text-2xl font-bold text-dark-purple mb-2">Perfeito! 🎉</h3>
+        <p className="text-medium-purple">Você acertou a resposta!</p>
+      </div>
+    </div>
+  );
+
+  const renderErrorMessage = () => (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 animate-fade-in">
+      <div className="bg-white rounded-2xl p-8 max-w-md mx-4 text-center animate-error-shake">
+        <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+          <AlertCircle className="w-8 h-8 text-white" />
+        </div>
+        <h3 className="text-2xl font-bold text-red-600 mb-2">Ops! 😔</h3>
+        <p className="text-gray-600 mb-4">Não foi dessa vez, mas continue tentando!</p>
+        <div className="bg-red-50 border border-red-200 rounded-xl p-4">
+          <p className="text-sm text-red-600 mb-1">
+            <strong>Resposta correta:</strong>
+          </p>
+          <p className="text-lg font-bold text-red-800">{exercise.correctAnswer}</p>
+        </div>
+      </div>
+    </div>
+  );
+
   const renderMultipleChoice = () => (
-    <div className="space-y-3">
-      <h3 className="text-xl font-semibold text-gray-800 mb-6">
+    <div className="space-y-4">
+      <h3 className="text-xl font-semibold text-dark-purple mb-6">
         {addTooltipsToText(exercise.question)}
       </h3>
       {exercise.options?.map((option, index) => (
         <button
           key={index}
           className={`
-            w-full p-4 text-left rounded-xl border-2 transition-all duration-300 hover-lift
+            w-full p-4 text-left rounded-xl border-2 transition-all duration-300 transform hover:scale-[1.02]
             ${selectedAnswer === option
               ? showResult
                 ? option === exercise.correctAnswer
-                  ? 'bg-italian-green bg-opacity-10 border-italian-green text-italian-green animate-scale-in'
-                  : 'bg-italian-red bg-opacity-10 border-italian-red text-italian-red animate-scale-in'
-                : 'bg-italian-green bg-opacity-20 border-italian-green text-italian-green'
-              : 'bg-white border-gray-200 hover:border-italian-green hover:bg-italian-green hover:bg-opacity-5'
+                  ? 'bg-medium-purple bg-opacity-10 border-medium-purple text-medium-purple animate-scale-in'
+                  : 'bg-red-500 bg-opacity-10 border-red-500 text-red-600 animate-scale-in'
+                : 'bg-medium-purple bg-opacity-20 border-medium-purple text-dark-purple'
+              : 'bg-cream border-light-purple hover:border-medium-purple hover:bg-light-purple hover:bg-opacity-20'
             }
           `}
           onClick={() => !showResult && setSelectedAnswer(option)}
@@ -97,51 +139,30 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({ exercise, onAnswer }) => {
           <div className="flex items-center justify-between">
             <span className="font-medium">{addTooltipsToText(option)}</span>
             {showResult && option === exercise.correctAnswer && (
-              <Check className="w-5 h-5 text-italian-green animate-bounce-in" />
+              <Check className="w-5 h-5 text-medium-purple animate-bounce" />
             )}
             {showResult && selectedAnswer === option && option !== exercise.correctAnswer && (
-              <X className="w-5 h-5 text-italian-red animate-bounce-in" />
+              <X className="w-5 h-5 text-red-600 animate-bounce" />
             )}
           </div>
         </button>
       ))}
-    </div>
-  );
-
-  const renderTranslation = () => (
-    <div className="space-y-4">
-      <h3 className="text-xl font-semibold text-gray-800 mb-6">
-        {addTooltipsToText(exercise.question)}
-      </h3>
-      <input
-        type="text"
-        value={userAnswer}
-        onChange={(e) => setUserAnswer(e.target.value)}
-        className={`
-          w-full p-4 text-lg rounded-xl border-2 transition-all duration-300 focus-ring
-          ${showResult
-            ? userAnswer.toLowerCase().trim() === exercise.correctAnswer.toLowerCase().trim()
-              ? 'bg-italian-green bg-opacity-10 border-italian-green text-italian-green'
-              : 'bg-italian-red bg-opacity-10 border-italian-red text-italian-red'
-            : 'border-gray-300 focus:border-italian-green focus:outline-none'
-          }
-        `}
-        placeholder="Digite sua resposta..."
-        disabled={showResult}
-      />
-      {showResult && userAnswer.toLowerCase().trim() !== exercise.correctAnswer.toLowerCase().trim() && (
-        <div className="p-4 bg-italian-green bg-opacity-10 border border-italian-green rounded-xl animate-fade-in">
-          <p className="text-italian-green">
-            <strong>Resposta correta:</strong> {exercise.correctAnswer}
-          </p>
+      
+      {showResult && selectedAnswer !== exercise.correctAnswer && (
+        <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-xl animate-fade-in">
+          <div className="flex items-center space-x-2 mb-2">
+            <AlertCircle className="w-5 h-5 text-red-600" />
+            <p className="font-medium text-red-800">Resposta correta:</p>
+          </div>
+          <p className="text-red-700 font-semibold">{exercise.correctAnswer}</p>
         </div>
       )}
     </div>
   );
 
-  const renderFillBlank = () => (
+  const renderTextInput = () => (
     <div className="space-y-4">
-      <h3 className="text-xl font-semibold text-gray-800 mb-6">
+      <h3 className="text-xl font-semibold text-dark-purple mb-6">
         {addTooltipsToText(exercise.question)}
       </h3>
       <input
@@ -149,17 +170,27 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({ exercise, onAnswer }) => {
         value={userAnswer}
         onChange={(e) => setUserAnswer(e.target.value)}
         className={`
-          w-full p-4 text-lg rounded-xl border-2 transition-all duration-300 focus-ring
+          w-full p-4 text-lg rounded-xl border-2 transition-all duration-300
           ${showResult
             ? userAnswer.toLowerCase().trim() === exercise.correctAnswer.toLowerCase().trim()
-              ? 'bg-italian-green bg-opacity-10 border-italian-green text-italian-green'
-              : 'bg-italian-red bg-opacity-10 border-italian-red text-italian-red'
-            : 'border-gray-300 focus:border-italian-green focus:outline-none'
+              ? 'bg-medium-purple bg-opacity-10 border-medium-purple text-medium-purple'
+              : 'bg-red-500 bg-opacity-10 border-red-500 text-red-600'
+            : 'border-light-purple focus:border-medium-purple focus:outline-none bg-cream'
           }
         `}
-        placeholder="Complete a frase..."
+        placeholder="Digite sua resposta..."
         disabled={showResult}
       />
+      
+      {showResult && userAnswer.toLowerCase().trim() !== exercise.correctAnswer.toLowerCase().trim() && (
+        <div className="p-4 bg-red-50 border border-red-200 rounded-xl animate-fade-in">
+          <div className="flex items-center space-x-2 mb-2">
+            <AlertCircle className="w-5 h-5 text-red-600" />
+            <p className="font-medium text-red-800">Resposta correta:</p>
+          </div>
+          <p className="text-red-700 font-semibold">{exercise.correctAnswer}</p>
+        </div>
+      )}
     </div>
   );
 
@@ -169,45 +200,51 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({ exercise, onAnswer }) => {
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-xl p-8 max-w-2xl mx-auto border border-gray-100 hover-lift">
-      {exercise.type === 'multiple-choice' && renderMultipleChoice()}
-      {exercise.type === 'translation' && renderTranslation()}
-      {exercise.type === 'fill-blank' && renderFillBlank()}
+    <>
+      <div className="bg-white rounded-2xl shadow-xl p-8 max-w-2xl mx-auto border border-light-purple hover:shadow-2xl transition-all duration-300">
+        {renderProgressBar()}
+        
+        {exercise.type === 'multiple-choice' && renderMultipleChoice()}
+        {(exercise.type === 'translation' || exercise.type === 'fill-blank') && renderTextInput()}
 
-      <div className="flex items-center justify-between mt-8">
-        {exercise.hint && (
+        <div className="flex items-center justify-between mt-8">
+          {exercise.hint && (
+            <button
+              onClick={() => setShowHint(!showHint)}
+              className="flex items-center space-x-2 text-medium-purple hover:text-dark-purple transition-colors duration-200 px-4 py-2 rounded-lg hover:bg-light-purple hover:bg-opacity-20"
+            >
+              <HelpCircle className="w-5 h-5" />
+              <span>Dica</span>
+            </button>
+          )}
+
+          {!exercise.hint && <div></div>}
+
           <button
-            onClick={() => setShowHint(!showHint)}
-            className="flex items-center space-x-2 text-italian-green hover:text-italian-green-dark transition-colors duration-200 hover-lift"
+            onClick={handleSubmit}
+            disabled={!canSubmit() || showResult}
+            className={`
+              px-8 py-3 rounded-xl font-semibold transition-all duration-300 transform
+              ${canSubmit() && !showResult
+                ? 'bg-gradient-to-r from-medium-purple to-dark-purple hover:from-dark-purple hover:to-medium-purple text-white shadow-lg hover:shadow-xl hover:scale-105'
+                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+              }
+            `}
           >
-            <HelpCircle className="w-5 h-5" />
-            <span>Dica</span>
+            {showResult ? 'Processando...' : 'Verificar'}
           </button>
+        </div>
+
+        {showHint && exercise.hint && (
+          <div className="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-xl animate-fade-in">
+            <p className="text-yellow-800">💡 {exercise.hint}</p>
+          </div>
         )}
-
-        {!exercise.hint && <div></div>}
-
-        <button
-          onClick={handleSubmit}
-          disabled={!canSubmit() || showResult}
-          className={`
-            px-8 py-3 rounded-xl font-semibold transition-all duration-300 shine-effect
-            ${canSubmit() && !showResult
-              ? 'bg-gradient-to-r from-italian-green to-italian-green-dark hover:from-italian-green-dark hover:to-italian-green text-white shadow-lg hover:shadow-xl transform hover:scale-105'
-              : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-            }
-          `}
-        >
-          {showResult ? 'Processando...' : 'Verificar'}
-        </button>
       </div>
 
-      {showHint && exercise.hint && (
-        <div className="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-xl animate-fade-in">
-          <p className="text-yellow-800">💡 {exercise.hint}</p>
-        </div>
-      )}
-    </div>
+      {showResult && isCorrect && renderSuccessMessage()}
+      {showResult && !isCorrect && renderErrorMessage()}
+    </>
   );
 };
 

@@ -109,11 +109,11 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const completeLesson = (lessonId: number, stars: number) => {
     setLessons(prev => prev.map(lesson => {
       if (lesson.id === lessonId) {
-        const wasCompleted = lesson.isCompleted;
+        // Sempre atualiza as estrelas com o valor recebido, não o máximo
         return { 
           ...lesson, 
           isCompleted: true, 
-          stars: Math.max(lesson.stars, stars) 
+          stars: stars 
         };
       }
       // Unlock next lesson
