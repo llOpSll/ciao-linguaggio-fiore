@@ -1,11 +1,10 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { useGame } from '../contexts/GameContext';
 import LessonCard from '../components/LessonCard';
 import LoginForm from '../components/LoginForm';
-import { Play, TrendingUp, Award, BookOpen, Filter, Star, Target, Users, Globe } from 'lucide-react';
+import { Play, TrendingUp, Award, BookOpen, Filter, Star, Target, Users, Globe, Map } from 'lucide-react';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -13,6 +12,7 @@ const Home = () => {
   const { lessons, userProgress } = useGame();
   const [showLogin, setShowLogin] = useState(false);
   const [selectedLevel, setSelectedLevel] = useState<string>('all');
+  const [showCourseMap, setShowCourseMap] = useState(false);
 
   const handleLessonClick = (lessonId: number) => {
     if (!user) {
@@ -22,7 +22,7 @@ const Home = () => {
     navigate(`/lesson/${lessonId}`);
   };
 
-  const levels = ['all', 'A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'C1', 'C2', 'C3', 'C4', 'C5', 'C6'];
+  const levels = ['all', 'A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'C1', 'C2', 'D1'];
   const filteredLessons = selectedLevel === 'all' 
     ? lessons 
     : lessons.filter(lesson => lesson.level === selectedLevel);
@@ -41,6 +41,20 @@ const Home = () => {
 
   const levelStats = getLevelStats();
   const totalStars = getTotalStars();
+
+  // Função para agrupar lições por nível
+  const getLessonsByLevel = () => {
+    const grouped: { [key: string]: typeof lessons } = {};
+    lessons.forEach(lesson => {
+      if (!grouped[lesson.level]) {
+        grouped[lesson.level] = [];
+      }
+      grouped[lesson.level].push(lesson);
+    });
+    return grouped;
+  };
+
+  const lessonsByLevel = getLessonsByLevel();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-ivory via-powder-blue to-steel-blue">
@@ -150,6 +164,112 @@ const Home = () => {
             )}
           </div>
         </div>
+      </div>
+
+      {/* Botão para mostrar mapa do curso */}
+      <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+        <div className="text-center mb-8">
+          <button
+            onClick={() => setShowCourseMap(!showCourseMap)}
+            className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-steel-blue to-dark-navy text-white font-bold rounded-xl hover:from-steel-blue-light hover:to-dark-navy-light transition-all duration-300 shadow-lg hover:shadow-xl"
+          >
+            <Map className="w-5 h-5 mr-2" />
+            {showCourseMap ? 'Ocultar' : 'Ver'} Mapa Completo do Curso
+          </button>
+        </div>
+
+        {/* Mapa Completo do Curso */}
+        {showCourseMap && (
+          <div className="bg-white rounded-2xl shadow-xl p-8 mb-12 border-2 border-powder-blue">
+            <h3 className="text-3xl font-bold text-dark-navy mb-8 text-center flex items-center justify-center">
+              <Map className="w-8 h-8 mr-3 text-steel-blue" />
+              Mapa Completo do Curso
+            </h3>
+            
+            <div className="space-y-8">
+              {['A', 'B', 'C', 'D', 'E'].map(levelGroup => {
+                const groupLevels = Object.keys(lessonsByLevel).filter(level => level.startsWith(levelGroup));
+                if (groupLevels.length === 0) return null;
+
+                return (
+                  <div key={levelGroup} className="border-2 border-powder-blue rounded-xl p-6">
+                    <h4 className="text-2xl font-bold text-dark-navy mb-6 flex items-center">
+                      <Target className="w-6 h-6 mr-2 text-steel-blue" />
+                      Nível {levelGroup} - {levelGroup === 'A' ? 'Básico' : levelGroup === 'B' ? 'Intermediário' : levelGroup === 'C' ? 'Avançado' : levelGroup === 'D' ? 'Especialização' : 'Especialização Avançada'}
+                    </h4>
+                    
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                      {groupLevels.sort().map(level => {
+                        const levelLessons = lessonsByLevel[level] || [];
+                        const completed = levelLessons.filter(l => l.isCompleted).length;
+                        const total = levelLessons.length;
+                        const percentage = total > 0 ? (completed / total) * 100 : 0;
+
+                        return (
+                          <div key={level} className="bg-ivory rounded-lg p-4 border border-powder-blue">
+                            <div className="flex items-center justify-between mb-3">
+                              <span className="text-lg font-bold text-dark-navy">{level}</span>
+                              <span className="text-sm text-steel-blue">{completed}/{total}</span>
+                            </div>
+                            
+                            <div className="w-full bg-powder-blue-light rounded-full h-3 mb-3">
+                              <div 
+                                className="bg-gradient-to-r from-steel-blue to-dark-navy h-3 rounded-full transition-all duration-700"
+                                style={{ width: `${percentage}%` }}
+                              />
+                            </div>
+                            
+                            <div className="space-y-1">
+                              {levelLessons.map(lesson => (
+                                <div 
+                                  key={lesson.id} 
+                                  className={`text-xs p-2 rounded flex items-center justify-between ${
+                                    lesson.isCompleted 
+                                      ? 'bg-steel-blue text-white' 
+                                      : lesson.isUnlocked 
+                                        ? 'bg-powder-blue text-dark-navy' 
+                                        : 'bg-gray-100 text-gray-500'
+                                  }`}
+                                >
+                                  <span className="truncate mr-2">{lesson.title}</span>
+                                  <div className="flex items-center space-x-1">
+                                    {lesson.isCompleted && <Star className="w-3 h-3 text-yellow-300" />}
+                                    {lesson.videoUrl && <Play className="w-3 h-3" />}
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="mt-8 text-center">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto">
+                <div className="bg-gradient-to-br from-steel-blue to-dark-navy text-white rounded-lg p-4">
+                  <div className="text-2xl font-bold">{lessons.length}</div>
+                  <div className="text-sm opacity-90">Total de Lições</div>
+                </div>
+                <div className="bg-gradient-to-br from-powder-blue to-powder-blue-dark text-dark-navy rounded-lg p-4">
+                  <div className="text-2xl font-bold">{Object.keys(lessonsByLevel).length}</div>
+                  <div className="text-sm opacity-80">Módulos</div>
+                </div>
+                <div className="bg-gradient-to-br from-yellow-400 to-yellow-500 text-dark-navy rounded-lg p-4">
+                  <div className="text-2xl font-bold">{lessons.reduce((sum, l) => sum + l.xp, 0)}</div>
+                  <div className="text-sm opacity-80">XP Total</div>
+                </div>
+                <div className="bg-gradient-to-br from-green-400 to-green-500 text-white rounded-lg p-4">
+                  <div className="text-2xl font-bold">{lessons.filter(l => l.videoUrl).length}</div>
+                  <div className="text-sm opacity-90">Vídeo Aulas</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Seção de Lições */}

@@ -1,4 +1,3 @@
-
 import { Lesson } from '../types/game';
 
 export const lessons: Lesson[] = [
@@ -199,9 +198,58 @@ export const lessons: Lesson[] = [
       }
     ]
   },
-  // Continuando com A2, A3, A4, A5, A6...
   {
     id: 3,
+    title: 'Cores e Objetos Básicos',
+    description: 'Vocabulário essencial sobre cores e objetos do cotidiano',
+    level: 'A1',
+    category: 'Vocabulário',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 45,
+    exercises: []
+  },
+  {
+    id: 4,
+    title: 'Artigos e Gênero',
+    description: 'Aprenda os artigos definidos e indefinidos em italiano',
+    level: 'A1',
+    category: 'Gramática',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 60,
+    exercises: []
+  },
+  {
+    id: 5,
+    title: 'Verbos Ser e Estar',
+    description: 'Domine os verbos essere e stare no presente',
+    level: 'A1',
+    category: 'Gramática',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 65,
+    exercises: []
+  },
+  {
+    id: 6,
+    title: 'Dias da Semana e Meses',
+    description: 'Aprenda a expressar tempo: dias, meses e estações',
+    level: 'A1',
+    category: 'Tempo',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 50,
+    exercises: []
+  },
+
+  // NÍVEL A2 - 6 lições
+  {
+    id: 7,
     title: 'Família e Relacionamentos',
     description: 'Vocabulário sobre família, parentesco e relacionamentos pessoais',
     level: 'A2',
@@ -297,9 +345,366 @@ export const lessons: Lesson[] = [
       }
     ]
   },
-  // Expandindo para níveis B1, B2, etc...
   {
-    id: 7,
+    id: 8,
+    title: 'Casa e Móveis',
+    description: 'Aprenda sobre partes da casa e móveis em italiano',
+    level: 'A2',
+    category: 'Casa',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 65,
+    exercises: []
+  },
+  {
+    id: 9,
+    title: 'Comida e Bebida',
+    description: 'Vocabulário essencial sobre alimentação italiana',
+    level: 'A2',
+    category: 'Culinária',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 70,
+    exercises: []
+  },
+  {
+    id: 10,
+    title: 'Presente dos Verbos Regulares',
+    description: 'Conjugação dos verbos regulares no presente',
+    level: 'A2',
+    category: 'Gramática',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 75,
+    exercises: []
+  },
+  {
+    id: 11,
+    title: 'Preposições Básicas',
+    description: 'Aprenda as preposições mais importantes em italiano',
+    level: 'A2',
+    category: 'Gramática',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 70,
+    exercises: []
+  },
+  {
+    id: 12,
+    title: 'Compras e Dinheiro',
+    description: 'Vocabulário para fazer compras e falar sobre preços',
+    level: 'A2',
+    category: 'Compras',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 65,
+    exercises: []
+  },
+
+  // NÍVEL A3 - 6 lições
+  {
+    id: 13,
+    title: 'Transporte e Viagem',
+    description: 'Vocabulário sobre meios de transporte e viagens',
+    level: 'A3',
+    category: 'Viagem',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 75,
+    exercises: []
+  },
+  {
+    id: 14,
+    title: 'Profissões e Trabalho',
+    description: 'Aprenda sobre diferentes profissões e o mundo do trabalho',
+    level: 'A3',
+    category: 'Trabalho',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 80,
+    exercises: []
+  },
+  {
+    id: 15,
+    title: 'Corpo Humano e Saúde',
+    description: 'Vocabulário sobre partes do corpo e questões de saúde',
+    level: 'A3',
+    category: 'Saúde',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 75,
+    exercises: []
+  },
+  {
+    id: 16,
+    title: 'Verbos Reflexivos',
+    description: 'Aprenda a conjugar e usar verbos reflexivos',
+    level: 'A3',
+    category: 'Gramática',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 85,
+    exercises: []
+  },
+  {
+    id: 17,
+    title: 'Adjetivos e Comparações',
+    description: 'Uso de adjetivos e como fazer comparações',
+    level: 'A3',
+    category: 'Gramática',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 80,
+    exercises: []
+  },
+  {
+    id: 18,
+    title: 'Clima e Estações',
+    description: 'Aprenda a falar sobre o tempo e as estações do ano',
+    level: 'A3',
+    category: 'Clima',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 70,
+    exercises: []
+  },
+
+  // NÍVEL A4 - 6 lições
+  {
+    id: 19,
+    title: 'Emoções e Sentimentos',
+    description: 'Vocabulário para expressar emoções e sentimentos',
+    level: 'A4',
+    category: 'Emoções',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 80,
+    exercises: []
+  },
+  {
+    id: 20,
+    title: 'Esportes e Lazer',
+    description: 'Aprenda sobre esportes e atividades de lazer',
+    level: 'A4',
+    category: 'Esportes',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 75,
+    exercises: []
+  },
+  {
+    id: 21,
+    title: 'Futuro Simples',
+    description: 'Conjugação e uso do futuro simples em italiano',
+    level: 'A4',
+    category: 'Gramática',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 90,
+    exercises: []
+  },
+  {
+    id: 22,
+    title: 'Tecnologia e Internet',
+    description: 'Vocabulário moderno sobre tecnologia e internet',
+    level: 'A4',
+    category: 'Tecnologia',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 85,
+    exercises: []
+  },
+  {
+    id: 23,
+    title: 'Cultura Italiana',
+    description: 'Aprenda sobre a cultura, tradições e costumes italianos',
+    level: 'A4',
+    category: 'Cultura',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 80,
+    exercises: []
+  },
+  {
+    id: 24,
+    title: 'Advérbios de Modo',
+    description: 'Formação e uso de advérbios de modo',
+    level: 'A4',
+    category: 'Gramática',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 75,
+    exercises: []
+  },
+
+  // NÍVEL A5 - 6 lições
+  {
+    id: 25,
+    title: 'Música e Arte',
+    description: 'Vocabulário sobre música, arte e expressões culturais',
+    level: 'A5',
+    category: 'Arte',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 85,
+    exercises: []
+  },
+  {
+    id: 26,
+    title: 'Educação e Estudo',
+    description: 'Vocabulário relacionado à educação e estudos',
+    level: 'A5',
+    category: 'Educação',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 80,
+    exercises: []
+  },
+  {
+    id: 27,
+    title: 'Imperativo',
+    description: 'Aprenda a formar e usar o modo imperativo',
+    level: 'A5',
+    category: 'Gramática',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 90,
+    exercises: []
+  },
+  {
+    id: 28,
+    title: 'Animais e Natureza',
+    description: 'Vocabulário sobre animais, plantas e meio ambiente',
+    level: 'A5',
+    category: 'Natureza',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 75,
+    exercises: []
+  },
+  {
+    id: 29,
+    title: 'Geografia da Itália',
+    description: 'Aprenda sobre as regiões, cidades e geografia italiana',
+    level: 'A5',
+    category: 'Geografia',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 80,
+    exercises: []
+  },
+  {
+    id: 30,
+    title: 'Particípio Presente',
+    description: 'Formação e uso do particípio presente',
+    level: 'A5',
+    category: 'Gramática',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 85,
+    exercises: []
+  },
+
+  // NÍVEL A6 - 6 lições
+  {
+    id: 31,
+    title: 'História da Itália',
+    description: 'Aspectos importantes da história italiana',
+    level: 'A6',
+    category: 'História',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 90,
+    exercises: []
+  },
+  {
+    id: 32,
+    title: 'Literatura Básica',
+    description: 'Introdução à literatura italiana clássica',
+    level: 'A6',
+    category: 'Literatura',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 95,
+    exercises: []
+  },
+  {
+    id: 33,
+    title: 'Condicional',
+    description: 'Aprenda o modo condicional presente e passado',
+    level: 'A6',
+    category: 'Gramática',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 100,
+    exercises: []
+  },
+  {
+    id: 34,
+    title: 'Expressões Idiomáticas',
+    description: 'Principais expressões idiomáticas italianas',
+    level: 'A6',
+    category: 'Expressões',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 85,
+    exercises: []
+  },
+  {
+    id: 35,
+    title: 'Economia e Negócios',
+    description: 'Vocabulário básico sobre economia e negócios',
+    level: 'A6',
+    category: 'Negócios',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 90,
+    exercises: []
+  },
+  {
+    id: 36,
+    title: 'Revisão Nível A',
+    description: 'Revisão completa de todos os conteúdos do nível A',
+    level: 'A6',
+    category: 'Revisão',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 100,
+    exercises: []
+  },
+
+  // NÍVEL B1 - 6 lições
+  {
+    id: 37,
     title: 'Passato Prossimo',
     description: 'Domine o passado próximo italiano e suas conjugações',
     level: 'B1',
@@ -307,7 +712,7 @@ export const lessons: Lesson[] = [
     isCompleted: false,
     isUnlocked: false,
     stars: 0,
-    xp: 85,
+    xp: 105,
     exercises: [
       {
         id: 1,
@@ -363,7 +768,7 @@ export const lessons: Lesson[] = [
       {
         id: 7,
         type: 'fill-blank',
-        question: 'Complete: "Io _____ molto ieri" (Trabalhei muito ontem)',
+        question: 'Complete: "Io _____ muito ieri" (Trabalhei muito ontem)',
         correctAnswer: 'ho lavorato',
         hint: 'Primeira pessoa com avere',
         context: 'Atividade profissional no passado'
@@ -394,6 +799,658 @@ export const lessons: Lesson[] = [
         context: 'Situação de atraso'
       }
     ]
+  },
+  {
+    id: 38,
+    title: 'Imperfetto',
+    description: 'Aprenda o pretérito imperfeito e suas aplicações',
+    level: 'B1',
+    category: 'Gramática',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 110,
+    exercises: []
+  },
+  {
+    id: 39,
+    title: 'Pronomes Diretos',
+    description: 'Uso correto dos pronomes diretos em italiano',
+    level: 'B1',
+    category: 'Gramática',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 100,
+    exercises: []
+  },
+  {
+    id: 40,
+    title: 'Medicina e Farmácia',
+    description: 'Vocabulário específico sobre medicina e farmácia',
+    level: 'B1',
+    category: 'Saúde',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 95,
+    exercises: []
+  },
+  {
+    id: 41,
+    title: 'Sistema Político',
+    description: 'Aprenda sobre o sistema político italiano',
+    level: 'B1',
+    category: 'Política',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 100,
+    exercises: []
+  },
+  {
+    id: 42,
+    title: 'Passato Remoto',
+    description: 'Conjugação e uso do passato remoto',
+    level: 'B1',
+    category: 'Gramática',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 115,
+    exercises: []
+  },
+
+  // NÍVEL B2 - 6 lições
+  {
+    id: 43,
+    title: 'Pronomes Indiretos',
+    description: 'Domínio dos pronomes indiretos e combinados',
+    level: 'B2',
+    category: 'Gramática',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 120,
+    exercises: []
+  },
+  {
+    id: 44,
+    title: 'Subjuntivo Presente',
+    description: 'Aprenda quando e como usar o subjuntivo presente',
+    level: 'B2',
+    category: 'Gramática',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 125,
+    exercises: []
+  },
+  {
+    id: 45,
+    title: 'Cinema Italiano',
+    description: 'História e vocabulário do cinema italiano',
+    level: 'B2',
+    category: 'Cinema',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 110,
+    exercises: []
+  },
+  {
+    id: 46,
+    title: 'Meio Ambiente',
+    description: 'Discussões sobre ecologia e meio ambiente',
+    level: 'B2',
+    category: 'Ambiente',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 115,
+    exercises: []
+  },
+  {
+    id: 47,
+    title: 'Subjuntivo Imperfeito',
+    description: 'Formação e uso do subjuntivo imperfeito',
+    level: 'B2',
+    category: 'Gramática',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 130,
+    exercises: []
+  },
+  {
+    id: 48,
+    title: 'Jornalismo e Mídia',
+    description: 'Vocabulário sobre jornalismo e meios de comunicação',
+    level: 'B2',
+    category: 'Mídia',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 120,
+    exercises: []
+  },
+
+  // NÍVEL B3 - 6 lições
+  {
+    id: 49,
+    title: 'Arquitetura Italiana',
+    description: 'Estilos arquitetônicos e monumentos da Itália',
+    level: 'B3',
+    category: 'Arquitetura',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 125,
+    exercises: []
+  },
+  {
+    id: 50,
+    title: 'Gerúndio e Infinito',
+    description: 'Uso avançado do gerúndio e infinito',
+    level: 'B3',
+    category: 'Gramática',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 130,
+    exercises: []
+  },
+  {
+    id: 51,
+    title: 'Psicologia e Sociologia',
+    description: 'Vocabulário de psicologia e sociologia',
+    level: 'B3',
+    category: 'Ciências Sociais',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 135,
+    exercises: []
+  },
+  {
+    id: 52,
+    title: 'Passivo e Impessoal',
+    description: 'Construções passivas e impessoais',
+    level: 'B3',
+    category: 'Gramática',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 140,
+    exercises: []
+  },
+  {
+    id: 53,
+    title: 'Filosofia Básica',
+    description: 'Introdução à filosofia italiana',
+    level: 'B3',
+    category: 'Filosofia',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 130,
+    exercises: []
+  },
+  {
+    id: 54,
+    title: 'Períodos Hipotéticos',
+    description: 'Domínio dos períodos hipotéticos',
+    level: 'B3',
+    category: 'Gramática',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 145,
+    exercises: []
+  },
+
+  // NÍVEL B4 - 6 lições
+  {
+    id: 55,
+    title: 'Ciência e Tecnologia',
+    description: 'Vocabulário científico e tecnológico avançado',
+    level: 'B4',
+    category: 'Ciência',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 140,
+    exercises: []
+  },
+  {
+    id: 56,
+    title: 'Concordância Temporal',
+    description: 'Regras avançadas de concordância temporal',
+    level: 'B4',
+    category: 'Gramática',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 150,
+    exercises: []
+  },
+  {
+    id: 57,
+    title: 'Direito Italiano',
+    description: 'Introdução ao sistema jurídico italiano',
+    level: 'B4',
+    category: 'Direito',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 145,
+    exercises: []
+  },
+  {
+    id: 58,
+    title: 'Discurso Indireto',
+    description: 'Transformação do discurso direto em indireto',
+    level: 'B4',
+    category: 'Gramática',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 140,
+    exercises: []
+  },
+  {
+    id: 59,
+    title: 'Gastronomia Regional',
+    description: 'Especialidades culinárias regionais da Itália',
+    level: 'B4',
+    category: 'Culinária',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 135,
+    exercises: []
+  },
+  {
+    id: 60,
+    title: 'Revisão Nível B',
+    description: 'Revisão completa de todos os conteúdos do nível B',
+    level: 'B4',
+    category: 'Revisão',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 150,
+    exercises: []
+  },
+
+  // NÍVEL B5 - 6 lições
+  {
+    id: 61,
+    title: 'Renascimento Italiano',
+    description: 'História e cultura do Renascimento',
+    level: 'B5',
+    category: 'História',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 155,
+    exercises: []
+  },
+  {
+    id: 62,
+    title: 'Futuro Anterior',
+    description: 'Uso do futuro anterior e suas nuances',
+    level: 'B5',
+    category: 'Gramática',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 160,
+    exercises: []
+  },
+  {
+    id: 63,
+    title: 'Economia Moderna',
+    description: 'A economia italiana no contexto global',
+    level: 'B5',
+    category: 'Economia',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 155,
+    exercises: []
+  },
+  {
+    id: 64,
+    title: 'Participio Passato Absoluto',
+    description: 'Construções com particípio passado absoluto',
+    level: 'B5',
+    category: 'Gramática',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 165,
+    exercises: []
+  },
+  {
+    id: 65,
+    title: 'Moda Italiana',
+    description: 'A indústria da moda e seu vocabulário',
+    level: 'B5',
+    category: 'Moda',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 150,
+    exercises: []
+  },
+  {
+    id: 66,
+    title: 'Tradições Regionais',
+    description: 'Festivais e tradições de cada região italiana',
+    level: 'B5',
+    category: 'Tradições',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 155,
+    exercises: []
+  },
+
+  // NÍVEL B6 - 6 lições
+  {
+    id: 67,
+    title: 'Dante e Literatura Medieval',
+    description: 'Introdução a Dante e literatura medieval',
+    level: 'B6',
+    category: 'Literatura',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 170,
+    exercises: []
+  },
+  {
+    id: 68,
+    title: 'Estilística Avançada',
+    description: 'Figuras de linguagem e estilo literário',
+    level: 'B6',
+    category: 'Estilística',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 175,
+    exercises: []
+  },
+  {
+    id: 69,
+    title: 'União Europeia e Itália',
+    description: 'O papel da Itália na União Europeia',
+    level: 'B6',
+    category: 'Política',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 165,
+    exercises: []
+  },
+  {
+    id: 70,
+    title: 'Sintaxe Complexa',
+    description: 'Estruturas sintáticas complexas e subordinadas',
+    level: 'B6',
+    category: 'Gramática',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 180,
+    exercises: []
+  },
+  {
+    id: 71,
+    title: 'Arte Contemporânea',
+    description: 'Movimentos artísticos contemporâneos na Itália',
+    level: 'B6',
+    category: 'Arte',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 170,
+    exercises: []
+  },
+  {
+    id: 72,
+    title: 'Preparação Nível C',
+    description: 'Preparação para o nível avançado C',
+    level: 'B6',
+    category: 'Preparação',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 175,
+    exercises: []
+  },
+
+  // NÍVEL C1 - 6 lições
+  {
+    id: 73,
+    title: 'Linguística Italiana',
+    description: 'Introdução aos estudos linguísticos do italiano',
+    level: 'C1',
+    category: 'Linguística',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 185,
+    exercises: []
+  },
+  {
+    id: 74,
+    title: 'Petrarca e Boccaccio',
+    description: 'Estudo dos grandes autores do Trecento',
+    level: 'C1',
+    category: 'Literatura',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 190,
+    exercises: []
+  },
+  {
+    id: 75,
+    title: 'Dialetos Regionais',
+    description: 'Panorama dos dialetos italianos',
+    level: 'C1',
+    category: 'Dialetos',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 185,
+    exercises: []
+  },
+  {
+    id: 76,
+    title: 'Retórica e Argumentação',
+    description: 'Técnicas avançadas de argumentação',
+    level: 'C1',
+    category: 'Retórica',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 195,
+    exercises: []
+  },
+  {
+    id: 77,
+    title: 'História da Arte Italiana',
+    description: 'Panorama completo da arte italiana',
+    level: 'C1',
+    category: 'Arte',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 190,
+    exercises: []
+  },
+  {
+    id: 78,
+    title: 'Semântica e Pragmática',
+    description: 'Estudo avançado de significado e uso',
+    level: 'C1',
+    category: 'Linguística',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 200,
+    exercises: []
+  },
+
+  // NÍVEL C2 - 6 lições
+  {
+    id: 79,
+    title: 'Maquiavel e Pensamento Político',
+    description: 'O pensamento político de Maquiavel',
+    level: 'C2',
+    category: 'Filosofia',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 205,
+    exercises: []
+  },
+  {
+    id: 80,
+    title: 'Análise Textual Avançada',
+    description: 'Técnicas de análise crítica de textos',
+    level: 'C2',
+    category: 'Análise',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 210,
+    exercises: []
+  },
+  {
+    id: 81,
+    title: 'Linguagem Científica',
+    description: 'Italiano técnico e científico',
+    level: 'C2',
+    category: 'Ciência',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 215,
+    exercises: []
+  },
+  {
+    id: 82,
+    title: 'Variação Linguística',
+    description: 'Registro formal e informal na língua italiana',
+    level: 'C2',
+    category: 'Variação',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 220,
+    exercises: []
+  },
+  {
+    id: 83,
+    title: 'Tradução e Interpretação',
+    description: 'Técnicas básicas de tradução',
+    level: 'C2',
+    category: 'Tradução',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 210,
+    exercises: []
+  },
+  {
+    id: 84,
+    title: 'Mestrado em Italiano',
+    description: 'Revisão final e certificação',
+    level: 'C2',
+    category: 'Certificação',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 250,
+    exercises: []
+  },
+
+  // NÍVEIS D E E (opcionais para especialização)
+  // NÍVEL D1 - 6 lições
+  {
+    id: 85,
+    title: 'Italiano Comercial',
+    description: 'Linguagem empresarial e comercial italiana',
+    level: 'D1',
+    category: 'Negócios',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 225,
+    exercises: []
+  },
+  {
+    id: 86,
+    title: 'Italiano Jurídico',
+    description: 'Terminologia e documentos jurídicos',
+    level: 'D1',
+    category: 'Direito',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 230,
+    exercises: []
+  },
+  {
+    id: 87,
+    title: 'Italiano Médico',
+    description: 'Terminologia médica e hospitalar',
+    level: 'D1',
+    category: 'Medicina',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 235,
+    exercises: []
+  },
+  {
+    id: 88,
+    title: 'Italiano Acadêmico',
+    description: 'Linguagem universitária e de pesquisa',
+    level: 'D1',
+    category: 'Academia',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 240,
+    exercises: []
+  },
+  {
+    id: 89,
+    title: 'Italiano Técnico',
+    description: 'Terminologia técnica e industrial',
+    level: 'D1',
+    category: 'Técnico',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 235,
+    exercises: []
+  },
+  {
+    id: 90,
+    title: 'Especialização D1',
+    description: 'Revisão e aprofundamento das especializações',
+    level: 'D1',
+    category: 'Especialização',
+    isCompleted: false,
+    isUnlocked: false,
+    stars: 0,
+    xp: 250,
+    exercises: []
   }
-  // Continuaria com muito mais lições para completar todos os níveis...
 ];
