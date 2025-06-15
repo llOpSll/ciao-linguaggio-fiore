@@ -69,14 +69,14 @@ const Lesson = () => {
     const accuracy = Math.round((totalCorrect / lesson.exercises.length) * 100);
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-cream via-light-beige to-soft-beige flex items-center justify-center p-4">
-        <div className="bg-white rounded-3xl shadow-2xl p-10 max-w-lg w-full text-center border-2 border-sage-green/30">
+      <div className="min-h-screen bg-gradient-to-br from-ivory via-powder-blue to-steel-blue flex items-center justify-center p-4">
+        <div className="bg-white rounded-3xl shadow-2xl p-10 max-w-lg w-full text-center border-2 border-steel-blue">
           <div className="mb-8">
-            <div className="w-24 h-24 bg-gradient-to-br from-muted-purple to-sage-green rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+            <div className="w-24 h-24 bg-gradient-to-br from-steel-blue to-dark-navy rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
               <span className="text-4xl">🎉</span>
             </div>
-            <h2 className="text-3xl font-bold text-charcoal mb-3">Lição Concluída!</h2>
-            <p className="text-muted-purple text-lg">Parabéns pelo seu progresso!</p>
+            <h2 className="text-3xl font-bold text-dark-navy mb-3">Lição Concluída!</h2>
+            <p className="text-steel-blue text-lg">Parabéns pelo seu progresso!</p>
           </div>
 
           <div className="space-y-6 mb-10">
@@ -92,15 +92,15 @@ const Lesson = () => {
               ))}
             </div>
 
-            <div className="bg-gradient-to-r from-sage-green/10 to-muted-purple/10 rounded-2xl p-6 border border-sage-green/20">
+            <div className="bg-gradient-to-r from-powder-blue/20 to-steel-blue/20 rounded-2xl p-6 border-2 border-powder-blue">
               <div className="grid grid-cols-2 gap-6 text-base">
                 <div>
-                  <span className="text-muted-purple font-medium">Precisão:</span>
-                  <p className="font-bold text-charcoal text-xl">{accuracy}%</p>
+                  <span className="text-steel-blue font-medium">Precisão:</span>
+                  <p className="font-bold text-dark-navy text-xl">{accuracy}%</p>
                 </div>
                 <div>
-                  <span className="text-sage-green font-medium">XP Ganho:</span>
-                  <p className="font-bold text-muted-purple text-xl">+{lesson.xp}</p>
+                  <span className="text-powder-blue-dark font-medium">XP Ganho:</span>
+                  <p className="font-bold text-steel-blue text-xl">+{lesson.xp}</p>
                 </div>
               </div>
             </div>
@@ -108,7 +108,7 @@ const Lesson = () => {
 
           <button
             onClick={handleBackToHome}
-            className="w-full bg-gradient-to-r from-muted-purple to-sage-green hover:from-sage-green hover:to-muted-purple text-white py-4 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+            className="w-full bg-gradient-to-r from-steel-blue to-dark-navy hover:from-steel-blue-light hover:to-dark-navy-light text-white py-4 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
           >
             Continuar Estudando
           </button>
@@ -118,13 +118,13 @@ const Lesson = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-cream via-light-beige to-soft-beige">
+    <div className="min-h-screen bg-gradient-to-br from-ivory via-powder-blue to-steel-blue">
       {/* Header */}
-      <div className="bg-white border-b-2 border-sage-green/20 px-4 py-4 shadow-sm">
+      <div className="bg-white border-b-2 border-powder-blue px-4 py-4 shadow-sm">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <button
             onClick={handleBackToHome}
-            className="flex items-center space-x-2 text-muted-purple hover:text-charcoal transition-colors duration-200 bg-sage-green/10 px-4 py-2 rounded-xl hover:bg-sage-green/20"
+            className="flex items-center space-x-2 text-steel-blue hover:text-dark-navy transition-colors duration-200 bg-powder-blue/20 px-4 py-2 rounded-xl hover:bg-powder-blue/30"
           >
             <ArrowLeft className="w-5 h-5" />
             <span className="font-medium">Voltar</span>
@@ -132,19 +132,19 @@ const Lesson = () => {
 
           <div className="flex-1 mx-8">
             <div className="flex items-center justify-between mb-3">
-              <span className="text-sm font-bold text-muted-purple">
+              <span className="text-sm font-bold text-steel-blue">
                 {currentExerciseIndex + 1} de {lesson.exercises.length}
               </span>
-              <div className="flex items-center space-x-2 bg-red-50 px-3 py-1 rounded-xl">
+              <div className="flex items-center space-x-2 bg-red-50 px-3 py-1 rounded-xl border border-red-200">
                 <Heart className="w-5 h-5 text-red-500" fill="currentColor" />
                 <span className="text-sm font-bold text-red-600">
                   {userProgress.hearts}
                 </span>
               </div>
             </div>
-            <div className="w-full bg-sage-green/20 rounded-full h-4 shadow-inner">
+            <div className="w-full bg-powder-blue/30 rounded-full h-4 shadow-inner">
               <div 
-                className="bg-gradient-to-r from-muted-purple to-sage-green h-4 rounded-full transition-all duration-500 shadow-sm"
+                className="bg-gradient-to-r from-steel-blue to-dark-navy h-4 rounded-full transition-all duration-500 shadow-sm"
                 style={{ width: `${progress}%` }}
               ></div>
             </div>
@@ -152,7 +152,7 @@ const Lesson = () => {
 
           <button
             onClick={handleBackToHome}
-            className="p-2 text-muted-purple hover:text-charcoal transition-colors duration-200 bg-sage-green/10 rounded-xl hover:bg-sage-green/20"
+            className="p-2 text-steel-blue hover:text-dark-navy transition-colors duration-200 bg-powder-blue/20 rounded-xl hover:bg-powder-blue/30"
           >
             <X className="w-5 h-5" />
           </button>
@@ -162,8 +162,8 @@ const Lesson = () => {
       {/* Exercise Content */}
       <div className="max-w-4xl mx-auto px-4 py-10">
         <div className="text-center mb-10">
-          <h1 className="text-3xl font-bold text-charcoal mb-3">{lesson.title}</h1>
-          <p className="text-muted-purple text-lg">{lesson.description}</p>
+          <h1 className="text-3xl font-bold text-dark-navy mb-3">{lesson.title}</h1>
+          <p className="text-steel-blue text-lg">{lesson.description}</p>
         </div>
 
         <ExerciseCard

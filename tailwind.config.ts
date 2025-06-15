@@ -66,20 +66,20 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Nova paleta de cores
-				'dark-purple': '#352F44',
-				'medium-purple': '#5C5470', 
-				'light-purple': '#B9B4C7',
-				'cream': '#FAF0E6',
+				// Nova paleta de cores do ColorHunt
+				'dark-navy': '#333446',
+				'steel-blue': '#7F8CAA', 
+				'powder-blue': '#B8CFCE',
+				'ivory': '#EAEFEF',
 				// Variações para estados
-				'dark-purple-light': '#453E57',
-				'dark-purple-dark': '#2A2237',
-				'medium-purple-light': '#6B6183',
-				'medium-purple-dark': '#4D475D',
-				'light-purple-light': '#C7C3D4',
-				'light-purple-dark': '#ABA5BA',
-				'cream-light': '#FFFDF7',
-				'cream-dark': '#F0E6D6'
+				'dark-navy-light': '#424560',
+				'dark-navy-dark': '#2A2B3D',
+				'steel-blue-light': '#8E9BB9',
+				'steel-blue-dark': '#707D9B',
+				'powder-blue-light': '#C7D9D8',
+				'powder-blue-dark': '#A9C5C4',
+				'ivory-light': '#F5F9F9',
+				'ivory-dark': '#E0E5E5'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -150,10 +150,10 @@ export default {
 				},
 				'pulse-success': {
 					'0%, 100%': {
-						boxShadow: '0 0 0 0 rgba(92, 84, 112, 0.7)'
+						boxShadow: '0 0 0 0 rgba(127, 140, 170, 0.7)'
 					},
 					'50%': {
-						boxShadow: '0 0 0 10px rgba(92, 84, 112, 0)'
+						boxShadow: '0 0 0 10px rgba(127, 140, 170, 0)'
 					}
 				}
 			},
