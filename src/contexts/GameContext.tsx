@@ -49,7 +49,6 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
           const parsedProgress = JSON.parse(savedProgress);
           setUserProgress(parsedProgress);
         } else {
-          // Reset to default for new user
           setUserProgress({
             totalXP: 0,
             currentStreak: 1,
@@ -63,14 +62,12 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
         if (savedLessons) {
           const parsedLessons = JSON.parse(savedLessons);
-          // Merge with new lessons to ensure all lessons exist
           const updatedLessons = initialLessons.map(initialLesson => {
             const savedLesson = parsedLessons.find((l: Lesson) => l.id === initialLesson.id);
             return savedLesson ? { ...initialLesson, ...savedLesson } : initialLesson;
           });
           setLessons(updatedLessons);
         } else {
-          // Reset to initial lessons for new user
           setLessons(initialLessons);
         }
 
@@ -78,12 +75,10 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
           const parsedAchievements = JSON.parse(savedAchievements);
           setAchievements(parsedAchievements);
         } else {
-          // Reset to initial achievements for new user
           setAchievements(initialAchievements);
         }
       } catch (error) {
         console.error('Error loading user data:', error);
-        // Reset to defaults if there's an error
         setUserProgress({
           totalXP: 0,
           currentStreak: 1,
@@ -149,38 +144,49 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const completeLesson = (lessonId: number, stars: number) => {
-    setLessons(prev => prev.map(lesson => {
-      if (lesson.id === lessonId) {
-        const wasCompleted = lesson.isCompleted;
-        // Update stars with the new value received
-        return { 
-          ...lesson, 
-          isCompleted: true, 
-          stars: stars 
-        };
-      }
-      // Unlock next lesson
-      if (lesson.id === lessonId + 1) {
-        return { ...lesson, isUnlocked: true };
-      }
-      return lesson;
-    }));
+    console.log(`Completing lesson ${lessonId} with ${stars} stars`);
+    
+    setLessons(prev => {
+      const updatedLessons = prev.map(lesson => {
+        if (lesson.id === lessonId) {
+          const wasCompleted = lesson.isCompleted;
+          console.log(`Lesson ${lessonId}: was completed: ${wasCompleted}, setting stars to: ${stars}`);
+          return { 
+            ...lesson, 
+            isCompleted: true, 
+            stars: stars // Sempre atualiza as estrelas
+          };
+        }
+        // Unlock next lesson
+        if (lesson.id === lessonId + 1) {
+          return { ...lesson, isUnlocked: true };
+        }
+        return lesson;
+      });
+      
+      console.log('Updated lessons:', updatedLessons.find(l => l.id === lessonId));
+      return updatedLessons;
+    });
 
-    // Only increment if lesson wasn't completed before
+    // Update progress
     const lesson = lessons.find(l => l.id === lessonId);
-    if (lesson && !lesson.isCompleted) {
-      setUserProgress(prev => ({
-        ...prev,
-        lessonsCompleted: prev.lessonsCompleted + 1
-      }));
-    }
+    if (lesson) {
+      const wasCompleted = lesson.isCompleted;
+      
+      // Only increment lesson count if it wasn't completed before
+      if (!wasCompleted) {
+        setUserProgress(prev => ({
+          ...prev,
+          lessonsCompleted: prev.lessonsCompleted + 1
+        }));
+      }
 
-    // Update progress with lesson XP
-    const lessonXP = lessons.find(l => l.id === lessonId)?.xp || 0;
-    updateProgress(lessonXP, stars);
+      // Always update XP and gems
+      updateProgress(lesson.xp, stars);
+    }
     
     // Check achievements after state updates
-    setTimeout(() => checkAchievements(), 200);
+    setTimeout(() => checkAchievements(), 500);
   };
 
   const useHeart = (): boolean => {

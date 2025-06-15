@@ -34,7 +34,6 @@ const Lesson = () => {
     } else {
       setMistakes(prev => prev + 1);
       if (!useHeart()) {
-        // Game over - redirect to home
         navigate('/');
         return;
       }
@@ -43,15 +42,18 @@ const Lesson = () => {
     if (currentExerciseIndex < lesson.exercises.length - 1) {
       setCurrentExerciseIndex(prev => prev + 1);
     } else {
-      // Lesson completed
       const stars = calculateStars();
+      console.log(`Lesson completed with ${correctAnswers + (isCorrect ? 1 : 0)} correct answers out of ${lesson.exercises.length}, stars: ${stars}`);
       completeLesson(lesson.id, stars);
       setShowResult(true);
     }
   };
 
   const calculateStars = (): number => {
-    const accuracy = correctAnswers / lesson.exercises.length;
+    const totalCorrect = correctAnswers + (currentExerciseIndex === lesson.exercises.length - 1 ? 1 : 0);
+    const accuracy = totalCorrect / lesson.exercises.length;
+    console.log(`Accuracy: ${accuracy} (${totalCorrect}/${lesson.exercises.length})`);
+    
     if (accuracy >= 0.9) return 3;
     if (accuracy >= 0.7) return 2;
     return 1;
@@ -62,41 +64,43 @@ const Lesson = () => {
   };
 
   if (showResult) {
+    const totalCorrect = correctAnswers;
     const stars = calculateStars();
-    const accuracy = Math.round((correctAnswers / lesson.exercises.length) * 100);
+    const accuracy = Math.round((totalCorrect / lesson.exercises.length) * 100);
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-cream to-light-purple flex items-center justify-center p-4">
-        <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full text-center border border-light-purple">
-          <div className="mb-6">
-            <div className="w-20 h-20 bg-gradient-to-br from-medium-purple to-dark-purple rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-3xl">🎉</span>
+      <div className="min-h-screen bg-gradient-to-br from-cream via-light-beige to-soft-beige flex items-center justify-center p-4">
+        <div className="bg-white rounded-3xl shadow-2xl p-10 max-w-lg w-full text-center border-2 border-sage-green/30">
+          <div className="mb-8">
+            <div className="w-24 h-24 bg-gradient-to-br from-muted-purple to-sage-green rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+              <span className="text-4xl">🎉</span>
             </div>
-            <h2 className="text-2xl font-bold text-dark-purple mb-2">Lição Concluída!</h2>
-            <p className="text-medium-purple">Parabéns pelo seu progresso!</p>
+            <h2 className="text-3xl font-bold text-charcoal mb-3">Lição Concluída!</h2>
+            <p className="text-muted-purple text-lg">Parabéns pelo seu progresso!</p>
           </div>
 
-          <div className="space-y-4 mb-8">
-            <div className="flex items-center justify-center space-x-1">
+          <div className="space-y-6 mb-10">
+            <div className="flex items-center justify-center space-x-2">
               {Array.from({ length: 3 }, (_, i) => (
                 <Star
                   key={i}
-                  className={`w-8 h-8 ${
-                    i < stars ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'
+                  className={`w-10 h-10 transition-all duration-500 ${
+                    i < stars ? 'text-yellow-400 fill-yellow-400 animate-bounce' : 'text-gray-300'
                   }`}
+                  style={{ animationDelay: `${i * 200}ms` }}
                 />
               ))}
             </div>
 
-            <div className="bg-cream rounded-lg p-4 border border-light-purple">
-              <div className="grid grid-cols-2 gap-4 text-sm">
+            <div className="bg-gradient-to-r from-sage-green/10 to-muted-purple/10 rounded-2xl p-6 border border-sage-green/20">
+              <div className="grid grid-cols-2 gap-6 text-base">
                 <div>
-                  <span className="text-medium-purple">Precisão:</span>
-                  <p className="font-semibold text-dark-purple">{accuracy}%</p>
+                  <span className="text-muted-purple font-medium">Precisão:</span>
+                  <p className="font-bold text-charcoal text-xl">{accuracy}%</p>
                 </div>
                 <div>
-                  <span className="text-medium-purple">XP Ganho:</span>
-                  <p className="font-semibold text-medium-purple">+{lesson.xp}</p>
+                  <span className="text-sage-green font-medium">XP Ganho:</span>
+                  <p className="font-bold text-muted-purple text-xl">+{lesson.xp}</p>
                 </div>
               </div>
             </div>
@@ -104,7 +108,7 @@ const Lesson = () => {
 
           <button
             onClick={handleBackToHome}
-            className="w-full bg-gradient-to-r from-medium-purple to-dark-purple text-white py-3 rounded-xl font-semibold hover:from-dark-purple hover:to-medium-purple transition-all duration-200 transform hover:scale-105"
+            className="w-full bg-gradient-to-r from-muted-purple to-sage-green hover:from-sage-green hover:to-muted-purple text-white py-4 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
           >
             Continuar Estudando
           </button>
@@ -114,33 +118,33 @@ const Lesson = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-cream to-light-purple">
+    <div className="min-h-screen bg-gradient-to-br from-cream via-light-beige to-soft-beige">
       {/* Header */}
-      <div className="bg-white border-b border-light-purple px-4 py-4">
+      <div className="bg-white border-b-2 border-sage-green/20 px-4 py-4 shadow-sm">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <button
             onClick={handleBackToHome}
-            className="flex items-center space-x-2 text-medium-purple hover:text-dark-purple transition-colors"
+            className="flex items-center space-x-2 text-muted-purple hover:text-charcoal transition-colors duration-200 bg-sage-green/10 px-4 py-2 rounded-xl hover:bg-sage-green/20"
           >
             <ArrowLeft className="w-5 h-5" />
-            <span>Voltar</span>
+            <span className="font-medium">Voltar</span>
           </button>
 
           <div className="flex-1 mx-8">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-semibold text-medium-purple">
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-sm font-bold text-muted-purple">
                 {currentExerciseIndex + 1} de {lesson.exercises.length}
               </span>
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-2 bg-red-50 px-3 py-1 rounded-xl">
                 <Heart className="w-5 h-5 text-red-500" fill="currentColor" />
-                <span className="text-sm font-semibold text-red-600">
+                <span className="text-sm font-bold text-red-600">
                   {userProgress.hearts}
                 </span>
               </div>
             </div>
-            <div className="w-full bg-light-purple bg-opacity-30 rounded-full h-3">
+            <div className="w-full bg-sage-green/20 rounded-full h-4 shadow-inner">
               <div 
-                className="bg-gradient-to-r from-medium-purple to-dark-purple h-3 rounded-full transition-all duration-300"
+                className="bg-gradient-to-r from-muted-purple to-sage-green h-4 rounded-full transition-all duration-500 shadow-sm"
                 style={{ width: `${progress}%` }}
               ></div>
             </div>
@@ -148,7 +152,7 @@ const Lesson = () => {
 
           <button
             onClick={handleBackToHome}
-            className="p-2 text-medium-purple hover:text-dark-purple transition-colors"
+            className="p-2 text-muted-purple hover:text-charcoal transition-colors duration-200 bg-sage-green/10 rounded-xl hover:bg-sage-green/20"
           >
             <X className="w-5 h-5" />
           </button>
@@ -156,10 +160,10 @@ const Lesson = () => {
       </div>
 
       {/* Exercise Content */}
-      <div className="max-w-4xl mx-auto px-4 py-8">
-        <div className="text-center mb-8">
-          <h1 className="text-2xl font-bold text-dark-purple mb-2">{lesson.title}</h1>
-          <p className="text-medium-purple">{lesson.description}</p>
+      <div className="max-w-4xl mx-auto px-4 py-10">
+        <div className="text-center mb-10">
+          <h1 className="text-3xl font-bold text-charcoal mb-3">{lesson.title}</h1>
+          <p className="text-muted-purple text-lg">{lesson.description}</p>
         </div>
 
         <ExerciseCard
